@@ -15,6 +15,7 @@ Courses taken before officially entering the Master’s program, serving as foun
 Core courses of the first semester:
 
 - **Analysis**
+- **Algebra**
 
 ## Notes Format
 
