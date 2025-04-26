@@ -28,3 +28,7 @@ Open for academic and personal use. Attribution appreciated.
 ---
 
 *Made with ☕ and a bit of ε-δ patience.*
+
+### Template
+
+[Template note](https://github.com/kcajc/math-notes-template)
