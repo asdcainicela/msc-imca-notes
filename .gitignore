@@ -10,7 +10,11 @@
 *.fot       # Font files
 *.cb        # Changebar files
 *.cb2       # Changebar files
-.*.lb       # Label files
+*.lb       # Label files
+*.toc
+*.syntex.gz
+*.fdb_latexmk
+*.aux
 
 ## Intermediate documents:
 *.dvi       # Device-independent files
