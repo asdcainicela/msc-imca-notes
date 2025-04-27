@@ -15,6 +15,7 @@
 *.syntex.gz
 *.fdb_latexmk
 *.aux
+*\build
 
 ## Intermediate documents:
 *.dvi       # Device-independent files
