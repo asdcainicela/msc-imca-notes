@@ -15,7 +15,9 @@
 \usepackage{environ}
 \usepackage{tcolorbox}
 \usepackage{extpfeil}
-
+%\usepackage[all]{xy} %Para flechas, muy antiguo
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}  % letras cursivas L
 
 \tcbuselibrary{theorems,skins,breakable}
 
@@ -57,98 +59,7 @@
 \newpage
 
 % ------------------------------------------------------------------------------
-
-\chapter{Análisis I}
-
-\section{Introducción}
-
-Topología en $\real{n}$, con $n \in \N$
-
-$$
-\real{n} =  \underbrace{\R \times \R \times \cdots \R }_{n \text{veces}}
-$$
-$$
-\real{n} = \{ (x_1, x_2, \cdots, x_n); x_1 \in \R \wedge  x_2 \in \R \wedge
- \ldots  \wedge  x_n \in \R       \}
-$$
-
-Al $(x_1, x_2, \cdots, x_n) $  se conoce como (n-upla), (vector), (punta) y a $\real{n}$ es el n-ésimo espacio vectorial.
-
-$\real{0} = \{\Ou\}$  espacio vectorial de dimensión $0$.
-
-En $\Rn$ tenemos:
-
-\begin{itemize}
-    \item \textbf{Adición:}
-    \begin{align*}
-        +\colon \Rn \times \Rn &\to \Rn \\
-        (x, y) &\mapsto x + y = (x_1 + y_1, \dots, x_n + y_n),
-    \end{align*}
-    donde $x = (x_1, \dots, x_n)$ e $y = (y_1, \dots, y_n)$, $(x+y)$ es el vector suma.
-
-    \item \textbf{Multiplicación por escalar:}
-    \begin{align*}
-        \cdot\colon \R \times \Rn &\to \Rn \\
-        (\lambda, x) &\mapsto \lambda x = (\lambda x_1, \dots, \lambda x_n),
-    \end{align*}
-    donde $x = (x_1, \dots, x_n)$ .
-\end{itemize}
-
-
-
-\ex{
-    Verificar que $(\Rn, +, \cdot)$ es un $\R-\text{espacio vectorial}$.\\
-    Esto es $(\R, +)$ es un grupo conmutativo y además.
-    \begin{itemize}
-        \item $(\lambda+u)x = \lambda x + u x$
-        \item $\lambda(x+y) = \lambda x + \lambda y$
-        \item $\lambda(\mu x) = (\lambda \mu)x$
-        \item $1 x = x$
-    \end{itemize}
-
-    \rmk{$\Ou = (0,0, \cdots , 0) \in \Rn$ es el vector nulo.}
-
-    Si $x=(x_1, x_2, \cdots, x_n)$
-    $\rightarrow  -x = (-x_1, -x_2, \cdots, -x_n) $. Además $ -1(x) \text{ es el inverso aditivo de } x  \text{ y se denota por } -x$
-    }
-
-   En $\Rn$, la base canónica es $B = \{ e_1, e_2, \ldots, e_n \}$ donde:
-   \[
-   \begin{aligned}
-   	e_1 &= (1,0,\cdots,0) \in \Rn \\
-   	e_2 &= (0,1,\cdots,0) \in \Rn \\
-   	e_i &= (0,\cdots,1,\cdots,0) \in \Rn, \quad \forall i \in \{1,2,\ldots,n\} \\
-   	e_n &= (0,0,\cdots,1) \in \Rn
-   \end{aligned}
-   \]
-   
-\ex{ 
-   	Mostrar que $B$ es una base de $\Rn$.\\
-   	
-   	Sea $x \in \Rn$ con
-   	\[
-   	\begin{aligned}
-        x &= (x_1, x_2, \cdots, x_n)\\
-   		x &= (x_1,0,\cdots,0)+(0,x_2,0,\cdots,0)+\cdots+(0,0,\cdots,x_n) \\
-   		x &= x_1 e_1 + x_2 e_2 + \cdots + x_n e_n
-   	\end{aligned}
-   	\]
-    ¿$B$ es linealmente independiente?\\
-    Sea $\lambda_1, \cdots, \lambda_n \in \Rn$ tal que
-    $$
-    \lambda_1 e_1 + \lambda_2 e_2 + \cdots + \lambda_n e_n = \Ou
-    $$
-    $$
-     (\lambda_1, \cdots, \lambda_n) = \Ou = (0,0,\cdots,0)    
-    $$
-    $$
-    \rightarrow \lambda_1 = 0 \wedge \lambda_2 = 0 
-    $$
-
-   }
-   
-
-
+\input{class/class1.tex}
 
 \newpage
 
