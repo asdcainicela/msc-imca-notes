@@ -1,0 +1,160 @@
+\chapter{Análisis I}
+
+\section{Topología}
+
+Topología en $\Real{n}$, con $n \in \N$
+
+$$
+\Real{n} =  \underbrace{\R \times \R \times \cdots \R }_{n \text{veces}}
+$$
+$$
+\Real{n} = \{ (x_1, x_2, \cdots, x_n); x_1 \in \R \wedge  x_2 \in \R \wedge
+ \ldots  \wedge  x_n \in \R       \}
+$$
+
+Al $(x_1, x_2, \cdots, x_n) $  se conoce como (n-upla), (vector), (punta) y a $\Real{n}$ es el n-ésimo espacio vectorial.
+
+$\Real{0} = \{\Ou\}$  espacio vectorial de dimensión $0$.
+
+En $\Rn$ tenemos:
+
+\begin{itemize}
+    \item \textbf{Adición:}
+    \begin{align*}
+        +\colon \Rn \times \Rn &\to \Rn \\
+        (x, y) &\mapsto x + y = (x_1 + y_1, \dots, x_n + y_n),
+    \end{align*}
+    donde $x = (x_1, \dots, x_n)$ e $y = (y_1, \dots, y_n)$, $(x+y)$ es el vector suma.
+
+    \item \textbf{Multiplicación por escalar:}
+    \begin{align*}
+        \cdot\colon \R \times \Rn &\to \Rn \\
+        (\lambda, x) &\mapsto \lambda x = (\lambda x_1, \dots, \lambda x_n),
+    \end{align*}
+    donde $x = (x_1, \dots, x_n)$ .
+\end{itemize}
+
+
+
+\ex{
+    Verificar que $(\Rn, +, \cdot)$ es un $\R-\text{espacio vectorial}$.\\
+    Esto es $(\R, +)$ es un grupo conmutativo y además.
+    \begin{itemize}
+        \item $(\lambda+u)x = \lambda x + u x$
+        \item $\lambda(x+y) = \lambda x + \lambda y$
+        \item $\lambda(\mu x) = (\lambda \mu)x$
+        \item $1 x = x$
+    \end{itemize}
+
+    \rmk{$\Ou = (0,0, \cdots , 0) \in \Rn$ es el vector nulo.}
+
+    Si $x=(x_1, x_2, \cdots, x_n)$
+    $\rightarrow  -x = (-x_1, -x_2, \cdots, -x_n) $. Además $ -1(x) \text{ es el inverso aditivo de } x  \text{ y se denota por } -x$
+    }
+
+   En $\Rn$, la base canónica es $B = \{ e_1, e_2, \ldots, e_n \}$ donde:
+   \[
+   \begin{aligned}
+   	e_1 &= (1,0,\cdots,0) \in \Rn \\
+   	e_2 &= (0,1,\cdots,0) \in \Rn \\
+   	e_i &= (0,\cdots, \underset{\substack{\uparrow \\ i\text{-ésimo}}}{1},\cdots,0) \in \Rn, \quad \forall i \in \{1,2,\ldots,n\} \\
+   	e_n &= (0,0,\cdots,1) \in \Rn
+   \end{aligned}
+   \]
+    
+\ex{ 
+   	Mostrar que $B$ es una base de $\Rn$.\\
+   	
+   	Sea $x \in \Rn$ con
+   	\[
+   	\begin{aligned}
+        x &= (x_1, x_2, \cdots, x_n)\\
+   		x &= (x_1,0,\cdots,0)+(0,x_2,0,\cdots,0)+\cdots+(0,0,\cdots,x_n) \\
+   		x &= x_1 e_1 + x_2 e_2 + \cdots + x_n e_n
+   	\end{aligned}
+   	\]
+    ¿$B$ es linealmente independiente?\\
+    Sea $\lambda_1, \cdots, \lambda_n \in \Rn$ tal que
+    $$
+    \lambda_1 e_1 + \lambda_2 e_2 + \cdots + \lambda_n e_n = \Ou
+    $$
+    $$
+     (\lambda_1, \cdots, \lambda_n) = \Ou = (0,0,\cdots,0)    
+    $$
+    $$
+    \rightarrow \lambda_1 = 0 \wedge \lambda_2 = 0 \wedge \cdots \wedge \lambda_n = 0
+    $$
+   }
+   
+ $\Lineal{\Real{m}}{\Real{n}} = \{T: \Rm \longrightarrow \Rn : T 
+ \text{ es una transformación lineal}\}$
+
+ $M(n\times m)$  conjunto de matrices de orden $n\times m $ con entradas reales.
+\begin{align*}
+    \psi \colon \Lineal{\Rm}{\Rn} &\longrightarrow M(n\times m) \\
+    A & \longmapsto (A)
+\end{align*}
+Considere \begin{align*} 
+    B =& \{ e_1, e_2, \cdots, e_m\} &\subset \Rm \text{base canónica}\\
+    B' =& \{ \overline{e_1} , \overline{e_2}, \cdots, \overline{e_n}\} &\subset \Rn \text{base canónica}\\
+    \end{align*}
+$$
+Ae_j = a_{1j}\overline{e_1}+a_{2j}\overline{e_2}+\cdots+a_{nj}\overline{e_n}
+$$
+
+\NiceMatrixOptions%
+ {code-for-last-row = \scriptstyle \rotate ,
+ code-for-last-col = \scriptstyle }
+
+\[
+\psi(A)=
+\begin{bNiceMatrix}[last-row=5]
+    \Block[fill=red!15,rounded-corners]{4-1}{}
+    a_{11} & a_{12} & \cdots & 
+    \Block[fill=blue!15,rounded-corners]{4-1}{}
+    a_{1m} \\
+    a_{21} & a_{22} & \cdots & a_{2m} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nm}\\
+    \text{Coef. de} Ae_1& & & \text{Coef. de} Ae_m
+\end{bNiceMatrix}
+\]
+
+\ex{ Mostrar que $\psi$ es una biyección. más aún, e sun isomorfismo entre espacios vectoriales.
+
+Decimos que  $\psi \colon \Rm \times \Rn \longrightarrow \Rp$ es bilineal si
+\begin{align*}
+    \psi(x+x', y) &= \psi(x,y) + \psi(x',y) ; \, &\forall x, x' \in \Rm, \forall y \in \Rn \\
+    \psi(\lambda x, y) &= \lambda \psi(x,y) ; &\forall x \in \Rm, \forall y \in \Rn, \forall \lambda \in \R \\
+    \psi(x, y+y') &= \psi(x,y) + \psi(x,y') ; & \\
+    \psi(x, \lambda y) &= \lambda \psi(x,y) ; &
+\end{align*}
+  
+}
+
+Dados \begin{align*}
+    x = (x_1,\ldots,x_m) \in \Rm \\
+    y= (y_1,\ldots,y_n) \in \Rn
+\end{align*} 
+
+\begin{align*}
+    \psi(x,y) & = \psi\pqty{\sum_{i=1}^{m} x_i e_i, \sum_{j=1}^{n} y_j \overline{e_j}} \\
+    & = \sum_{i=1}^m x_i \psi\pqty{ e_i, \sum_{j=1}^n y_j \overline{e_j}} \\
+    & = \sum_{i=1}^m x_i \sum_{j=1}^n y_j \psi\pqty{e_i, \overline{e_j}} \\
+    & = \sum_{i=1}^m \sum_{j=1}^n x_i y_j \psi\pqty{e_i, \overline{e_j}} \text{ (por bilinealidad)}
+\end{align*}
+
+\section{Producto Interno y Normal en $\Rn$}
+Sea $E$ un espacio vectorrial sobre $\R$ 
+\subsection{Producto Interno}
+Un producto interno sobre $E$ es una función
+
+ 
+\begin{align*}
+    <\, ,\, > \colon E \times E &\longrightarrow \R \text{  tal que satisface}\\
+    (x,y) & \longmapsto <x,y> \\
+\end{align*}
+\begin{itemize}
+    \item $\forall x, x', y \in E, <x+x',y> = <x,y> + <x',y>$
+    \item $\forall x, x', y \in E, <\lambda x,y> = \lambda <x,y>$
+\end{itemize}
