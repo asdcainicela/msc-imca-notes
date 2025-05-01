@@ -246,9 +246,9 @@ del teorema \ref{thm:teorema3} \quad $\lim\limits_{k \to \infty} x_k = a = (a_1,
 \thmr{Equivalencia de normas en \( \mathbb{R}^n \)}{teorema6}{
 	En \( \mathbb{R}^n \), todas las normas son equivalentes.
 	
-	Es decir, dadas dos normas \( \|\cdot\|_a \) y \( \|\cdot\|_b \) en \( \mathbb{R}^n \), existen constantes \( \alpha, \beta \in \mathbb{R}^+ \) tales que:
+	Es decir, dadas dos normas \( \abs{.} \) y \( \norm{.} \) en \( \mathbb{R}^n \), existen constantes \( \alpha, \beta \in \mathbb{R}^+ \) tales que:
 	\[
-	\forall\, x \in \mathbb{R}^n,\quad \alpha \|x\|_a \leq \|x\|_b \leq \beta \|x\|_a.
+	\forall\, x \in \mathbb{R}^n,\quad \alpha  \abs{x} \leq \norm{x}  \leq \beta \abs{x}
 	\]
 }
 
@@ -343,40 +343,61 @@ $$
 $$
 $\rightarrow a=0$ (Contradicción)
 
+Por lo tanto, existe \( \alpha > 0 \) tal que:
+
+\[
+\alpha \|x\|_1 \leq \abs{x}, \quad \forall\, x \in \mathbb{R}^n.
+\]
 }
 
-
-
 \cor{
-	Sean $(x_k)_{k\in \N} $ y $(y_k)_{k\in \N} $ sucesiones en $\Rn$ tal que
+	Sean $(x_k)_{k\in \N}$ y $(y_k)_{k\in \N}$ sucesiones en $\R^n$ tales que
 	$$
-	\lim\lim_{k \to \infty} x_k = a \in \Rn \text{ y } \lim\lim_{k \to \infty} y_k = b \in \Rn
+	\lim_{k \to \infty} x_k = a \in \R^n \quad \text{y} \quad \lim_{k \to \infty} y_k = b \in \R^n.
 	$$
-	Sea  $(\lambda_k)_{k\in \N} \subset \R  $ tal que $	\lim\lim_{k \to \infty} \lambda_k = \lambda_0$
+	Sea $(\lambda_k)_{k\in \N} \subset \R$ una sucesión tal que $\lim_{k \to \infty} \lambda_k = \lambda_0$.
 	
-	Entonces
+	Entonces, se cumple:
 	\begin{description}
-		\item[(i) ]
-		\begin{align}
-			\lim_{k \to \infty} (x_k+y_k)= \lim_{k \to \infty}  x_k + \lim_{k \to \infty}  y_k =a+b
-		\end{align}
+		\item[(i)] 
+		\[
+		\lim_{k \to \infty} (x_k + y_k) = \lim_{k \to \infty} x_k + \lim_{k \to \infty} y_k = a + b.
+		\]
 		
-		\item[(ii) ]
-		\begin{equation}
-			\lim_{k \to \infty} \lambda_k x_k = \lambda_0 	\lim_{k \to \infty}  x_k= \lambda_0 \cdot a
-		\end{equation}
+		\item[(ii)] 
+		\[
+		\lim_{k \to \infty} (\lambda_k x_k) = \lambda_0 \cdot \lim_{k \to \infty} x_k = \lambda_0 a.
+		\]
 		
-		\item[(iii) Producto interno euclidiano]
-		\begin{equation}
-			\lim_{k \to \infty} \inner{x_k}{y_k} =\inner{\lim_{k \to \infty} x_k}{\lim_{k \to \infty} y_k} = \inner{a}{b}
-		\end{equation}
-		\item[(iv)  Para toda norma]
-		\begin{equation}
-			\lim_{k \to \infty} \norm{x_k} = \norm{\lim_{k \to \infty} x_k } =\norm{a}
-		\end{equation}
+		\item[(iii) Producto interno euclidiano] 
+		\[
+		\lim_{k \to \infty} \inner{x_k}{y_k} = \inner{\lim_{k \to \infty} x_k}{\lim_{k \to \infty} y_k} = \inner{a}{b}.
+		\]
+		
+		\item[(iv) Para toda norma $\|\cdot\|$ en $\R^n$] 
+		\[
+		\lim_{k \to \infty} \|x_k\| = \|\lim_{k \to \infty} x_k\| = \|a\|.
+		\]
 	\end{description}
-	donde, $a=(a_1, \ldots, a_n), \quad b=(b_1, \ldots, b_n),\quad x_k = (x_1^k, \ldots, x_n^k)$ e $y_k = (y_1^k, \ldots, y_n^k)$
+	Donde $a = (a_1, \ldots, a_n)$, $b = (b_1, \ldots, b_n)$, $x_k = (x_1^k, \ldots, x_n^k)$ y $y_k = (y_1^k, \ldots, y_n^k)$.
+}
+		
+					
+					
+\pf{Prueba del ítem (i):\\
+	Como $\lim\limits_{k \to \infty} x_k = a$, se tiene que, para cada $i \in \{1, \ldots, n\}$, $
+	\lim\limits_{k \to \infty} x_i^k = a_i $
 	
+	Analogamente, $\lim\limits_{k \to \infty} y_i^k = b_i \quad \text{para todo } i \in \{1, \ldots, n\}$
+	
+	Por tanto, para cada $i \in \{1, \ldots, n\}$:
+	\[
+	\lim_{k \to \infty} (x_i^k + y_i^k) = \lim_{k \to \infty} x_i^k + \lim_{k \to \infty} y_i^k = a_i + b_i.
+	\]
+	 Por el teorema \eqref{thm:teorema3}, 
+	\[
+	\lim_{k \to \infty} (x_k + y_k) = a + b.
+	\]
 }
 
 
