@@ -29,7 +29,9 @@
 \usepackage{parskip} %% Evitar indentación en nuevos párrafos
 
 \usepackage{physics}
-
+\usepackage{pgfplots} % dibujar las bolas
+\usetikzlibrary{angles,quotes}
+\usetikzlibrary{intersections, backgrounds, fillbetween}
 \tcbuselibrary{theorems,skins,breakable}
 
 \setstretch{1.2}
@@ -45,9 +47,9 @@
 % Variables
 \def\notetitle{Análisis I}
 \def\noteauthor{
-    \textbf{Student} \\ 
-     asdCain\\
-    IMCA}
+    \textbf{Student} 
+     Gerald Cainicela\\
+    Master's program in mathematics}
 \def\notedate{Semester}
 
 % The theorem system and user-defined commands
@@ -63,7 +65,7 @@
 \author{\noteauthor}
 \date{\notedate}
 
-%\maketitle
+\maketitle
 \newpage
 
 \tableofcontents
