@@ -1,0 +1,38 @@
+\chapter{Clase 2}
+
+\section{Equivalante Norms}
+Teníamos que, $\forall\, x \in \Rn$,
+$$
+\norm{x}_{\infty} \leq \norm{x}_2 \leq \norm{x}_1 \leq n \norm{x}_{\infty}
+$$
+Estas tres normas son equivalentes.
+
+Dada $(x_k)_{k \in \N} \subset \Rn$, con $\forall \, k\in \N, x_k = (k_1^k, \, x_2^k, \ldots, x_n^k) \in \Rn, \; a = (a_1, \ldots ,a_n)\in \Rn$
+
+$
+\lim\limits_{k \to \infty} x_k = a $ significa que $\forall\; \varepsilon>0,\, \exists k_0 \in \N, \, \forall k \in \N
+$
+\begin{align*}
+	k \geq k_0 \longrightarrow &\norm{x_k-a} < \varepsilon\\
+	& \abs{ \norm{x_k-a}-0} < \varepsilon,  \quad \norm{x_k-a} \in \R 
+\end{align*}
+
+\thmr{Equivalencia de la convergencia en \(\mathbb{R}^n\)}{thm:Teorema3}{
+	Sea \( (x_k)_{k \in \N} \subset \mathbb{R}^n \) y \( a \in \mathbb{R}^n \). Entonces:
+	$$
+	\lim_{k \to \infty} x_k = a \quad \text{en } \norm{\cdot}_2 
+	\iff 
+	\forall i \in \{1, \ldots, n\}, \quad \lim_{k \to \infty} x_i^k = a_i
+	$$
+}
+
+\prop{
+	$X \subset \Rn $ es acotado $\longleftrightarrow \Pi_i(X) \subset \R$ es acotada $\forall\; i \in \{1, 2, \ldots, n\}$
+}
+\pf{
+}
+
+\thmr{}{thm:Teorema4}{
+	Sea \( (x_k)_{k \in \mathbb{N}} \subset \mathbb{R}^n \) una sucesión acotada. Entonces, existe una subsucesión \( (x_{k_j})_{j \in \mathbb{N}} \) que converge en \(\mathbb{R}^n\).
+}
+
