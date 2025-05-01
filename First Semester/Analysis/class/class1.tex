@@ -1,4 +1,4 @@
-\chapter{Análisis I}
+\chapter{Clase I}
 
 \section{Topología}
 
@@ -31,13 +31,13 @@ En $\Rn$ tenemos:
         \cdot\colon \R \times \Rn &\to \Rn \\
         (\lambda, x) &\mapsto \lambda x = (\lambda x_1, \dots, \lambda x_n),
     \end{align*}
-    donde $x = (x_1, \dots, x_n)$ .
+    donde $x = (x_1, \dots, x_n) \text{ y } \lambda \in \R$ .
 \end{itemize}
 
 
 
 \ex{
-    Verificar que $(\Rn, +, \cdot)$ es un $\R-\text{espacio vectorial}$.\\
+    Verificar que $(\Rn, +, \cdot)$ es un $\R-\text{espacio vectorial}$. 
     Esto es $(\R, +)$ es un grupo conmutativo y además.
     \begin{itemize}
         \item $(\lambda+u)x = \lambda x + u x$
@@ -49,7 +49,8 @@ En $\Rn$ tenemos:
     \rmk{$\Ou = (0,0, \cdots , 0) \in \Rn$ es el vector nulo.}
 
     Si $x=(x_1, x_2, \cdots, x_n)$
-    $\rightarrow  -x = (-x_1, -x_2, \cdots, -x_n) $. Además $ -1(x) \text{ es el inverso aditivo de } x  \text{ y se denota por } -x$
+    $\rightarrow  -x = (-x_1, -x_2, \cdots, -x_n) $.  
+    Además $ -1(x) \text{ es el inverso aditivo de } x  \text{ y  es denotado por  } -x$
     }
 
    En $\Rn$, la base canónica es $B = \{ e_1, e_2, \ldots, e_n \}$ donde:
@@ -144,17 +145,289 @@ Dados \begin{align*}
     & = \sum_{i=1}^m \sum_{j=1}^n x_i y_j \psi\pqty{e_i, \overline{e_j}} \text{ (por bilinealidad)}
 \end{align*}
 
-\section{Producto Interno y Normal en $\Rn$}
+\section{Producto Interno y Norma en $\Rn$}
 Sea $E$ un espacio vectorrial sobre $\R$ 
 \subsection{Producto Interno}
 Un producto interno sobre $E$ es una función
+ 
+\defn{Producto interno}{
+Un \textbf{producto interno} sobre un espacio vectorial \( E \) es una función
+
+\begin{align*}
+    \langle \cdot, \cdot \rangle \colon E \times E &\longrightarrow \mathbb{R} \\
+    (x, y) &\longmapsto \langle x, y \rangle 
+\end{align*}
+
+que satisface las siguientes propiedades:
+
+\begin{description}
+    \item[(i) Linealidad en la primera componente:]
+    \begin{align}
+        \langle x + x', y \rangle &= \langle x, y \rangle + \langle x', y \rangle, &&\forall x, x', y \in E \label{eq:linealidad1} \\
+        \langle \lambda x, y \rangle &= \lambda \langle x, y \rangle, &&\forall x, y \in E, \, \forall \lambda \in \mathbb{R} \label{eq:linealidad2}
+    \end{align}
+
+    \item[(ii) Simetría:]
+    \begin{equation}
+        \langle x, y \rangle = \langle y, x \rangle, \quad \forall x, y \in E \label{eq:simetria}
+    \end{equation}
+
+    \item[(iii) Positividad definida:]
+    \begin{equation}
+        \langle x, x \rangle > 0, \quad \forall x \in E. \forall x \neq \Ou \label{eq:positividad}
+    \end{equation}
+\end{description}
+}
+
+Como consecuencia de las propiedades \eqref{eq:linealidad1} y \eqref{eq:simetria}, también se cumple:
+
+\begin{itemize}
+    \item \(\langle x, y + y' \rangle = \langle x, y \rangle + \langle x, y' \rangle\), \quad \(\forall x, y, y' \in E\)
+    \item \(\langle x, \lambda y \rangle = \lambda \langle x, y \rangle\), \quad \(\forall x, y \in E, \, \forall \lambda \in \mathbb{R}\)
+\end{itemize}
+
+\rmk{
+En otras palabras, el producto interno \( \langle \cdot, \cdot \rangle \) es \textbf{bilineal} y \textbf{simétrico}.
+}
+
+\ex{
+Sea $\langle . , . \rangle  \colon \Rn \times \Rn \rightarrow \R$\\
+Si  $	x = (x_1,\ldots,x_m) \in \Rm$ e $	y= (y_1,\ldots,y_n) \in \Rn $
+
+$$
+\rightarrow \langle x, y \rangle = \sum_{i = 1}^{n} x_i y_i  \text{ (Producto interno euclideano)}
+$$
+
+}
+
+\defn{Ortogonalidad}{
+	Sean \( x, y \in \mathbb{R}^n \). Decimos que \( x \) y \( y \) son \textbf{ortogonales} si
+	\begin{equation}
+		\langle x, y \rangle = 0. \label{eq:def-ortogonalidad}
+	\end{equation}
+}
+
+
+\subsection{Norma}
+
+\defn{Norma}{
+	Una \textbf{norma} sobre el espacio vectorial \( E \) es una función
+	\begin{align}
+		\|\cdot\| \colon E &\longrightarrow \mathbb{R} \label{eq:norma-def} \\
+		x &\longmapsto \|x\| \nonumber
+	\end{align}
+	que satisface las siguientes propiedades:
+	\begin{description}
+		\item[(i) Desigualdad triangular:]
+		\begin{equation}
+			\|x + y\| \leq \|x\| + \|y\|, \quad \forall x, y \in E
+			 \label{eq:norma-triangular-i}
+		\end{equation}
+		
+		\item[(ii) Homogeneidad absoluta:]
+		\begin{equation}
+			\|\alpha x\| = |\alpha| \cdot \|x\|, \quad \forall \alpha \in \mathbb{R}, \, \forall x \in E \label{eq:norma-homogeneidad-ii}
+		\end{equation}
+		
+		\item[(iii) Positividad definida:]
+		\begin{equation}
+			\|x\| > 0 \quad \Longleftrightarrow \quad x \neq 0 \label{eq:norma-positividad-iii}
+		\end{equation}
+	\end{description}
+}
+
+
+\begin{itemize}
+\item De \eqref{eq:norma-homogeneidad-ii} 
+$$
+\norm{\Ou} = \norm{0 x}=\abs{0}\norm{x} = 0
+$$ 
+\item De \eqref{eq:norma-homogeneidad-ii} 
+$$
+\norm{-x}=\norm{(-1)x}=\abs{-1}\norm{x}=\norm{x}
+$$
+\item De \eqref{eq:norma-triangular-i} 
+$$
+0 = \norm{\Ou} =\norm{x+(-x)} \leq \norm{x}+\underbrace{\norm{-x}}_{\norm{x}}
+$$
+\begin{equation}
+	\therefore 0\leq \norm{x}, \quad \forall x \in E 
+	\label{eq:norma-positividad2}
+\end{equation}
+\item  De \eqref{eq:norma-positividad2} y \eqref{eq:norma-positividad-iii} es equivalente a
+$$
+\norm{x} = 0 \longleftrightarrow x =\Ou
+$$
+\end{itemize}
+
+\ex{
+La norma euclideana en $\Rn$,  
+\begin{align*}
+	\norm{\cdot} \colon \mathbb{R}^n &\longrightarrow \mathbb{R} \\
+	x = (x_1, \ldots, x_n) &\longmapsto \norm{x} = \sqrt{x_1^2 + \cdots + x_n^2} = \sqrt{\langle x, x \rangle}
+\end{align*}
+
+
+Mostemos que $\norm{.}$ es una norma en $\Rn$\\
+Para \eqref{eq:norma-homogeneidad-ii} es inmediato, \eqref{eq:norma-positividad-iii} hay que negar $x \neq 0$, o sea $x = 0$\\
+Solo falta mostrar \eqref{eq:norma-triangular-i}
+Sean $x,y \in \R, y \neq 0 \rightarrow \inner{y}{y} >0 $\\
+¿Para qué $\lambda \in \R$, se tiene que  $\inner{y}{x-\lambda y } = 0$
+
+\begin{align*}
+	&\leftrightarrow \inner{y}{x} - \lambda \inner{y}{y} = 0\\
+	&\leftrightarrow \frac{\inner{y}{x}}{ \inner{y}{y}} = \lambda
+\end{align*}
+\begin{align*}
+	\norm{x}^2 &= \norm{\lambda y +x-\lambda y}^2\\
+	& =  \inner{xy+ x-\lambda y}{xy+ x-\lambda y}\\
+	& = \abs{\lambda}^2 \norm{y}^2+\underbrace{\norm{x-\lambda y}^2 }_{\geq 0}
+\end{align*}
+$$
+\rightarrow \norm{x}^2 \geq \abs{\lambda}^2 \norm{y}^2 = \frac{\abs{\inner{x}{y}}^2}{\norm{y}^2}
+$$
+$$
+\rightarrow \norm{x}^2 \norm{y}^2 \geq \abs{\inner{x}{y}}^2
+$$
+$$
+\rightarrow \norm{x}\norm{y} \geq \abs{\inner{x}{y}}, \quad \forall x,y \in \Rn
+$$
+Desigualdad de Cauchy-Schwarz.\\
+Además, la igualdad se da cuando uno de los vectores es multiplo del otro o $x, y$ es linealmente dependiente.
+}
+
+\clmp{}{
+	$\forall\,  x, y \in \Rn, \norm{x+y} \leq \norm{x}+ \norm{y}$
+}{
+ Sean $x, y \in \Rn$
+ \begin{align*}
+ 	\norm{x+y}^2 & = \inner{x+y}{x+y}\\
+ 	& = \norm{x}^2+2\inner{x}{y}+\norm{y}^2\\
+ 	& \leq  \norm{x}^2+2\norm{x}\norm{y}+\norm{y}^2  = (\norm{x}+\norm{y})^2
+ \end{align*}
+ $$
+ \rightarrow \norm{x+y} \leq \norm{x}+\norm{y}
+ $$
+}
+
+
+Dados $x,y \in \Rn, $   $d(x,y)=\norm{x-y}$
+\begin{align*}
+	d \colon \Rn \times \Rn &\longrightarrow \R\\
+	(x,y) &\longmapsto d(x,y)= \norm{x-y}; \quad d(x,y) \text{ es una métrica}
+\end{align*}
+
+\begin{itemize}
+	\item[(i)] $\forall \, x, y \in \Rn, d(x,y)\geq 0$
+	\item[(ii)]  $\forall \, x, y \in \Rn, d(x,y) = d(y,x)  $ simetría
+	\item[(iii)]   $\forall \,  x, y, z  \in \Rn, d(x,y) \leq d(x,z) + d(z,y)    $ 
+	\item[(iv)]   $\forall \,  x, y   \in \Rn, d(x,z) =0 \, \leftrightarrow x=y  $
+\end{itemize}
+
+
+\ex{
+Sea $x = (x_1, \ldots, x_n) \in \Rn$,
+\begin{align}	
+	\norm{x}_1 & = \abs{x_1}+\abs{x_2}+\cdots +\abs{x_n} \label{eq:ex-norma-1}\\
+	\norm{x}_{\infty} &= \max\{ \abs{x_1}, \abs{x_2}, \cdots, \abs{x_n}\} \nonumber\\
+	\norm{x}_2&=\norm{x} = \sqrt{x_1^2+x_2^2+\cdots+ x_n^2} \nonumber
+\end{align}
+De \eqref{eq:ex-norma-1},
+\begin{align*}
+	 \norm{x+y}_1 &= \abs{x_1+y_1}+\cdots +\abs{x_n+y_n}\\
+	 & \leq \abs{x_1}+\abs{y_1}+\cdots + \abs{x_n}+\abs{y_n} =  \norm{x}_1+\norm{y}_1
+\end{align*}
+$$
+\norm{x} = \sqrt{x_1^2+\cdots x_1^n} \geq \abs{x_1} \rightarrow \norm{x}_{\infty} \leq \norm{x}
+$$
+$$
+\norm{x}_1 \geq \norm{x}
+$$
+}
+
+\clmp{Ley del paralelogramo}{
+	 
+	 Si $\norm{.} $ proviene de un producto interno en $\Rn$, entonces $\forall\, x,y \in \Rn$
+	 $$
+	 \norm{w} = \sqrt{\inner{w}{w}}
+	 $$
+	 $$
+	 \Rightarrow \norm{x+y}^2 +\norm{x-y}^2 = 2(\norm{x}^2+\norm{y}^2)
+	 $$
+}{
+ \begin{align}
+ 	 \norm{x+y}^2 = \inner{x+y}{x+y} = \norm{x}^2+2\inner{x}{y}+\norm{y}^2 \label{eq:paralelogramo-1}\\
+ 	 \norm{x-y}^2 = \inner{x+y}{x+y} = \norm{x}^2-2\inner{x}{y}+\norm{y}^2 \label{eq:paralelogramo-2} 
+ \end{align}
+ 
+ De \eqref{eq:paralelogramo-1} y \eqref{eq:paralelogramo-2}
+ $$
+  \norm{x+y}^2 +\norm{x-y}^2 = 2(\norm{x}^2+\norm{y}^2)
+ $$
+}
+
+\ex{
+En $\Real{2}, e_1=(1,0), e_2=(0,1)$\\
+Si $\norm{.}_1$ en $\Real{2}$ proviene de un producto interno.
+$$
+\rightarrow \forall \, x, y \in \Real{2}, \norm{x+y}_1^2 +\norm{x-y}_1^2 = 2(\norm{x}_1^2+\norm{y}_1^2)
+$$
+Si $x=e_1, \, y= e_2 \longrightarrow 2^2+2^2 = 2(1^2+1^2)$ (absurdo)\\
+Por lo tanto, $\norm{.}_1$ no proviene de un prducto interno.
+}
+
+Sean $\abs{.} \text{ y } \norm{.} $ dos normas en $\Rn$. Decimos que $\abs{.}$ y $\norm{.}$ son equivalentes si existen $\alpha, \beta \in \R^{+}$ tal que,
+$$
+\forall\, x \in \Rn, \, \alpha \abs{x} \leq \norm{x}\leq\beta \abs{x}
+$$
+
+dada $\norm{.}$ norma en $\Rn$ la \textbf{BOLA ABIERTA } con centro en $a \in \Rn$ y radio $r>0$ es
+
+$$
+B^{\norm{.}} (a,r) = \{z \in \Rn\colon \norm{z-a} < r\} 
+$$
+
+En $\Real{2}$
+
+$$
+B^{\norm{.}} (\Ou,1) = \{(z_1, z_2) \in \Real{2} \colon \norm{(z_1, z_2)} < 1\} 
+$$
+
+$$
+B^{\norm{.}_{\infty}} (\Ou,1) = \{(z_1, z_2) \in \Real{2} \colon \max{\abs{z_1}, \abs{z_2}} < 1\} 
+$$
+
+$$
+B^{\norm{.}_{1}} (\Ou,1) = \{(z_1, z_2) \in \Real{2} \colon   \abs{z_1}+ \abs{z_2}< 1\} 
+$$
+ 
+
+\thmr{Criterio de convergencia en \(\mathbb{R}^n\)}{thm:Teorema1}{
+	Sea \((x_k)_{k \in \mathbb{N}} \subset \mathbb{R}^n\), donde
+	\[
+	x_k = (x_1^k, x_2^k, \ldots, x_n^k) \quad \forall\, k \in \mathbb{N},
+	\]
+	y sea \(a = (a_1, a_2, \ldots, a_n) \in \mathbb{R}^n\).
+	
+	Entonces,
+	\[
+	\lim_{k \to \infty} x_k = a \quad \text{si y solo si} \quad \forall\, i \in \{1, \ldots, n\},\; \lim_{k \to \infty} x_i^k = a_i.
+	\]
+}
+
+\pf{
+	$(\Rightarrow)$ Supongamos que $\lim\limits_{k\to \infty} x_k =a$\\
+	Dado,
+	 $$
+	 \varepsilon > 0, \exists k_0 \in \N, \forall k \in \N
+	 $$
+	 $$
+	 k\geq k_0 \longrightarrow \norm{x_k-a} < \varepsilon
+	 $$
+	%Theorem~\ref{{thm:Teorema1}
+		Continuar
+	}
+
+
 
  
-\begin{align*}
-    <\, ,\, > \colon E \times E &\longrightarrow \R \text{  tal que satisface}\\
-    (x,y) & \longmapsto <x,y> \\
-\end{align*}
-\begin{itemize}
-    \item $\forall x, x', y \in E, <x+x',y> = <x,y> + <x',y>$
-    \item $\forall x, x', y \in E, <\lambda x,y> = \lambda <x,y>$
-\end{itemize}
