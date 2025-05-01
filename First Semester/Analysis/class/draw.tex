@@ -191,6 +191,57 @@
 		\node[below=0.5cm, anchor=base] at (current axis.south) {$p=1$}; % Print p
 	\end{tikzpicture}
  
+ 
+ \begin{tikzpicture}[x={(0,0)},y={(-1cm,-4cm/3)},z={(1cm,-2cm)},thick,auto]
+ 	\draw[-stealth]  (1,2,0) 
+ 	node[circle,fill,inner sep=1.5pt,label=below:{$A\colon(1,2,0)$}] (A){} 
+ 	-- node[sloped] {$\bar u$} 
+ 	(1,-1,1) coordinate[label=above right:{$P\colon(1,-1,1)$}](P);
+ 	\draw[dashed] (P) -- node{$\bar u''$} (P|-A);
+ 	\path (A)  -- node[swap]{$\bar u'$} (P|-A);
+ 	\draw[-stealth] (1,2,0) -- (1,-1,2)
+ 	coordinate[label=below right:{$v\colon(1,-1,2)$}](v);
+ \end{tikzpicture}
 
+
+%\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+	%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+	
+	%Straight Lines [id:da6137486785624535] 
+	\draw    (119,195) -- (330.55,147.44) ;
+	\draw [shift={(332.5,147)}, rotate = 527.3299999999999] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-4.9) .. controls (6.95,-2.3) and (3.31,-0.67) .. (0,0) .. controls (3.31,0.67) and (6.95,2.3) .. (10.93,4.9)   ;
+	
+	%Straight Lines [id:da46366121878923283] 
+	\draw    (152.75,187.75) -- (237.23,84.55) ;
+	\draw [shift={(238.5,83)}, rotate = 489.3] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-4.9) .. controls (6.95,-2.3) and (3.31,-0.67) .. (0,0) .. controls (3.31,0.67) and (6.95,2.3) .. (10.93,4.9)   ;
+	
+	%Straight Lines [id:da030080067558663437] 
+	\draw  [dash pattern={on 4.5pt off 4.5pt}]  (238.5,83) -- (261.5,162) ;
+	
+	
+	%Straight Lines [id:da5041853499131848] 
+	\draw    (152.75,187.75) -- (259.55,162.46) ;
+	\draw [shift={(261.5,162)}, rotate = 526.6800000000001] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-4.9) .. controls (6.95,-2.3) and (3.31,-0.67) .. (0,0) .. controls (3.31,0.67) and (6.95,2.3) .. (10.93,4.9)   ;
+	
+	%Shape: Circle [id:dp6722912642446035] 
+	\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (237.5,80.63) .. controls (237.5,79.31) and (238.56,78.25) .. (239.88,78.25) .. controls (241.19,78.25) and (242.25,79.31) .. (242.25,80.63) .. controls (242.25,81.94) and (241.19,83) .. (239.88,83) .. controls (238.56,83) and (237.5,81.94) .. (237.5,80.63) -- cycle ;
+	%Shape: Circle [id:dp08004645069916183] 
+	\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (151.75,186.75) .. controls (151.75,185.44) and (152.81,184.38) .. (154.13,184.38) .. controls (155.44,184.38) and (156.5,185.44) .. (156.5,186.75) .. controls (156.5,188.06) and (155.44,189.13) .. (154.13,189.13) .. controls (152.81,189.13) and (151.75,188.06) .. (151.75,186.75) -- cycle ;
+	
+	% Text Node
+	\draw (174,133) node    {$\overline{u}$};
+	% Text Node
+	\draw (214,192) node    {$\overline{u}'$};
+	% Text Node
+	\draw (267,121) node    {$\overline{u}''$};
+	% Text Node
+	\draw (267,70) node    {$P\equiv(1,-1,1)$};
+	% Text Node
+	\draw (330,178) node    {$\overline{v}\equiv(1,-1,2)$};
+	% Text Node
+	\draw (153,205) node    {$A\equiv(1,2,0)$};
+\end{tikzpicture}
 	
 \end{document}
