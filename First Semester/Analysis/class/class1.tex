@@ -271,7 +271,19 @@ La norma euclideana en $\Rn$,
 Mostemos que $\norm{.}$ es una norma en $\Rn$\\
 Para \eqref{eq:norma-homogeneidad-ii} es inmediato, \eqref{eq:norma-positividad-iii} hay que negar $x \neq 0$, o sea $x = 0$\\
 Solo falta mostrar \eqref{eq:norma-triangular-i}
-Sean $x,y \in \R, y \neq 0 \rightarrow \inner{y}{y} >0 $\\
+Sean $x,y \in \R, y \neq 0 \rightarrow \inner{y}{y} >0 $ 
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[scale=0.5] 
+			\draw[blue, thick, ->] (0,0) -- (4+4/3,3+1) node[above right] {$x$};
+			\draw[blue, thick, ->] (0,0) -- (6,0) node[above] {$y$}; 
+			\draw[thick, red, ->] (4,0) -- (4,3) node[midway, right] {$x - \lambda y$};   
+			\draw[thick, ->] (0,0) -- (4,0) node[midway, below] {$\lambda y$};
+			\fill[blue!50, draw=none] (4.01,0.01) rectangle (4.15,0.15);
+		 
+	\end{tikzpicture}
+\end{figure}
 ¿Para qué $\lambda \in \R$, se tiene que  $\inner{y}{x-\lambda y } = 0$
 
 \begin{align*}
@@ -395,7 +407,7 @@ $$
 
 \begin{figure}[H]
 	\centering
-	\begin{tikzpicture}
+	\begin{tikzpicture}[scale=0.7]
 		\begin{axis}[
 			width=7cm, height=7cm,
 			axis lines=middle,
@@ -425,14 +437,12 @@ $$
 		\node[below=0.5cm, anchor=base] at (current axis.south) {$p=2$}; % Print p
 	\end{tikzpicture}
 \end{figure}
-
 $$
 B^{\norm{.}_{\infty}} (\Ou,1) = \{(z_1, z_2) \in \Real{2} \colon \max{\abs{z_1}, \abs{z_2}} < 1\} 
 $$
-
 \begin{figure}[H]
 	\centering
-	\begin{tikzpicture}
+	\begin{tikzpicture}[scale=0.7]
 		\begin{axis}[
 			width=7cm, height=7cm,
 			axis lines=middle,
@@ -446,7 +456,7 @@ $$
 			]
 			 
 			%p=inf
-			\draw[very thick, dashed, gray, fill=gray!10, opacity=0.3,] (axis cs:-1,-1) rectangle (axis cs:1,1);
+			\draw[ultra thick, dashed, red!100!blue, fill=red!50!blue!50, opacity=0.3,] (axis cs:-1,-1) rectangle (axis cs:1,1);
 			
 			% Add +1 and -1 labels
 			\node[font=\small] at (axis cs:1.1,-0.1) {1};
@@ -467,7 +477,7 @@ $$
 
 \begin{figure}[H]
 	\centering
-	\begin{tikzpicture}
+	\begin{tikzpicture}[scale=0.7]
 		\begin{axis}[
 			width=7cm, height=7cm,
 			axis lines=middle,
