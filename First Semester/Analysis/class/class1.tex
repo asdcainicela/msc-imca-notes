@@ -400,9 +400,41 @@ $$
 $$
 B^{\norm{.}_{1}} (\Ou,1) = \{(z_1, z_2) \in \Real{2} \colon   \abs{z_1}+ \abs{z_2}< 1\} 
 $$
- 
 
-\thmr{Criterio de convergencia en \(\mathbb{R}^n\)}{thm:Teorema1}{
+\thmr{ Equivalencia de normas en $\Rn$ }{thm:Teorema1}{
+ 	
+ 	En $\Rn$ todas las normas son equivalentes.
+ }
+
+\pf{ % Del teorema Theorem~\ref{thm:Teorema1}
+	Sea $(x_k)_{k \in \N}$ una sucesión de puntos de $\Rn$
+	\begin{align*}
+		x \colon \N &\longrightarrow \Rn\\
+		k & \longmapsto x(k)= x_k = (x_1^k, x_2^k, \ldots, x_n^k)
+	\end{align*}
+	Sea $a = (a_1, a_2, \ldots, a_n) \in \Rn $, decimos que $(x_k)_{k \, \in \, \N} $ converge a $a \, \in \Rn$ si,
+	 
+	$$
+	\forall\, \varepsilon >0, \exists k_0 \in \, \N, \forall \, k \in \N , k \geq k_0 \longrightarrow \norm{x_k-a} <\varepsilon
+	$$
+	$$
+	\lim\limits_{k \to \infty} x_k =a \text{ es respecto a la norma  }\quad \norm{x_k-a}_{\infty} \leq \abs{(x_k-a)}
+	$$
+	
+	}
+	
+	
+\rmkb{
+	$$
+	\norm{x}_{\infty} \leq \norm{x} \leq \norm{x}_1 \leq n\norm{x}_{\infty}\leq n \norm{x}_1
+	$$
+	$$
+	\Rightarrow \norm{x} \leq \norm{x}_1 \leq n \norm{x}
+	$$
+}
+
+
+\thmr{Criterio de convergencia en \(\mathbb{R}^n\)}{thm:Teorema2}{
 	Sea \((x_k)_{k \in \mathbb{N}} \subset \mathbb{R}^n\), donde
 	\[
 	x_k = (x_1^k, x_2^k, \ldots, x_n^k) \quad \forall\, k \in \mathbb{N},
@@ -415,18 +447,67 @@ $$
 	\]
 }
 
-\pf{
-	$(\Rightarrow)$ Supongamos que $\lim\limits_{k\to \infty} x_k =a$\\
+\pf{  $(\Rightarrow)$ Supongamos que $\lim\limits_{k\to \infty} x_k =a$\\
 	Dado,
+	 $
+	 \varepsilon > 0, \exists\, k_0 \in \N, \forall\, k \in \N
+	 $
+	 
 	 $$
-	 \varepsilon > 0, \exists k_0 \in \N, \forall k \in \N
+	 k\geq k_0 \longrightarrow \abs{x_i^k-a} \leq  \norm{x_k-a}_{\infty} \leq \norm{x_{k}-a} < \varepsilon, \quad \forall \, i \in \{1, \ldots, n\}
 	 $$
 	 $$
-	 k\geq k_0 \longrightarrow \norm{x_k-a} < \varepsilon
+	\therefore  \lim\limits_{k\to \infty} x_i^k =a_i,\quad \forall\, i \in \{1, \ldots, n\}
 	 $$
+	 
+	 $(\Leftarrow)$ Suponga que $\forall \, i \in \{1,\ldots, n\}$
+	 
+	 $$
+	 \lim\limits_{k\to \infty} x_i^k =a_i
+	 $$
+	 Dado $\varepsilon >0, \forall\, i \in \{1,\ldots, n\} \, \exists \, k_i^o \in \N$ tal que $\forall \, k \in \N, \varepsilon_0 =\frac{\varepsilon}{\sqrt{n}}$
+	 
+	  
+	 \begin{align*}
+	 	k \geq k_i^o &\rightarrow \abs{x_i^k -a_i} < \varepsilon_0\\
+	 	&\rightarrow \abs{x_i^k -a_i}^2 < \varepsilon_0^2
+	 \end{align*}
+	 Sea $k_0 = \max \{k_1^0,\, k_2^0, \ldots, \,k_n^0\}$ si $	k \geq k_0 \geq k_i^0  \; \forall\; i \in \{1, 2, \ldots, n\}$
+	 
+	 $$
+	 \rightarrow \sqrt{\sum_{i=1}^{n}\abs{x_i^k-a_i}^2}< \sqrt{n \varepsilon_0^2}
+	 $$
+	 $$
+	 \rightarrow \norm{x_i^k -a} < \sqrt{n} \varepsilon_0 =\varepsilon
+	 $$
+	 
 	%Theorem~\ref{{thm:Teorema1}
-		Continuar
+		
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
