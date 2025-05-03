@@ -28,14 +28,12 @@ etiqueta_color2 = "#FB8500"  # igual que vector para cohesión
 centro_color2   = "#9A031E"  # rojo profundo (acentuar el punto central)
 relleno_color2  = "#FFE5B4"  # crema-naranja pastel
 
- 
-
 
 def bola_abierta(ax, centro, radio, angulo_deg=45, etiqueta=r"$\varepsilon$",
                  color_bola="orange", color_vector="blue",
                  color_etiqueta="orange", color_centro="blue",
-                 fill=False, fill_color="#ffe4b5"):
-
+                 fill=False, fill_color="#ffe4b5",
+                 centro_label=None, centro_label_color="black"):
     # Bola
     circle = plt.Circle(
         centro, radio,
@@ -57,12 +55,16 @@ def bola_abierta(ax, centro, radio, angulo_deg=45, etiqueta=r"$\varepsilon$",
     # Centro (bolita)
     ax.plot(*centro, marker='o', markersize=4, color=color_centro, zorder=5)
 
-    # Etiqueta ε
+    # Etiqueta radial
     ax.text(centro[0] + 0.5 * desplazamiento[0],
             centro[1] + 0.6 * desplazamiento[1],
             etiqueta, color=color_etiqueta, fontsize=20)
 
-    # ← Retorno útil para componer figuras
+    # Etiqueta del centro si se proporciona
+    if centro_label:
+        ax.text(centro[0] - 0.15, centro[1] - 0.15,  # leve desplazamiento para evitar colisión con la bolita
+                centro_label, fontsize=18, color=centro_label_color)
+
     return SimpleNamespace(
         centro=centro,
         radio=radio,
@@ -70,6 +72,7 @@ def bola_abierta(ax, centro, radio, angulo_deg=45, etiqueta=r"$\varepsilon$",
         desplazamiento=desplazamiento,
         borde=borde
     )
+
 
 # — Ruta de guardado —
 script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -93,7 +96,9 @@ bola_a1=bola_abierta(
     color_etiqueta=etiqueta_color,
     color_centro=centro_color,
     fill=True,
-    fill_color=relleno_color
+    fill_color=relleno_color,
+    centro_label=r"$a$",   
+    centro_label_color=centro_color  
 )
 
 bola_a1=bola_abierta(
@@ -107,7 +112,9 @@ bola_a1=bola_abierta(
     color_etiqueta=etiqueta_color2,
     color_centro=centro_color2,
     fill=True,
-    fill_color=relleno_color2
+    fill_color=relleno_color2,
+    centro_label=r"$b$",   
+    centro_label_color=centro_color   
 )
 
 # Ajustes generales
