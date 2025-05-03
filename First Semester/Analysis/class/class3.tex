@@ -152,12 +152,83 @@ Sea $X\subset \Rn$ son equivalentes:
 Sean $X \in \Rm$ y $f : X \rightarrow \Rn$,
 \begin{itemize}
 	\item  Decimos que $f$ es \underline{continua} en $a\in X$ si 
+	\begin{align*} 
+		\forall \varepsilon >0, \exists \delta >0, \forall x \in X, \abs{x-a}<\delta &\longrightarrow \abs{f(x)-f(a)}<\varepsilon \\
+		\forall x \in X, x\in B(a, \delta) &\longrightarrow f(x) \in B(f(a), \varepsilon)\\
+		\text{si }\quad x \in X \cap B(a, \delta) &\longrightarrow f(x) \in B(f(a), \varepsilon) \\
+		&\rightarrow x \in f^{-1}\qty(B(f(a),\varepsilon))\\
+		f(X\cap B(a, \delta )) &\subset B(f(a), \varepsilon)\\
+		 X\cap B(a, \delta )  &\subset f^{-1}\qty(B(f(a), \varepsilon))
+	\end{align*}
+	$\delta$ depende de $\varepsilon$ y de $a \in X$, es decir $\delta=\delta(\varepsilon, a)$
+	\item $f$ es discontinua (no continua) en $a\in X$ si 
+		$$
+		\forall \varepsilon_0 >0, \forall \delta>0, \exists x \in X, \abs{x-a}<\varepsilon \wedge \abs{f(x)-f(a)} \geq \varepsilon_0
+		$$
+	\item $f \colon X \to \Rn$ es continua, significa que $f$ es continua en todo punto de $X$.
+	
+	\item Sea \( f \colon X \to \mathbb{R}^n \) una función cualquiera. Si $a \in X$ y $a \in X'$, es decir,  si \( a \in X \) es un punto aislado de \( X \), entonces \( f \) es continua en \( a \). 
+  
+	\begin{align*} 
+	 	\exists \delta_0>0 \text{ tal que } &\pqty{B(a, \delta_0) \setminus\{a\}}\cap X = \varnothing\\
+	 	\to & B(a, \delta_0) \cap X =\{a\}
+	\end{align*} 
 	$$
-	\forall \varepsilon >0, \exists \delta >0, \forall x \in X, \abs{x-a}<\delta \longrightarrow \abs{f(x)-f(a)}<\varepsilon
+	\text{Dado } \varepsilon>0, \exists \delta_0>0, \in A  \forall x \in X, \abs{x-a} < \delta_0 \rightarrow \abs{f(x)-f(a)}<\varepsilon
 	$$
+	Si $x=a,$ entonces, $ 0<\delta_0 \rightarrow \abs{f(a)-f(a)}=0 < \varepsilon$
+	
+	Por lo tanto, se cumple la condición de continuidad en \( a \):
+	\[
+	\forall \varepsilon > 0,\ \exists \delta > 0\ \text{tal que}\ \forall x \in X,\ \abs{x - a} < \delta \Rightarrow \abs{f(x) - f(a)} < \varepsilon.
+	\]
+	\[
+	\therefore\ f \text{ es continua en } a\in X.
+	\]
+ 
+ \ex{	
+	Sea $A \colon \Rm \to \Rn $ una transformación lineal, tenemos que A es continua, pues 
+	\begin{align*}
+		\forall x = (x_1, \ldots, x_m) \in \Rm, \abs{Ax}&=\abs{A\qty(\sum_{i=1}^{m} x_i e_i)}\\
+		 &= \abs{\sum_{i=1}^{m} x_i Ae_i}\\
+		&\leq \sum_{i=1}^{m} \abs{x_i} \underbrace{\abs{A e_i}}_{\leq c = \max\limits_{1\leq i \leq m} \abs{A e_i}}\\
+		& \leq c \cdot  \sum_{i=1}^{m} \abs{x_i}\\
+		& = c \norm{x}_1
+	\end{align*} 
+	$	\forall x \in \Rm, \abs{Ax} \leq c \norm{x}$\\
+	En particular, $\forall x, w \in \Rm, \abs{Ax-Aw}\leq c \norm{x-w}_1$, \underline{A es LIPSCHITZIANA}
+	
+}
+	\rmkb{
+	Sea \( A \colon \mathbb{R}^m \to \mathbb{R}^n \) una aplicación lineal. Decimos que \( A \) es \textbf{Lipschitz} (o que satisface una condición de Lipschitz) si existe una constante \( c > 0 \) tal que
+	\[
+	\forall x \in \mathbb{R}^m,\quad \norm{Ax} \leq c \norm{x}.
+	\]
+	En particular, dado que \( A \) es lineal, para cualesquiera \( x, w \in \mathbb{R}^m \), se cumple:
+	\[
+	\norm{Ax - Aw} = \norm{A(x - w)} \leq c \norm{x - w}.
+	\]
+	Esto significa que \( A \) es una función Lipschitz con constante de Lipschitz \( c \).
+	}
+	
+	\item $f: X \subset \Rm \to \Rn$, $f$ es continua en $X$. Decimos que \( f \) es \textbf{uniformemente continua} si:
+	$$
+	\forall \varepsilon > 0,\ \exists \delta > 0\ \text{tal que}\ \forall x, w \in X,\ \abs{x - w} < \delta \Rightarrow \abs{f(x) - f(w)} < \varepsilon
+	$$
+	En este caso, \(\delta\) depende únicamente de \(\varepsilon\), y no de los puntos \(x, w\).
 \end{itemize}
-
+ 
 \ex{Toda función $f: X \rightarrow \Rn$ lipschitziana es uniformemente continua.\\
+	$$
+	\exists c>0, \text{ tal que } \forall x, w \in X, \abs{f(x)-f(w)} \leq c \abs{x-w}
+	$$
+	Dado $\varepsilon >0$, existe $\delta = \frac{\varepsilon}{c}>0, \forall x, w \in X$
+	$$
+	\abs{x-w} <\delta = \frac{\varepsilon}{c} \rightarrow \abs{f(x)-f(w)} \leq c \abs{x-w} < \varepsilon
+	$$
+	$$
+	\therefore f \text{ es uniformemente continua}
+	$$
 } 
 
 En particular las proyecciones canónicas
@@ -167,11 +238,19 @@ En particular las proyecciones canónicas
 \end{align*}
 $\pi_i$ es una transformación lineal\\
 $\therefore $ uniformemente continua.
-\thmr{}{teorema3-2}{
-Sean $X \subset \Rm, Y \subset \Rn, f \colon X\rightarrow \Rn$ y $g:Y \rightarrow \Rp$ tales que $f(X)\subset Y$
 
-continuar
+\ex{Ejercicio\\
+	Mostrar que si $\varphi \colon \Rm \times \Rn \to \Rp$ bilineal, entonces $\varphi$ es continua.
 }
+
+\thmr{}{teorema3-2}{
+Sean \( X \subset \mathbb{R}^m \), \( Y \subset \mathbb{R}^n \), y funciones \( f \colon X \to \mathbb{R}^n \), \( g \colon Y \to \mathbb{R}^p \) tales que \( f(X) \subset Y \), es decir, la composición \( g \circ f \colon X \to \mathbb{R}^p \) está bien definida.
+
+Si \( f \) es continua en \( x_0 \in X \) y \( g \) es continua en \( f(x_0) \in Y \), entonces \( g \circ f \) es continua en \( x_0 \).
+
+En particular, si \( f \) es continua en todo \( X \) y \( g \) es continua en todo \( Y \), entonces \( g \circ f \colon X \to \mathbb{R}^p \) es continua.
+}
+
 \pf{ Prueba del teorema \ref{thm:teorema3-2}\\
 	
 
