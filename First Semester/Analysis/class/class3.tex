@@ -4,64 +4,11 @@
 
  Dado $\varepsilon > 0$, $\exists\, k_0 \in \mathbb{N}$,  
 tal que $k \geq k_0 \Rightarrow \|x_k - a\| < \varepsilon$
-
+ 
 \begin{figure}[H]
 	\centering
-	\begin{tikzpicture}[scale=1]
-		\begin{axis}[
-			width=10cm, height=10cm,
-			%axis lines=middle,
-			axis lines=none,
-			xtick=\empty, ytick=\empty,
-			axis equal,
-			%enlargelimits,
-			xmin=0, xmax=5,
-			ymin=0, ymax=3,
-			thick,
-			xlabel={$x$}, ylabel={$y$},
-			axis line style={->}
-			]
-			% circulo
-			\draw[blue!50,fill=blue!50, thick] (axis cs:3.2,3) circle[radius=2];
-			\draw[blue!50, ->] (axis cs:3.2,3) -- (axis cs:2.5,3.1); %radio
-			
-			% Punto límite a
-			%\addplot[only marks, mark=*, mark options={fill=blue},  nodes near coords={$a$}, point meta=explicit symbolic ] coordinates { (3,3) [a] };
-			
-			% Bola abierta centrada en a
-			\draw[orange, dashed, thick] (axis cs:3.2,3) circle[radius=70];
-			\node[orange] at (axis cs:2.8,3.15) { $\varepsilon$};
-			
-			
-			% Puntos de la sucesión fuera de la bola
-			%\addplot[only marks, mark=*, mark options={fill=green} ] coordinates { 	(0,0) (0.5, 1.5) (0.9,2) (1.3, 1.5) (1.7,1.7)  (2.1,2.1)   (2.4, 2.6)   };
-			
-			% Puntos de la sucesión dentro de la bola
-			%\addplot[only marks, mark=*,  mark options={fill=green} ] coordinates { 	(2.7,2.8)  (3.1,2.8)  (3.3,3) (3.3,3.2)  };
-			\addplot+[smooth, dashed, gray, mark=*, mark options={fill=red}] coordinates {
-				(0,0)        (0.4, 1.5) (0.8,2) (1.2, 1.5) (1.6,1.7) 
-				(1.9,2.1)    (2.1, 2.6) (2.7,2.8) (3.1,2.8) (3.3,3) (3.3,3.2)
-			};  
-			
-			% Etiquetas personalizadas
-			\node[font=\small\bfseries, text=blue] at (axis cs:0,0)        [above right]  {$x_1$};
-			\node[font=\small\bfseries, text=blue] at (axis cs:0.4,1.5)    [left]       {$x_2$};
-			\node[font=\small\bfseries, text=blue] at (axis cs:0.8,2)      [  right] {$x_3$};
-			\node[font=\small\bfseries, text=blue] at (axis cs:1.2,1.5)    [below]       {$x_4$};
-			\node[font=\small\bfseries, text=blue] at (axis cs:1.6,1.7)    [ below right] {$x_5$};
-			\node[font=\small\bfseries, text=blue] at (axis cs:1.9,2.1)    [below right]       {$x_6$};
-			\node[font=\small\bfseries, text=blue] at (axis cs:2.1,2.6)    [  left]  {$x_7$};
-			\node[font=\small\bfseries, text=blue]  at (axis cs:2.7,2.8)    [ below right]  {$x_{k_0}$};
-			\node[font=\small\bfseries, text=blue]  at (axis cs:3.1,2.8)    [below right]       {$x_{k_0+1}$};
-			\node[font=\small\bfseries, text=blue]  at (axis cs:3.3,3)      [below right]       {$x_{k_0+2}$};
-			\node[font=\small\bfseries, text=blue]  at (axis cs:3.3,3.2)    [ right] {$x_{k_0+3}$};
-			
-			
-		\end{axis}
-	\end{tikzpicture} 
+	\includegraphics[width=0.45\linewidth]{img/class3_figure1.png}
 \end{figure}
-\vspace{-6em} % o prueba -2em o -0.5em, según lo que necesites
-
 \thmr{}{teorema3-1}{
 
 
@@ -113,6 +60,144 @@ De \eqref{eq:class3-eq2} $\abs{ x_{j_{p_k}} -a} \geq \varepsilon_0, \quad \foral
 
 Así, $\abs{b-a} = \lim\limits_{k \to \infty}\abs{ x_{j_{p_k}}-a} = \varepsilon_0 >0 \rightarrow b\neq a$
 }
-
+ 
 \section{Puntos de acumulación}
 
+\begin{itemize}
+	\item Sea \( X \subset \mathbb{R}^n \). Decimos que \( a \in \mathbb{R}^n \) es \underline{punto de acumulación} de \( X \), \( a \in X' \), si:
+	\[
+	\forall \varepsilon > 0, \quad \left( B(a, \varepsilon) \setminus \{a\} \right) \cap X \neq \emptyset
+	\]  
+	\ex{
+	Si \( B(a, \varepsilon) = X \), entonces
+	\[
+	\forall \delta > 0, \quad \left( B(b, \delta) \setminus \{b\} \right) \cap X \neq \emptyset
+	\]
+	\vspace{-2em}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.25\linewidth]{img/class3_figure2.png}
+	\end{figure}
+	\vspace{-3em}
+	\[
+	\Rightarrow b \in X'
+	\]
+	}
+	 
+	\ex{
+		Mostrar que si \( X = B(a, \varepsilon) = \{ z \in \mathbb{R}^n : |z - a| < \varepsilon \} \), entonces:
+		\[
+		X' = B[a, \varepsilon] = \{ z \in \mathbb{R}^n : |z - a| \leq \varepsilon \}
+		\]
+	}
+	\item Sea \( a \in X \). Decimos que \( a \in X \) es un punto aislado de \( X \) si \( a \notin X' \). Esto es, 
+	\[
+	\exists \varepsilon_0 >0, (B(a, \varepsilon_0) \setminus \{a\}) \cap X = \varnothing
+	\]
+	
+		\vspace{-2em}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.25\linewidth]{img/class3_figure3.png}
+	\end{figure}
+	\vspace{-1em}
+\end{itemize}
+ 
+ 
+\thmr{}{teorema3-1}{
+Sea $X\subset \Rn$ son equivalentes:
+\begin{description}
+	\item[(i)] $a \in X'$
+	\item[ (ii)] $\exists (x_k)_{k\in \N} \subset X\setminus\{a\}$, es decir $x_k \neq a \, \forall k\in \N$, tal que $\lim\limits_{k \to \infty} x_k =a$
+\end{description}
+}
+\pf{ Prueba del teorema \ref{thm:teorema3-1}\\ 
+	
+	\begin{description}
+		\item[(ii) $\Rightarrow$ (i)]  Supongamos que $\exists (x_k)_{k \in \N} \subset X\setminus \{a\}$ tal que $\lim\limits_{k \to \infty} x_k =a$
+		
+		Dado $\varepsilon>0, \, \exists \, k_0\in \N, \forall k\in \N$
+		\begin{align*}
+			k \geq k_0 &\rightarrow \abs{x_k-a}<\varepsilon\\
+			k \geq k_0 &\rightarrow  x_k \in \pqty{B(a,\varepsilon)\setminus\{a\}} \cap X \neq \varnothing
+		\end{align*}
+		Por tanto $a \in X'$
+			\item[(i) $\Rightarrow$ (ii)] Sea $a \in X'$
+			$$
+			\forall \varepsilon>0,  \pqty{B(a,\varepsilon)\setminus\{a\}} \cap X \neq \varnothing
+			$$
+			\begin{itemize}
+				\item para $\varepsilon= 1, \exists x_1 \in  \pqty{B(a,1)\setminus\{a\}} \cap X \neq \varnothing $
+				
+				$$
+				\exists x_1 \in X \text{ tal que } 0<\abs{x_1-a}<1
+				$$
+				Por el \underline{Principio  Arquimediano}, $\exists i_2 \in \N$ tal que $\frac{1}{i_2} < \abs{x_1-a}$
+				\item para $\varepsilon= \frac{1}{i_2} , \exists x_{i_2} \in  \pqty{B\qty(a,\frac{1}{i_2})\setminus\{a\}} \cap X \neq \varnothing $
+				
+				$$
+				\exists x_{i_2} \in X \text{ tal que } 0<\abs{x_{i_2}-a}<\frac{1}{i_2} \text{ con } i_2>1=i_1
+				$$
+				 \textbf{\textcolor{red}{$\ldots$ Tarea-hacerlo inductivo  }}
+				 
+			\end{itemize}
+			De este modo hemos construido $(x_{i_k}) \subset X\setminus \{a\}$ tal que $\abs{x_{i_k}-a} \frac{1}{i_k} \, \forall k \in \N$ donde $(i_k)_{k\in \N} \subset \N$ estrictamente creciente $i_1<i_2<i_3<\ldots$.
+			
+			Por lo tanto $\lim\limits_{k \to \infty} \abs{x_{i_k}-a} = 0 \longrightarrow \lim\limits_{k \to \infty} x_{i_k} =a$ 
+	\end{description}
+}
+
+\section{Funciones continuas}
+
+Sean $X \in \Rm$ y $f : X \rightarrow \Rn$,
+\begin{itemize}
+	\item  Decimos que $f$ es \underline{continua} en $a\in X$ si 
+	$$
+	\forall \varepsilon >0, \exists \delta >0, \forall x \in X, \abs{x-a}<\delta \longrightarrow \abs{f(x)-f(a)}<\varepsilon
+	$$
+\end{itemize}
+
+\ex{Toda función $f: X \rightarrow \Rn$ lipschitziana es uniformemente continua.\\
+} 
+
+En particular las proyecciones canónicas
+\begin{align*}
+	\pi_i \colon \Rn &\longrightarrow \R\\
+	x=(x_1, x_2, \ldots, x_n) & \longmapsto \pi_i (x) = x_i
+\end{align*}
+$\pi_i$ es una transformación lineal\\
+$\therefore $ uniformemente continua.
+\thmr{}{teorema3-2}{
+Sean $X \subset \Rm, Y \subset \Rn, f \colon X\rightarrow \Rn$ y $g:Y \rightarrow \Rp$ tales que $f(X)\subset Y$
+
+continuar
+}
+\pf{ Prueba del teorema \ref{thm:teorema3-2}\\
+	
+
+}
+
+ 
+\thmr{}{teorema3-3}{
+	Sea  \( f :  X \subset \mathbb{R}^m \to \mathbb{R}^n \) una función definida por
+	\[
+	f = (f_1, f_2, \ldots, f_n)
+	\]
+	donde cada \( f_i : X \to \mathbb{R} \) es la componente escalar de \( f \). Entonces:
+	
+	\[
+	f \text{ es continua en } a \in X \iff f_i \text{ es continua en } a \in X
+	\]
+}
+
+\pf{ Prueba del teorema \ref{thm:teorema3-3}\\
+$(\Rightarrow)$ Supongamos que $f$ es continua,
+$$
+\longrightarrow \pi_i \circ f = f_i, \quad \forall i \in \{1, 2, \ldots, n\}
+$$
+$\pi_i \circ f$ es continua, pues es composición de continuas.
+
+$(\Leftarrow)$ Supongamos que $f_i \colon X \rightarrow \R$ es continua en $a\in X, \;\forall i \in \{1, 2, \ldots, n\} $
+
+Tarea [continuar ...]
+}
