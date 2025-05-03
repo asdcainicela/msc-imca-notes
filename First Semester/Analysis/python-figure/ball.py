@@ -105,7 +105,7 @@ def bola_abierta(ax, centro, radio, angulo_deg=45, radio_label=r"$\varepsilon$",
                  centro_label=None, center_fontsize_label=18, centro_label_color="black"):
     
     # Llamar a la nueva función con parámetros por defecto para comportamiento de bola abierta
-    return bola(
+    return ball(
         ax=ax,
         centro=centro,
         radio=radio,
@@ -132,7 +132,7 @@ def bola_cerrada(ax, centro, radio, angulo_deg=45, radio_label=r"$\varepsilon$",
                  centro_label=None, center_fontsize_label=18, centro_label_color="black"):
     
     # Llamar a la nueva función con parámetros para comportamiento de bola cerrada
-    return bola(
+    return ball(
         ax=ax,
         centro=centro,
         radio=radio,
