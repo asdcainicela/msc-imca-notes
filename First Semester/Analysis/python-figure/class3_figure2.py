@@ -101,9 +101,10 @@ bola_a1=bola_abierta(
     centro_label_color=centro_color  
 )
 
+angle_bola2 = np.radians(100)
 bola_a1=bola_abierta(
     ax,
-    centro=bola_a1.centro+np.array([bola_a1.radio * np.cos(np.radians(100)), bola_a1.radio * np.sin(np.radians(100))]),
+    centro=bola_a1.centro+np.array([bola_a1.radio * np.cos(angle_bola2), bola_a1.radio * np.sin(angle_bola2)]),
     radio=0.5,
     angulo_deg=145,
     etiqueta=r"$\delta$",
@@ -119,7 +120,7 @@ bola_a1=bola_abierta(
 
 # Ajustes generales
 ax.set_xlim(-0.2, 4.2)
-ax.set_ylim(-0.2, 5)
+ax.set_ylim(-0.05, 4.5)
 ax.set_aspect('equal')
 ax.axis('off')
 
