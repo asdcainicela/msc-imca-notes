@@ -29,16 +29,19 @@ bola_a1=bola_abierta(
     centro=np.array([2, 2]),
     radio=2,
     angulo_deg=145,
-    etiqueta=r"$\varepsilon_0$",
+    radio_label = r"$\varepsilon_0$",
+    radio_fontsize_label = 25, ## radio
     color_bola=bola_color,
     color_vector=vector_color,
-    color_etiqueta=etiqueta_color,
+    color_radio_label=etiqueta_color,
     color_centro=centro_color,
     fill=False,
     fill_color=relleno_color,
-    centro_label=r"$a$",   
+    centro_label=r"$a$",  
+    center_fontsize_label = 25, 
     centro_label_color=centro_color  
 )
+
 
 # Ajustes generales
 ax.set_xlim(-0.2, 4.2)

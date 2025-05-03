@@ -13,11 +13,11 @@ plt.rcParams.update({
     'mathtext.bf': 'Palatino:bold',
 })
 
-def bola_abierta(ax, centro, radio, angulo_deg=45, etiqueta=r"$\varepsilon$",
+def bola_abierta(ax, centro, radio, angulo_deg=45, radio_label=r"$\varepsilon$", radio_fontsize_label =20,
                  color_bola="orange", color_vector="blue",
-                 color_etiqueta="orange", color_centro="blue",
+                 color_radio_label="orange", color_centro="blue",
                  fill=False, fill_color="#ffe4b5",
-                 centro_label=None, centro_label_color="black"):
+                 centro_label=None, center_fontsize_label=18, centro_label_color="black"):
     # Bola
     circle = plt.Circle(
         centro, radio,
@@ -42,12 +42,20 @@ def bola_abierta(ax, centro, radio, angulo_deg=45, etiqueta=r"$\varepsilon$",
     # Etiqueta radial
     ax.text(centro[0] + 0.5 * desplazamiento[0],
             centro[1] + 0.6 * desplazamiento[1],
-            etiqueta, color=color_etiqueta, fontsize=20)
+            radio_label, color=color_radio_label, fontsize= radio_fontsize_label )
 
     # Etiqueta del centro si se proporciona
-    if centro_label:
-        ax.text(centro[0] - 0.15, centro[1] - 0.15,  # leve desplazamiento para evitar colisión con la bolita
-                centro_label, fontsize=18, color=centro_label_color)
+    if centro_label:   
+        displacement_factor = 0.1 if radio > 1 else 0.05   
+
+        ax.text(
+            centro[0] - displacement_factor * centro[0],  # Desplazamiento en el eje X
+            centro[1] - displacement_factor * centro[1],  # Desplazamiento en el eje Y
+            centro_label,  
+            fontsize=center_fontsize_label,   
+            color=centro_label_color 
+        )
+
 
     return SimpleNamespace(
         centro=centro,

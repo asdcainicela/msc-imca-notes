@@ -34,16 +34,19 @@ bola_a1=bola_abierta(
     centro=np.array([2, 2]),
     radio=2,
     angulo_deg=45,
-    etiqueta=r"$\varepsilon$",
+    radio_label = r"$\varepsilon$",
+    radio_fontsize_label = 22, ## radio
     color_bola=bola_color,
     color_vector=vector_color,
-    color_etiqueta=etiqueta_color,
+    color_radio_label=etiqueta_color,
     color_centro=centro_color,
     fill=True,
     fill_color=relleno_color,
     centro_label=r"$a$",   
+    center_fontsize_label = 25, 
     centro_label_color=centro_color  
 )
+
 
 angle_bola2 = np.radians(100)
 bola_a1=bola_abierta(
@@ -51,10 +54,10 @@ bola_a1=bola_abierta(
     centro=bola_a1.centro+np.array([bola_a1.radio * np.cos(angle_bola2), bola_a1.radio * np.sin(angle_bola2)]),
     radio=0.5,
     angulo_deg=145,
-    etiqueta=r"$\delta$",
+    radio_label =r"$\delta$",
     color_bola=bola_color2,
     color_vector=vector_color2,
-    color_etiqueta=etiqueta_color2,
+    color_radio_label=etiqueta_color2,
     color_centro=centro_color2,
     fill=True,
     fill_color=relleno_color2,
