@@ -2,9 +2,9 @@
 
 \section{Unicidad en sucesiones acotadas}
 
- Dado $\varepsilon > 0$, $\exists\, k_0 \in \mathbb{N}$,  
+Dado $\varepsilon > 0$, $\exists\, k_0 \in \mathbb{N}$,
 tal que $k \geq k_0 \Rightarrow \|x_k - a\| < \varepsilon$
- 
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.45\linewidth]{img/class3_figure1.png}
@@ -12,22 +12,22 @@ tal que $k \geq k_0 \Rightarrow \|x_k - a\| < \varepsilon$
 \thmr{}{teorema3-1}{
 
 
-Sea $(x_k)_{k\in \N} \subset \Rn$ una sucesión acotada. Entonces, $(x_k)_{k\in \N}$ es convergente si y sólo si toda subsucesión convergente de $(x_k)_{k\in \N}$ converge al mismo punto de $\Rn$.
+	Sea $(x_k)_{k\in \N} \subset \Rn$ una sucesión acotada. Entonces, $(x_k)_{k\in \N}$ es convergente si y sólo si toda subsucesión convergente de $(x_k)_{k\in \N}$ converge al mismo punto de $\Rn$.
 
 }
 \pf{Prueba del teorema \ref{thm:teorema3-1}
-	
+
 $(\Rightarrow)$  Supongamos que $\lim\limits_{k \to \infty} x_k = a \in \Rn$. Sea $(x_{i_k})_{k \in \N} \subset (x_k)_{k \in \N}$ una subsucesión.
 
 \begin{equation}
- \forall \varepsilon > 0,\, \exists\, k_0 \in \N:\, \forall k \in \N,\; k \geq k_0 \Rightarrow \|x_k - a\| < \varepsilon    \label{eq:class3-1} 
+	\forall \varepsilon > 0,\, \exists\, k_0 \in \N:\, \forall k \in \N,\; k \geq k_0 \Rightarrow \|x_k - a\| < \varepsilon    \label{eq:class3-1}
 \end{equation}
 
 Como \((i_k)_{k \in \N} \subset \N\) es estrictamente creciente \(\Rightarrow i_k \geq k,\, \forall k \in \N\).
 
 Entonces, \(k \geq k_0 \Rightarrow i_k \geq k \geq k_0 \Rightarrow \|x_{i_k} - a\| < \varepsilon\) por \eqref{eq:class3-1}.
 
-\(\therefore \lim\limits_{k \to \infty} x_{i_k} = a\).  
+\(\therefore \lim\limits_{k \to \infty} x_{i_k} = a\).
 
 
 ($\Leftarrow$) Supongamos que toda subsucesión de $(x_k)_{k\in \N}$ que converge lo hace al mismo punto.
@@ -41,109 +41,109 @@ Queremos mostrar que $\lim\lim_{k \to \infty} x_k=a$
 Por reducción al absurdo, supongamos que \underline{no ocurra} $\lim\limits_{k \to \infty} x_k=a$
 
 $$
-\sim( \forall \varepsilon > 0,\, \exists\, k_0 \in \N:\, \forall k \in \N,\; k \geq k_0 \Rightarrow \|x_k - a\| < \varepsilon )
+	\sim( \forall \varepsilon > 0,\, \exists\, k_0 \in \N:\, \forall k \in \N,\; k \geq k_0 \Rightarrow \|x_k - a\| < \varepsilon )
 $$
 $$
- \exists\, \varepsilon > 0,\, \forall\, k_0 \in \N:\, \exists\, k \in \N,\; k \geq k_0 \wedge \|x_k - a\| \geq \varepsilon 
+	\exists\, \varepsilon > 0,\, \forall\, k_0 \in \N:\, \exists\, k \in \N,\; k \geq k_0 \wedge \|x_k - a\| \geq \varepsilon
 $$
 
 Podemos construir $(x_{j_k})_{k\in\N} \subset (x_k)_{k\in \N}$ tal que
 \begin{equation}
-	 \abs{x_{i_j}-a}\geq \varepsilon_0 \quad\forall k\in \N \label{eq:class3-eq2}
-\end{equation}  
+	\abs{x_{i_j}-a}\geq \varepsilon_0 \quad\forall k\in \N \label{eq:class3-eq2}
+\end{equation}
 
-Por el teorema de \textbf{Bolzano-Weierstrass}, \(\exists\, \pqty{x_{j_{p_k}}}_{k \in \N} \subset (x_{j_k})_{k \in \N}\) tal que 
+Por el teorema de \textbf{Bolzano-Weierstrass}, \(\exists\, \pqty{x_{j_{p_k}}}_{k \in \N} \subset (x_{j_k})_{k \in \N}\) tal que
 \[
-\lim\limits_{k \to \infty} x_{j_{p_k}} = b \in \Rn
+	\lim\limits_{k \to \infty} x_{j_{p_k}} = b \in \Rn
 \]
 De \eqref{eq:class3-eq2} $\abs{ x_{j_{p_k}} -a} \geq \varepsilon_0, \quad \forall k \in \N$
 
 Así, $\abs{b-a} = \lim\limits_{k \to \infty}\abs{ x_{j_{p_k}}-a} = \varepsilon_0 >0 \rightarrow b\neq a$
 }
- 
+
 \section{Puntos de acumulación}
 
 \begin{itemize}
 	\item Sea \( X \subset \mathbb{R}^n \). Decimos que \( a \in \mathbb{R}^n \) es \underline{punto de acumulación} de \( X \), \( a \in X' \), si:
-	\[
-	\forall \varepsilon > 0, \quad \left( B(a, \varepsilon) \setminus \{a\} \right) \cap X \neq \emptyset
-	\]  
-	\ex{
-	Si \( B(a, \varepsilon) = X \), entonces
-	\[
-	\forall \delta > 0, \quad \left( B(b, \delta) \setminus \{b\} \right) \cap X \neq \emptyset
-	\]
-	\vspace{-2em}
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.25\linewidth]{img/class3_figure2.png}
-	\end{figure}
-	\vspace{-3em}
-	\[
-	\Rightarrow b \in X'
-	\]
-	}
-	 
-	\ex{
-		Mostrar que si \( X = B(a, \varepsilon) = \{ z \in \mathbb{R}^n : |z - a| < \varepsilon \} \), entonces:
-		\[
-		X' = B[a, \varepsilon] = \{ z \in \mathbb{R}^n : |z - a| \leq \varepsilon \}
-		\]
-	}
-	\item Sea \( a \in X \). Decimos que \( a \in X \) es un punto aislado de \( X \) si \( a \notin X' \). Esto es, 
-	\[
-	\exists \varepsilon_0 >0, (B(a, \varepsilon_0) \setminus \{a\}) \cap X = \varnothing
-	\]
-	
-		\vspace{-2em}
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.25\linewidth]{img/class3_figure3.png}
-	\end{figure}
-	\vspace{-1em}
+	      \[
+		      \forall \varepsilon > 0, \quad \left( B(a, \varepsilon) \setminus \{a\} \right) \cap X \neq \emptyset
+	      \]
+	      \ex{
+		      Si \( B(a, \varepsilon) = X \), entonces
+		      \[
+			      \forall \delta > 0, \quad \left( B(b, \delta) \setminus \{b\} \right) \cap X \neq \emptyset
+		      \]
+		      \vspace{-2em}
+		      \begin{figure}[H]
+			      \centering
+			      \includegraphics[width=0.25\linewidth]{img/class3_figure2.png}
+		      \end{figure}
+		      \vspace{-3em}
+		      \[
+			      \Rightarrow b \in X'
+		      \]
+	      }
+
+	      \ex{
+		      Mostrar que si \( X = B(a, \varepsilon) = \{ z \in \mathbb{R}^n : |z - a| < \varepsilon \} \), entonces:
+		      \[
+			      X' = B[a, \varepsilon] = \{ z \in \mathbb{R}^n : |z - a| \leq \varepsilon \}
+		      \]
+	      }
+	\item Sea \( a \in X \). Decimos que \( a \in X \) es un punto aislado de \( X \) si \( a \notin X' \). Esto es,
+	      \[
+		      \exists \varepsilon_0 >0, (B(a, \varepsilon_0) \setminus \{a\}) \cap X = \varnothing
+	      \]
+
+	      \vspace{-2em}
+	      \begin{figure}[H]
+		      \centering
+		      \includegraphics[width=0.25\linewidth]{img/class3_figure3.png}
+	      \end{figure}
+	      \vspace{-1em}
 \end{itemize}
- 
- 
+
+
 \thmr{}{teorema3-1}{
-Sea $X\subset \Rn$ son equivalentes:
-\begin{description}
-	\item[(i)] $a \in X'$
-	\item[ (ii)] $\exists (x_k)_{k\in \N} \subset X\setminus\{a\}$, es decir $x_k \neq a \, \forall k\in \N$, tal que $\lim\limits_{k \to \infty} x_k =a$
-\end{description}
+	Sea $X\subset \Rn$ son equivalentes:
+	\begin{description}
+		\item[(i)] $a \in X'$
+		\item[ (ii)] $\exists (x_k)_{k\in \N} \subset X\setminus\{a\}$, es decir $x_k \neq a \, \forall k\in \N$, tal que $\lim\limits_{k \to \infty} x_k =a$
+	\end{description}
 }
-\pf{ Prueba del teorema \ref{thm:teorema3-1}\\ 
-	
+\pf{ Prueba del teorema \ref{thm:teorema3-1}\\
+
 	\begin{description}
 		\item[(ii) $\Rightarrow$ (i)]  Supongamos que $\exists (x_k)_{k \in \N} \subset X\setminus \{a\}$ tal que $\lim\limits_{k \to \infty} x_k =a$
-		
-		Dado $\varepsilon>0, \, \exists \, k_0\in \N, \forall k\in \N$
-		\begin{align*}
-			k \geq k_0 &\rightarrow \abs{x_k-a}<\varepsilon\\
-			k \geq k_0 &\rightarrow  x_k \in \pqty{B(a,\varepsilon)\setminus\{a\}} \cap X \neq \varnothing
-		\end{align*}
-		Por tanto $a \in X'$
-			\item[(i) $\Rightarrow$ (ii)] Sea $a \in X'$
-			$$
-			\forall \varepsilon>0,  \pqty{B(a,\varepsilon)\setminus\{a\}} \cap X \neq \varnothing
-			$$
-			\begin{itemize}
-				\item para $\varepsilon= 1, \exists x_1 \in  \pqty{B(a,1)\setminus\{a\}} \cap X \neq \varnothing $
-				
-				$$
-				\exists x_1 \in X \text{ tal que } 0<\abs{x_1-a}<1
-				$$
-				Por el \underline{Principio  Arquimediano}, $\exists i_2 \in \N$ tal que $\frac{1}{i_2} < \abs{x_1-a}$
-				\item para $\varepsilon= \frac{1}{i_2} , \exists x_{i_2} \in  \pqty{B\qty(a,\frac{1}{i_2})\setminus\{a\}} \cap X \neq \varnothing $
-				
-				$$
-				\exists x_{i_2} \in X \text{ tal que } 0<\abs{x_{i_2}-a}<\frac{1}{i_2} \text{ con } i_2>1=i_1
-				$$
-				 \textbf{\textcolor{red}{$\ldots$ Tarea-hacerlo inductivo  }}
-				 
-			\end{itemize}
-			De este modo hemos construido $(x_{i_k}) \subset X\setminus \{a\}$ tal que $\abs{x_{i_k}-a} \frac{1}{i_k} \, \forall k \in \N$ donde $(i_k)_{k\in \N} \subset \N$ estrictamente creciente $i_1<i_2<i_3<\ldots$.
-			
-			Por lo tanto $\lim\limits_{k \to \infty} \abs{x_{i_k}-a} = 0 \longrightarrow \lim\limits_{k \to \infty} x_{i_k} =a$ 
+
+		      Dado $\varepsilon>0, \, \exists \, k_0\in \N, \forall k\in \N$
+		      \begin{align*}
+			      k \geq k_0 & \rightarrow \abs{x_k-a}<\varepsilon                                                \\
+			      k \geq k_0 & \rightarrow  x_k \in \pqty{B(a,\varepsilon)\setminus\{a\}} \cap X \neq \varnothing
+		      \end{align*}
+		      Por tanto $a \in X'$
+		\item[(i) $\Rightarrow$ (ii)] Sea $a \in X'$
+		      $$
+			      \forall \varepsilon>0,  \pqty{B(a,\varepsilon)\setminus\{a\}} \cap X \neq \varnothing
+		      $$
+		      \begin{itemize}
+			      \item para $\varepsilon= 1, \exists x_1 \in  \pqty{B(a,1)\setminus\{a\}} \cap X \neq \varnothing $
+
+			            $$
+				            \exists x_1 \in X \text{ tal que } 0<\abs{x_1-a}<1
+			            $$
+			            Por el \underline{Principio  Arquimediano}, $\exists i_2 \in \N$ tal que $\frac{1}{i_2} < \abs{x_1-a}$
+			      \item para $\varepsilon= \frac{1}{i_2} , \exists x_{i_2} \in  \pqty{B\qty(a,\frac{1}{i_2})\setminus\{a\}} \cap X \neq \varnothing $
+
+			            $$
+				            \exists x_{i_2} \in X \text{ tal que } 0<\abs{x_{i_2}-a}<\frac{1}{i_2} \text{ con } i_2>1=i_1
+			            $$
+			            \textbf{\textcolor{red}{$\ldots$ Tarea-hacerlo inductivo  }}
+
+		      \end{itemize}
+		      De este modo hemos construido $(x_{i_k}) \subset X\setminus \{a\}$ tal que $\abs{x_{i_k}-a} \frac{1}{i_k} \, \forall k \in \N$ donde $(i_k)_{k\in \N} \subset \N$ estrictamente creciente $i_1<i_2<i_3<\ldots$.
+
+		      Por lo tanto $\lim\limits_{k \to \infty} \abs{x_{i_k}-a} = 0 \longrightarrow \lim\limits_{k \to \infty} x_{i_k} =a$
 	\end{description}
 }
 
@@ -151,89 +151,89 @@ Sea $X\subset \Rn$ son equivalentes:
 
 Sean $X \in \Rm$ y $f : X \rightarrow \Rn$,
 \begin{itemize}
-	\item  Decimos que $f$ es \underline{continua} en $a\in X$ si 
-	\begin{align*} 
-		\forall \varepsilon >0, \exists \delta >0, \forall x \in X, \abs{x-a}<\delta &\longrightarrow \abs{f(x)-f(a)}<\varepsilon \\
-		\forall x \in X, x\in B(a, \delta) &\longrightarrow f(x) \in B(f(a), \varepsilon)\\
-		\text{si }\quad x \in X \cap B(a, \delta) &\longrightarrow f(x) \in B(f(a), \varepsilon) \\
-		&\rightarrow x \in f^{-1}\qty(B(f(a),\varepsilon))\\
-		f(X\cap B(a, \delta )) &\subset B(f(a), \varepsilon)\\
-		 X\cap B(a, \delta )  &\subset f^{-1}\qty(B(f(a), \varepsilon))
-	\end{align*}
-	$\delta$ depende de $\varepsilon$ y de $a \in X$, es decir $\delta=\delta(\varepsilon, a)$
-	\item $f$ es discontinua (no continua) en $a\in X$ si 
-		$$
-		\forall \varepsilon_0 >0, \forall \delta>0, \exists x \in X, \abs{x-a}<\varepsilon \wedge \abs{f(x)-f(a)} \geq \varepsilon_0
-		$$
+	\item  Decimos que $f$ es \underline{continua} en $a\in X$ si
+	      \begin{align*}
+		      \forall \varepsilon >0, \exists \delta >0, \forall x \in X, \abs{x-a}<\delta & \longrightarrow \abs{f(x)-f(a)}<\varepsilon       \\
+		      \forall x \in X, x\in B(a, \delta)                                           & \longrightarrow f(x) \in B(f(a), \varepsilon)     \\
+		      \text{si }\quad x \in X \cap B(a, \delta)                                    & \longrightarrow f(x) \in B(f(a), \varepsilon)     \\
+		                                                                                   & \rightarrow x \in f^{-1}\qty(B(f(a),\varepsilon)) \\
+		      f(X\cap B(a, \delta ))                                                       & \subset B(f(a), \varepsilon)                      \\
+		      X\cap B(a, \delta )                                                          & \subset f^{-1}\qty(B(f(a), \varepsilon))
+	      \end{align*}
+	      $\delta$ depende de $\varepsilon$ y de $a \in X$, es decir $\delta=\delta(\varepsilon, a)$
+	\item $f$ es discontinua (no continua) en $a\in X$ si
+	      $$
+		      \forall \varepsilon_0 >0, \forall \delta>0, \exists x \in X, \abs{x-a}<\varepsilon \wedge \abs{f(x)-f(a)} \geq \varepsilon_0
+	      $$
 	\item $f \colon X \to \Rn$ es continua, significa que $f$ es continua en todo punto de $X$.
-	
-	\item Sea \( f \colon X \to \mathbb{R}^n \) una función cualquiera. Si $a \in X$ y $a \in X'$, es decir,  si \( a \in X \) es un punto aislado de \( X \), entonces \( f \) es continua en \( a \). 
-  
-	\begin{align*} 
-	 	\exists \delta_0>0 \text{ tal que } &\pqty{B(a, \delta_0) \setminus\{a\}}\cap X = \varnothing\\
-	 	\to & B(a, \delta_0) \cap X =\{a\}
-	\end{align*} 
-	$$
-	\text{Dado } \varepsilon>0, \exists \delta_0>0, \in A  \forall x \in X, \abs{x-a} < \delta_0 \rightarrow \abs{f(x)-f(a)}<\varepsilon
-	$$
-	Si $x=a,$ entonces, $ 0<\delta_0 \rightarrow \abs{f(a)-f(a)}=0 < \varepsilon$
-	
-	Por lo tanto, se cumple la condición de continuidad en \( a \):
-	\[
-	\forall \varepsilon > 0,\ \exists \delta > 0\ \text{tal que}\ \forall x \in X,\ \abs{x - a} < \delta \Rightarrow \abs{f(x) - f(a)} < \varepsilon.
-	\]
-	\[
-	\therefore\ f \text{ es continua en } a\in X.
-	\]
- 
- \ex{	
-	Sea $A \colon \Rm \to \Rn $ una transformación lineal, tenemos que A es continua, pues 
-	\begin{align*}
-		\forall x = (x_1, \ldots, x_m) \in \Rm, \abs{Ax}&=\abs{A\qty(\sum_{i=1}^{m} x_i e_i)}\\
-		 &= \abs{\sum_{i=1}^{m} x_i Ae_i}\\
-		&\leq \sum_{i=1}^{m} \abs{x_i} \underbrace{\abs{A e_i}}_{\leq c = \max\limits_{1\leq i \leq m} \abs{A e_i}}\\
-		& \leq c \cdot  \sum_{i=1}^{m} \abs{x_i}\\
-		& = c \norm{x}_1
-	\end{align*} 
-	$	\forall x \in \Rm, \abs{Ax} \leq c \norm{x}$\\
-	En particular, $\forall x, w \in \Rm, \abs{Ax-Aw}\leq c \norm{x-w}_1$, \underline{A es LIPSCHITZIANA}
-	
-}
-	\rmkb{
-	Sea \( A \colon \mathbb{R}^m \to \mathbb{R}^n \) una aplicación lineal. Decimos que \( A \) es \textbf{Lipschitz} (o que satisface una condición de Lipschitz) si existe una constante \( c > 0 \) tal que
-	\[
-	\forall x \in \mathbb{R}^m,\quad \norm{Ax} \leq c \norm{x}.
-	\]
-	En particular, dado que \( A \) es lineal, para cualesquiera \( x, w \in \mathbb{R}^m \), se cumple:
-	\[
-	\norm{Ax - Aw} = \norm{A(x - w)} \leq c \norm{x - w}.
-	\]
-	Esto significa que \( A \) es una función Lipschitz con constante de Lipschitz \( c \).
-	}
-	
+
+	\item Sea \( f \colon X \to \mathbb{R}^n \) una función cualquiera. Si $a \in X$ y $a \in X'$, es decir,  si \( a \in X \) es un punto aislado de \( X \), entonces \( f \) es continua en \( a \).
+
+	      \begin{align*}
+		      \exists \delta_0>0 \text{ tal que } & \pqty{B(a, \delta_0) \setminus\{a\}}\cap X = \varnothing \\
+		      \to                                 & B(a, \delta_0) \cap X =\{a\}
+	      \end{align*}
+	      $$
+		      \text{Dado } \varepsilon>0, \exists \delta_0>0, \in A  \forall x \in X, \abs{x-a} < \delta_0 \rightarrow \abs{f(x)-f(a)}<\varepsilon
+	      $$
+	      Si $x=a,$ entonces, $ 0<\delta_0 \rightarrow \abs{f(a)-f(a)}=0 < \varepsilon$
+
+	      Por lo tanto, se cumple la condición de continuidad en \( a \):
+	      \[
+		      \forall \varepsilon > 0,\ \exists \delta > 0\ \text{tal que}\ \forall x \in X,\ \abs{x - a} < \delta \Rightarrow \abs{f(x) - f(a)} < \varepsilon.
+	      \]
+	      \[
+		      \therefore\ f \text{ es continua en } a\in X.
+	      \]
+
+	      \ex{
+		      Sea $A \colon \Rm \to \Rn $ una transformación lineal, tenemos que A es continua, pues
+		      \begin{align*}
+			      \forall x = (x_1, \ldots, x_m) \in \Rm, \abs{Ax} & =\abs{A\qty(\sum_{i=1}^{m} x_i e_i)}                                                                       \\
+			                                                       & = \abs{\sum_{i=1}^{m} x_i Ae_i}                                                                            \\
+			                                                       & \leq \sum_{i=1}^{m} \abs{x_i} \underbrace{\abs{A e_i}}_{\leq c = \max\limits_{1\leq i \leq m} \abs{A e_i}} \\
+			                                                       & \leq c \cdot  \sum_{i=1}^{m} \abs{x_i}                                                                     \\
+			                                                       & = c \norm{x}_1
+		      \end{align*}
+		      $	\forall x \in \Rm, \abs{Ax} \leq c \norm{x}$\\
+		      En particular, $\forall x, w \in \Rm, \abs{Ax-Aw}\leq c \norm{x-w}_1$, \underline{A es LIPSCHITZIANA}
+
+	      }
+	      \rmkb{
+		      Sea \( A \colon \mathbb{R}^m \to \mathbb{R}^n \) una aplicación lineal. Decimos que \( A \) es \textbf{Lipschitz} (o que satisface una condición de Lipschitz) si existe una constante \( c > 0 \) tal que
+		      \[
+			      \forall x \in \mathbb{R}^m,\quad \norm{Ax} \leq c \norm{x}.
+		      \]
+		      En particular, dado que \( A \) es lineal, para cualesquiera \( x, w \in \mathbb{R}^m \), se cumple:
+		      \[
+			      \norm{Ax - Aw} = \norm{A(x - w)} \leq c \norm{x - w}.
+		      \]
+		      Esto significa que \( A \) es una función Lipschitz con constante de Lipschitz \( c \).
+	      }
+
 	\item $f: X \subset \Rm \to \Rn$, $f$ es continua en $X$. Decimos que \( f \) es \textbf{uniformemente continua} si:
-	$$
-	\forall \varepsilon > 0,\ \exists \delta > 0\ \text{tal que}\ \forall x, w \in X,\ \abs{x - w} < \delta \Rightarrow \abs{f(x) - f(w)} < \varepsilon
-	$$
-	En este caso, \(\delta\) depende únicamente de \(\varepsilon\), y no de los puntos \(x, w\).
+	      $$
+		      \forall \varepsilon > 0,\ \exists \delta > 0\ \text{tal que}\ \forall x, w \in X,\ \abs{x - w} < \delta \Rightarrow \abs{f(x) - f(w)} < \varepsilon
+	      $$
+	      En este caso, \(\delta\) depende únicamente de \(\varepsilon\), y no de los puntos \(x, w\).
 \end{itemize}
- 
+
 \ex{Toda función $f: X \rightarrow \Rn$ lipschitziana es uniformemente continua.\\
 	$$
-	\exists c>0, \text{ tal que } \forall x, w \in X, \abs{f(x)-f(w)} \leq c \abs{x-w}
+		\exists c>0, \text{ tal que } \forall x, w \in X, \abs{f(x)-f(w)} \leq c \abs{x-w}
 	$$
 	Dado $\varepsilon >0$, existe $\delta = \frac{\varepsilon}{c}>0, \forall x, w \in X$
 	$$
-	\abs{x-w} <\delta = \frac{\varepsilon}{c} \rightarrow \abs{f(x)-f(w)} \leq c \abs{x-w} < \varepsilon
+		\abs{x-w} <\delta = \frac{\varepsilon}{c} \rightarrow \abs{f(x)-f(w)} \leq c \abs{x-w} < \varepsilon
 	$$
 	$$
-	\therefore f \text{ es uniformemente continua}
+		\therefore f \text{ es uniformemente continua}
 	$$
-} 
+}
 
 En particular las proyecciones canónicas
 \begin{align*}
-	\pi_i \colon \Rn &\longrightarrow \R\\
+	\pi_i \colon \Rn          & \longrightarrow \R          \\
 	x=(x_1, x_2, \ldots, x_n) & \longmapsto \pi_i (x) = x_i
 \end{align*}
 $\pi_i$ es una transformación lineal\\
@@ -244,49 +244,49 @@ $\therefore $ uniformemente continua.
 }
 
 \thmr{}{teorema3-2}{
-Sean \( X \subset \mathbb{R}^m \), \( Y \subset \mathbb{R}^n \), y funciones \( f \colon X \to \mathbb{R}^n \), \( g \colon Y \to \mathbb{R}^p \) tales que \( f(X) \subset Y \), es decir, la composición \( g \circ f \colon X \to \mathbb{R}^p \) está bien definida.
+	Sean \( X \subset \mathbb{R}^m \), \( Y \subset \mathbb{R}^n \), y funciones \( f \colon X \to \mathbb{R}^n \), \( g \colon Y \to \mathbb{R}^p \) tales que \( f(X) \subset Y \), es decir, la composición \( g \circ f \colon X \to \mathbb{R}^p \) está bien definida.
 
-Si \( f \) es continua en \( x_0 \in X \) y \( g \) es continua en \( f(x_0) \in Y \), entonces \( g \circ f \) es continua en \( x_0 \).
+	Si \( f \) es continua en \( x_0 \in X \) y \( g \) es continua en \( f(x_0) \in Y \), entonces \( g \circ f \) es continua en \( x_0 \).
 
-En particular, si \( f \) es continua en todo \( X \) y \( g \) es continua en todo \( Y \), entonces \( g \circ f \colon X \to \mathbb{R}^p \) es continua.
+	En particular, si \( f \) es continua en todo \( X \) y \( g \) es continua en todo \( Y \), entonces \( g \circ f \colon X \to \mathbb{R}^p \) es continua.
 }
 
 \pf{ Prueba del teorema \ref{thm:teorema3-2}\\
-	Sea \( f \colon X \to Y \subset \Rn \) y \( g \colon Y \to \Rp \). Supongamos que \( f \) es continua en \( x_0 \in X \), y que \( g \) es continua en \( f(x_0) \in Y \).  
+	Sea \( f \colon X \to Y \subset \Rn \) y \( g \colon Y \to \Rp \). Supongamos que \( f \) es continua en \( x_0 \in X \), y que \( g \) es continua en \( f(x_0) \in Y \).
 	Queremos probar que \( g \circ f \colon X \to \Rp \) es continua en \( x_0 \).
-	
+
 	Como \( g \) es continua en \( f(x_0) \), dado \( \varepsilon > 0 \), existe \( n > 0 \) tal que
 	\begin{equation} \label{eq:class3-eq3}
 		\forall y \in Y, \quad \abs{y - f(x_0)} < n \ \Rightarrow \ \abs{g(y) - g(f(x_0))} < \varepsilon.
 	\end{equation}
-	
+
 	Como \( f \) es continua en \( x_0 \), existe \( \delta > 0 \) tal que
 	\begin{equation} \label{eq:class3-eq4}
 		\forall x \in X, \quad \abs{x - x_0} < \delta \ \Rightarrow \ \abs{f(x) - f(x_0)} < n.
 	\end{equation}
-	
+
 	Dado que \( f(x) \in f(X) \subset Y \), se cumple \( f(x) \in Y \), por lo que al aplicar \eqref{eq:class3-eq3} se obtiene:
 	\[
-	\forall x \in X, \quad \abs{x - x_0} < \delta \ \Rightarrow \ \abs{g(f(x)) - g(f(x_0))} < \varepsilon.
+		\forall x \in X, \quad \abs{x - x_0} < \delta \ \Rightarrow \ \abs{g(f(x)) - g(f(x_0))} < \varepsilon.
 	\]
-	
+
 	Es decir,
 	\[
-	\abs{(g \circ f)(x) - (g \circ f)(x_0)} < \varepsilon.
+		\abs{(g \circ f)(x) - (g \circ f)(x_0)} < \varepsilon.
 	\]
-	
+
 	Por lo tanto, \( g \circ f \) es continua en \( x_0 \in X \).
-	
-	
-	
+
+
+
 	\rmkb{Sea $f(x) \in \Rn$ y
-	\begin{align*}
-		f\colon X \subset \Rm &\longrightarrow \Rn\\
-		x & \longmapsto f(x) = (f_1(x), f_2(x), \ldots, f_n(x))
-	\end{align*}
-	decimos que $f1, f2, \ldots, f_n \colon \R $ son las \textcolor{red}{funciones coordenadas de $f$.}\\
-	Notación: $f=(f_1, f_2, \ldots, f_n)$\\
-	Es claro que $f_i = \pi_i \circ f, \forall i \in \{1, 2, \ldots, n\}$
+		\begin{align*}
+			f\colon X \subset \Rm & \longrightarrow \Rn                                 \\
+			x                     & \longmapsto f(x) = (f_1(x), f_2(x), \ldots, f_n(x))
+		\end{align*}
+		decimos que $f1, f2, \ldots, f_n \colon \R $ son las \textcolor{red}{funciones coordenadas de $f$.}\\
+		Notación: $f=(f_1, f_2, \ldots, f_n)$\\
+		Es claro que $f_i = \pi_i \circ f, \forall i \in \{1, 2, \ldots, n\}$
 	}
 }
 
