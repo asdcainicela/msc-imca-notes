@@ -58,8 +58,8 @@ with plt.rc_context(rc):
     ax.text(-0.4, b, r"$b$", va='center', fontsize=12)
     ax.text(-0.6, f0, r"$f(x)$", va='center', fontsize=12)
 
-    # Punto f(x)
-    ax.plot(a, b, 'o', color='red',  markerfacecolor='white')
+    # Punto f(x) 
+    ax.plot(a, b, 'o', color='white', markersize=8, markeredgecolor='red', markeredgewidth=1, alpha=0.8)
     # Punto x
     ax.plot(a, b + 1.5, 'o', color='red')
     #ax.text(x, fx + 0.15, r"$f(x)$", fontsize=12)
