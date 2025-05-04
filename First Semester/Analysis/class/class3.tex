@@ -252,31 +252,41 @@ En particular, si \( f \) es continua en todo \( X \) y \( g \) es continua en t
 }
 
 \pf{ Prueba del teorema \ref{thm:teorema3-2}\\
+	Sea \( f \colon X \to Y \subset \Rn \) y \( g \colon Y \to \Rp \). Supongamos que \( f \) es continua en \( x_0 \in X \), y que \( g \) es continua en \( f(x_0) \in Y \).  
+	Queremos probar que \( g \circ f \colon X \to \Rp \) es continua en \( x_0 \).
 	
-
-}
-
- 
-\thmr{}{teorema3-3}{
-	Sea  \( f :  X \subset \mathbb{R}^m \to \mathbb{R}^n \) una función definida por
-	\[
-	f = (f_1, f_2, \ldots, f_n)
-	\]
-	donde cada \( f_i : X \to \mathbb{R} \) es la componente escalar de \( f \). Entonces:
+	Como \( g \) es continua en \( f(x_0) \), dado \( \varepsilon > 0 \), existe \( n > 0 \) tal que
+	\begin{equation} \label{eq:class3-eq3}
+		\forall y \in Y, \quad \abs{y - f(x_0)} < n \ \Rightarrow \ \abs{g(y) - g(f(x_0))} < \varepsilon.
+	\end{equation}
 	
+	Como \( f \) es continua en \( x_0 \), existe \( \delta > 0 \) tal que
+	\begin{equation} \label{eq:class3-eq4}
+		\forall x \in X, \quad \abs{x - x_0} < \delta \ \Rightarrow \ \abs{f(x) - f(x_0)} < n.
+	\end{equation}
+	
+	Dado que \( f(x) \in f(X) \subset Y \), se cumple \( f(x) \in Y \), por lo que al aplicar \eqref{eq:class3-eq3} se obtiene:
 	\[
-	f \text{ es continua en } a \in X \iff f_i \text{ es continua en } a \in X
+	\forall x \in X, \quad \abs{x - x_0} < \delta \ \Rightarrow \ \abs{g(f(x)) - g(f(x_0))} < \varepsilon.
 	\]
+	
+	Es decir,
+	\[
+	\abs{(g \circ f)(x) - (g \circ f)(x_0)} < \varepsilon.
+	\]
+	
+	Por lo tanto, \( g \circ f \) es continua en \( x_0 \in X \).
+	
+	
+	
+	\rmkb{Sea $f(x) \in \Rn$ y
+	\begin{align*}
+		f\colon X \subset \Rm &\longrightarrow \Rn\\
+		x & \longmapsto f(x) = (f_1(x), f_2(x), \ldots, f_n(x))
+	\end{align*}
+	decimos que $f1, f2, \ldots, f_n \colon \R $ son las \textcolor{red}{funciones coordenadas de $f$.}\\
+	Notación: $f=(f_1, f_2, \ldots, f_n)$\\
+	Es claro que $f_i = \pi_i \circ f, \forall i \in \{1, 2, \ldots, n\}$
+	}
 }
 
-\pf{ Prueba del teorema \ref{thm:teorema3-3}\\
-$(\Rightarrow)$ Supongamos que $f$ es continua,
-$$
-\longrightarrow \pi_i \circ f = f_i, \quad \forall i \in \{1, 2, \ldots, n\}
-$$
-$\pi_i \circ f$ es continua, pues es composición de continuas.
-
-$(\Leftarrow)$ Supongamos que $f_i \colon X \rightarrow \R$ es continua en $a\in X, \;\forall i \in \{1, 2, \ldots, n\} $
-
-Tarea [continuar ...]
-}
