@@ -1,1 +1,113 @@
 \chapter{Clase 4}
+\thmr{}{teorema4-1}{
+	Sea  \( f :  X \subset \mathbb{R}^m \to \mathbb{R}^n \) una función definida por
+	\[
+	f = (f_1, f_2, \ldots, f_n)
+	\]
+	donde cada \( f_i : X \to \mathbb{R} \) es la componente escalar de \( f \). Entonces:
+	
+	\[
+	f \text{ es continua en } a \in X \iff f_i \text{ es continua en } a \in X
+	\]
+}
+
+\pf{ Prueba del teorema \ref{thm:teorema4-1}\\
+	$(\Rightarrow)$ Supongamos que $f$ es continua,
+	$$
+	\longrightarrow \pi_i \circ f = f_i, \quad \forall i \in \{1, 2, \ldots, n\}
+	$$
+	$\pi_i \circ f$ es continua, pues es composición de continuas.
+	
+	$(\Leftarrow)$ Supongamos que $f_i \colon X \rightarrow \R$ es continua en $a\in X, \;\forall i \in \{1, 2, \ldots, n\} $
+	
+	Dado $\varepsilon >0$, como $\forall i \in \{1, \ldots, n\}, f_i \colon X \to \R$ es continua en $a \in X$\\
+	 $\exists \delta_i>0, \forall x \in X$
+	$$
+	\abs{x-a} < \delta_i \rightarrow \abs{f_i(x)-f(a)} <\varepsilon
+	$$
+	Sea $\delta = \min \{\delta_1, \delta_2, \ldots, \delta_n >0\}$
+	$$
+	\abs{x-a}<\delta\leq \delta_i \; \forall i \in \{1,\ldots, n\}
+	$$
+	$$
+	\longrightarrow \forall i \in \{1, 2, \ldots, n\}, \abs{f_i(x)-f_i(a)}< \varepsilon
+	$$
+	$$
+	\longrightarrow \max\limits_{1\leq i \leq n}\abs{f_i(x)-f_i(a)}< \varepsilon
+	$$
+	$$
+	\longrightarrow\norm{f_i(x)-f_i(a)}_{\infty}< \varepsilon
+	$$
+	Así, $f$ es continua en $a \in X$.
+}
+
+\cor{
+	Sea $X \subset \mathbb{R}^p$, sean $f \colon X \to \mathbb{R}^m$ y $g \colon X \to \mathbb{R}^n$. Consideramos la aplicación $(f,g) \colon X \to \mathbb{R}^m \times \mathbb{R}^n$ definida por $(f,g)(x) = (f(x), g(x))$.
+	
+	Entonces, $(f,g)$ es continua si y sólo si $f$ y $g$ son continuas.
+	
+	\rmk{Obs: $\mathbb{R}^m \times \mathbb{R}^n \cong \mathbb{R}^{m+n}$}
+}
+
+\cor{
+	Sean $f \colon X \to \mathbb{R}^m$, $g \colon X \to \mathbb{R}^n$ y $\alpha \colon X \to \R$ funciones continuas. Entonces
+	\begin{description}
+		\item[(i)] $f+g$ es continua, $(f+g)(x) = f(x)+g(x)$
+		\item[(ii)] $\alpha(x) \in \R, f(x)\in \Rn$
+		\begin{align*}
+			\alpha \cdot f \colon X &\longrightarrow \Rn\\
+			 x & \longmapsto (\alpha\cdot f)(x) = \alpha(x)\cdotp f(x)
+		\end{align*}
+	 también es continua, $(f+g)(x) = f(x)+g(x)$
+	 \item[(iii)] 
+	 \begin{align*}
+	 	\inner{f}{g} \colon X &\longrightarrow \R\\
+	 	x & \longmapsto \inner{f}{g}(x) =\inner{f(x)}{g(x)}  
+	 \end{align*}
+	 \item[(iv)] 
+	 \begin{align*}
+	 	\frac{1}{\alpha} \colon X &\longrightarrow \R\\
+	 	x & \longmapsto  \pqty{\frac{1}{\alpha}}(x)=\frac{1}{\alpha(x)} 
+	 \end{align*}
+	  Es continua donde $\alpha(x)\neq 0, \forall x \in X$
+	\end{description}
+}
+\pf{
+	Hacer las demostraciones (falta pasarlo a \LaTeX)
+}
+
+\thmr{}{teorema4-2}{
+	Sea $X \subset \mathbb{R}^m$ y sea $f \colon X \to \mathbb{R}^n$ una función.
+	
+	Entonces, $f$ es continua en $a \in X$ si y sólo si, para toda sucesión $(x_k)_{k \in \mathbb{N}} \subset X$ tal que $\lim\limits_{k \to \infty} x_k = a$, se cumple que:
+	\[
+	\lim_{k \to \infty} f(x_k) = f(a).
+	\]
+}
+
+\pf{Prueba del teorema \ref{thm:teorema4-2}\\
+($\Rightarrow$)
+
+
+($\Leftarrow$)
+}
+
+
+\section{Límites}
+
+Sean $f \colon X \subset \Rm \to \Rn, a \in X'$ y $b \in \Rn$
+\begin{itemize}
+	\item Decimos que el límite de $f(x)$ es $b$ cuando $x$ tiene para $a$ si ocurre lo siguiente:
+	$$
+	\forall \varepsilon >0, \exists \delta >0, \forall x \in X, 0 < \abs{x-a} < \delta \rightarrow \abs{f(x)-b}<\varepsilon
+	$$
+	donde $d(x,a)=\abs{x-a}$  y $d(f(x),b) = \abs{f(x)-b}$\\
+	\rmk{Notación: $\lim\limits_{x \to a} f(x) = b$}
+\end{itemize}
+
+		\vspace{-2em}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{img/class4_figure1.png}
+\end{figure}
+\vspace{-1em}
