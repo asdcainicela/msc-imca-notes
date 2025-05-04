@@ -1,13 +1,19 @@
-\newcommand{\lcm}{\operatorname{lcm}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\Real}[1]{\mathbb{R}^{#1}}
-\newcommand{\Rn}{\Real{n}}
-\newcommand{\Rm}{\Real{m}} 
-\newcommand{\Rp}{\Real{p}} 
-\newcommand{\N}{\mathbb{N}} 
-\newcommand{\Ou}{\mathds{O}} %Requiere \usepackage{dsfont}
-\newcommand{\Ll}{\mathscr{L}} %Requiere \usepackage{mathrsfs}
-\newcommand{\Lineal}[2]{\Ll\left( #1, #2 \right)}
+% Conjuntos numéricos
+\newcommand{\R}{\mathbb{R}}            % Conjunto de los números reales R
+\newcommand{\N}{\mathbb{N}}            % Conjunto de los números naturales N
+\newcommand{\Real}[1]{\mathbb{R}^{#1}} % Espacio euclidiano R^n dado un argumento n
+\newcommand{\Rn}{\Real{n}}             % Notación abreviada para R^n
+\newcommand{\Rm}{\Real{m}}             % Notación abreviada para R^m
+\newcommand{\Rp}{\Real{p}}             % Notación abreviada para R^p
+\newcommand{\Ou}{\mathds{O}}           % Letra O en doble trazo, requiere \usepackage{dsfont}
 
-\newcommand{\inner}[2]{\langle #1, #2 \rangle} % Producto interno 
- 
+% Funciones especiales y operadores
+\newcommand{\lcm}{\operatorname{lcm}}  % Mínimo común múltiplo
+\newcommand{\dom}{\operatorname{dom}}  % Dominio de una función
+\newcommand{\Dom}{\operatorname{Dom}}  % Variante con mayúscula, para uso formal
+\newcommand{\ran}{\operatorname{ran}}  % Rango o imagen de una función
+
+\newcommand{\Ll}{\mathscr{L}}          % Letra L caligráfica, espacio de operadores lineales
+\newcommand{\Lineal}[2]{\Ll\left( #1, #2 \right)}  % Espacio de operadores lineales de #1 en #2
+
+\newcommand{\inner}[2]{\langle #1, #2 \rangle}     % Producto interno usual ⟨x, y⟩
