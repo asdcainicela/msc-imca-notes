@@ -2,112 +2,366 @@
 \thmr{}{teorema4-1}{
 	Sea  \( f :  X \subset \mathbb{R}^m \to \mathbb{R}^n \) una función definida por
 	\[
-	f = (f_1, f_2, \ldots, f_n)
+		f = (f_1, f_2, \ldots, f_n)
 	\]
 	donde cada \( f_i : X \to \mathbb{R} \) es la componente escalar de \( f \). Entonces:
-	
+
 	\[
-	f \text{ es continua en } a \in X \iff f_i \text{ es continua en } a \in X
+		f \text{ es continua en } a \in X \iff f_i \text{ es continua en } a \in X
 	\]
 }
 
 \pf{ Prueba del teorema \ref{thm:teorema4-1}\\
 	$(\Rightarrow)$ Supongamos que $f$ es continua,
 	$$
-	\longrightarrow \pi_i \circ f = f_i, \quad \forall i \in \{1, 2, \ldots, n\}
+		\longrightarrow \pi_i \circ f = f_i, \quad \forall i \in \{1, 2, \ldots, n\}
 	$$
 	$\pi_i \circ f$ es continua, pues es composición de continuas.
-	
+
 	$(\Leftarrow)$ Supongamos que $f_i \colon X \rightarrow \R$ es continua en $a\in X, \;\forall i \in \{1, 2, \ldots, n\} $
-	
+
 	Dado $\varepsilon >0$, como $\forall i \in \{1, \ldots, n\}, f_i \colon X \to \R$ es continua en $a \in X$\\
-	 $\exists \delta_i>0, \forall x \in X$
+	$\exists \delta_i>0, \forall x \in X$
 	$$
-	\abs{x-a} < \delta_i \rightarrow \abs{f_i(x)-f(a)} <\varepsilon
+		\abs{x-a} < \delta_i \rightarrow \abs{f_i(x)-f(a)} <\varepsilon
 	$$
 	Sea $\delta = \min \{\delta_1, \delta_2, \ldots, \delta_n >0\}$
 	$$
-	\abs{x-a}<\delta\leq \delta_i \; \forall i \in \{1,\ldots, n\}
+		\abs{x-a}<\delta\leq \delta_i \; \forall i \in \{1,\ldots, n\}
 	$$
 	$$
-	\longrightarrow \forall i \in \{1, 2, \ldots, n\}, \abs{f_i(x)-f_i(a)}< \varepsilon
+		\longrightarrow \forall i \in \{1, 2, \ldots, n\}, \abs{f_i(x)-f_i(a)}< \varepsilon
 	$$
 	$$
-	\longrightarrow \max\limits_{1\leq i \leq n}\abs{f_i(x)-f_i(a)}< \varepsilon
+		\longrightarrow \max\limits_{1\leq i \leq n}\abs{f_i(x)-f_i(a)}< \varepsilon
 	$$
 	$$
-	\longrightarrow\norm{f_i(x)-f_i(a)}_{\infty}< \varepsilon
+		\longrightarrow\norm{f_i(x)-f_i(a)}_{\infty}< \varepsilon
 	$$
 	Así, $f$ es continua en $a \in X$.
 }
 
 \cor{
 	Sea $X \subset \mathbb{R}^p$, sean $f \colon X \to \mathbb{R}^m$ y $g \colon X \to \mathbb{R}^n$. Consideramos la aplicación $(f,g) \colon X \to \mathbb{R}^m \times \mathbb{R}^n$ definida por $(f,g)(x) = (f(x), g(x))$.
-	
+
 	Entonces, $(f,g)$ es continua si y sólo si $f$ y $g$ son continuas.
-	
+
 	\rmk{Obs: $\mathbb{R}^m \times \mathbb{R}^n \cong \mathbb{R}^{m+n}$}
 }
 
-\cor{
+\corp{
 	Sean $f \colon X \to \mathbb{R}^m$, $g \colon X \to \mathbb{R}^n$ y $\alpha \colon X \to \R$ funciones continuas. Entonces
 	\begin{description}
 		\item[(i)] $f+g$ es continua, $(f+g)(x) = f(x)+g(x)$
 		\item[(ii)] $\alpha(x) \in \R, f(x)\in \Rn$
-		\begin{align*}
-			\alpha \cdot f \colon X &\longrightarrow \Rn\\
-			 x & \longmapsto (\alpha\cdot f)(x) = \alpha(x)\cdotp f(x)
-		\end{align*}
-	 también es continua, $(f+g)(x) = f(x)+g(x)$
-	 \item[(iii)] 
-	 \begin{align*}
-	 	\inner{f}{g} \colon X &\longrightarrow \R\\
-	 	x & \longmapsto \inner{f}{g}(x) =\inner{f(x)}{g(x)}  
-	 \end{align*}
-	 \item[(iv)] 
-	 \begin{align*}
-	 	\frac{1}{\alpha} \colon X &\longrightarrow \R\\
-	 	x & \longmapsto  \pqty{\frac{1}{\alpha}}(x)=\frac{1}{\alpha(x)} 
-	 \end{align*}
-	  Es continua donde $\alpha(x)\neq 0, \forall x \in X$
+		      \begin{align*}
+			      \alpha \cdot f \colon X & \longrightarrow \Rn                                   \\
+			      x                       & \longmapsto (\alpha\cdot f)(x) = \alpha(x)\cdotp f(x)
+		      \end{align*}
+		      también es continua, $(f+g)(x) = f(x)+g(x)$
+		\item[(iii)]
+		      \begin{align*}
+			      \inner{f}{g} \colon X & \longrightarrow \R                              \\
+			      x                     & \longmapsto \inner{f}{g}(x) =\inner{f(x)}{g(x)}
+		      \end{align*}
+		\item[(iv)]
+		      \begin{align*}
+			      \frac{1}{\alpha} \colon X & \longrightarrow \R                                          \\
+			      x                         & \longmapsto  \pqty{\frac{1}{\alpha}}(x)=\frac{1}{\alpha(x)}
+		      \end{align*}
+		      Es continua donde $\alpha(x)\neq 0, \forall x \in X$
+	\end{description}
+}{
+	\begin{description}
+		\item[(i)]
+		      \begin{align*}
+			      (f+g)(x) = f(x)+g(x) & = \pqty{f_1(x),\ldots, f_n(x)} + \pqty{g_1(x),\ldots, g_n(x)} \\
+			                           & = \pqty{f_1(x)+g_1(x),\ldots, f_n(x)+g_n(x)}
+		      \end{align*}
+		      Como $f$ es continua $\rightarrow \forall i \in \{1,2, \ldots, n\}, f_i\colon X \to \R $ es continua.\\
+		      Como $g$ es continua $\rightarrow \forall i \in \{1,2, \ldots, n\}, g_i\colon X \to \R $ es continua.\\
+		      Queda demostracion para el lector, $\rightarrow \forall i \in \{1,2, \ldots, n\}, f_i+g_i  $ es continua.\\
+		      $$
+			      \rightarrow f+g \text{ es continua.}
+		      $$
 	\end{description}
 }
-\pf{
-	Hacer las demostraciones (falta pasarlo a \LaTeX)
+
+
+\corp{
+	verificar pag6 clas4
+}{
+	Sean,
+	\begin{align*}
+		S \colon \Rn \times \Rn & \longrightarrow\Rn      \\
+		(x,y)                   & \longmapsto S(x,y)= x+y
+	\end{align*}
+	$S$ es una transformación lineal,
+	\begin{itemize}
+		\item Adición, \begin{align*}
+			      S((x,y)+(x',y')) & =S(x+x', y+y')               \\
+			                       & =x+x' {\color{blue} + } y+y' \\
+			                       & =x+x'+ y+y'                  \\
+			                       & =S(x,y)+S(x',y')
+		      \end{align*}
+		\item Multiplicación por un escalar, \begin{align*}
+			      S(\lambda(x,y) ) & =S(\lambda x,\lambda x') \\
+			                       & =\lambda x+ \lambda y    \\
+			                       & =\lambda (x+y)           \\
+			                       & =\lambda S(x,y)
+		      \end{align*}
+	\end{itemize}
+	$S$ es continua ya que es una transformación lineal.\\
+	$\phi $ y $\xi$ son bilineales $\Rightarrow$ $\phi$ y $\xi$ son continuas.
+	\begin{align*}
+		\phi \colon \R  \times \Rn & \longrightarrow\Rn                     \\
+		(\lambda,x)                & \longmapsto \phi(\lambda,x)= \lambda x
+	\end{align*}
+	\begin{align*}
+		\xi \colon \Rn  \times \Rn & \longrightarrow\Rn                                            \\
+		(x,y)                      & \longmapsto \xi(x,y)= \inner{x}{y} = \sum_{i = 1}^{n} x_i y_i
+	\end{align*}
+	donde $x=(x_1, \ldots, x_n)$ e $y=(y_1, \ldots, u_n)$.
+
+	$\rho $ es continua,
+	\begin{align*}
+		\rho \colon \R-\{0\}  \R & \longrightarrow\Rn               \\
+		t                        & \longmapsto \rho(t)= \frac{1}{t}
+	\end{align*}
+	$$
+		\bqty{S\circ (f,g)}(x)\qty((f,g)(x))= S\pqty{(f(x), g(x))} = f(x)+g(x) = (f+g)(x), \forall x \in X
+	$$
+	$\longrightarrow S\circ(f,g) =f+g $, $S\circ(f,g)$ es continua, pues es composición de continuas.
+	\begin{align*}
+		\bqty{\varphi \circ (\alpha, f)}(x) = \varphi((\alpha, f)(x)) & = \varphi(\alpha(x), f(x))      \\
+		                                                              & =\alpha(x) f(x)                 \\
+		                                                              & =(\alpha f)(x), \forall x \in X
+	\end{align*}
+	$\rightarrow \varphi \circ(\alpha, f) = \alpha f $, $ \varphi \circ(\alpha, f)$ es continua ya que $\varphi$ es continua por ser bilineal $(\alpha, f)$ es continua pues cada coordenada $\alpha \colon X\to \R$ y $f \colon X \to \Rn$ son continuas.
+
 }
+{}
+
+\vspace{-2em}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{img/class4_figure1.png}
+\end{figure}
+\vspace{-1em}
 
 \thmr{}{teorema4-2}{
 	Sea $X \subset \mathbb{R}^m$ y sea $f \colon X \to \mathbb{R}^n$ una función.
-	
+
 	Entonces, $f$ es continua en $a \in X$ si y sólo si, para toda sucesión $(x_k)_{k \in \mathbb{N}} \subset X$ tal que $\lim\limits_{k \to \infty} x_k = a$, se cumple que:
 	\[
-	\lim_{k \to \infty} f(x_k) = f(a).
+		\lim_{k \to \infty} f(x_k) = f(a).
 	\]
 }
-
 \pf{Prueba del teorema \ref{thm:teorema4-2}\\
-($\Rightarrow$)
+	($\Rightarrow$) Supongamos que $f$ es continua en $a \in X$.\\
+	Dado
+	$$
+		\varepsilon>0, \exists \delta >0, \forall x \in X, \abs{x-a}<\delta \rightarrow\abs{f(x)-f(a)}<\varepsilon
+	$$
+	Sea $(x_k)_{k\in \N} \subset X$ tal que $\lim\limits_{k\to \infty} x_k = a$
 
+	Como $\lim\limits_{k \to \infty} x_k =a$, para $\delta>0$ anterior, $\exists k_0 \in \N$,
+	$$
+		\forall k \in \N, k\geq k_0 \rightarrow \abs{x_k-a}<\delta \rightarrow \abs{f(x_k)-f(a)}< \varepsilon
+	$$
+	$$
+		\therefore \lim\limits_{k \to \infty} f(x_K) = f(a)
+	$$
 
-($\Leftarrow$)
+	($\Leftarrow$) Supongamos que $\forall (x_k)_{k\in \N} \subset X, \lim\limits_{k \to \infty} x_k =a \rightarrow  \lim\limits_{k \to \infty} f(x_k) =f(a) $\\
+	Mostremos que $f$ es continua en $a \in X$.\\
+	Supongamos que $f$ no es continua en $a \in X$
+	$$
+		\sim \bqty{ \forall\varepsilon>0, \exists \delta >0, \forall x \in X, \abs{x-a}<\delta \rightarrow\abs{f(x)-f(a)}<\varepsilon }
+	$$
+	$$
+		\equiv \exists \varepsilon_0, \forall \delta>0, \exists x_{\delta} \in X, \abs{x_{\delta}-a}<\delta \wedge \abs{f(x_{\delta} -f(a))} \geq \varepsilon_0
+	$$
+	$$
+		\forall k \in \N, \delta_k = \frac{1}{k}>0, \exists x_k \in X, \abs{x_k-a}<\frac{1}{k} \wedge \abs{f(x_k)-f(a)}\geq \varepsilon_0
+	$$
+	Así, $\lim\limits_{k \to \infty} \abs{x_k-a}=0$
+	$$
+		\lim\limits_{k \to \infty}  x_k=a \wedge \forall k \in  \N, \abs{f(x_k)-f(a)}\geq \varepsilon_0
+	$$
+	de la hipótesis, $	\lim\limits_{k \to \infty}  f(x_k)=f(a) \rightarrow \lim\limits_{k \to \infty}  \abs{f(x_k)-f(a)}=0  $\\
+	$\rightarrow 0 \geq \varepsilon_0>0$ (Contradicción)\\
+	Por lo tanto $f$ es continua en $a \in X$.
 }
 
+%-------------------------------
+
+Sea \( f \colon X \subset \mathbb{R}^m \to \mathbb{R}^n \)
+
+\begin{itemize}
+	\item[\textbf{1.}] \( f \) es continua si:
+	      \[
+		      \forall a \in X, \quad f \text{ es continua en } a
+	      \]
+	      Es decir:
+	      \[
+		      \forall a \in X, \quad \forall \varepsilon > 0, \; \exists \delta > 0, \; \forall x \in X, \; \lvert x - a \rvert < \delta \Rightarrow \lvert f(x) - f(a) \rvert < \varepsilon
+	      \]
+	      \textcolor{orange}{\(\delta = \delta(a, \varepsilon)\)} $\rightarrow$ \textit{\(\delta\) depende de \(a\) y \(\varepsilon\)}.
+
+	\item[\textbf{2.}] \( f \) es \textbf{uniformemente continua} si:
+	      \[
+		      \forall \varepsilon > 0, \; \exists \delta > 0, \; \forall x, a \in X, \; \lvert x - a \rvert < \delta \Rightarrow \lvert f(x) - f(a) \rvert < \varepsilon
+	      \]
+	      \textcolor{orange}{\(\delta = \delta(\varepsilon)\)} $\rightarrow$ \textit{\(\delta\) solo depende de \(\varepsilon\)}.
+
+	\item[\textbf{3.}] \( f \) es \textbf{Lipschitziana} si:
+	      \[
+		      \exists C > 0 \text{ tal que } \forall x, y \in X, \quad \lvert f(x) - f(y) \rvert \leq C \lvert x - y \rvert
+	      \]
+	      \textcolor{green}{\(C\) es una constante de Lipschitz de \(f\)}.
+
+	      \rmkb{
+		      \textbf{ Afirmación:}  Toda función Lipschitziana es uniformemente continua.
+
+		      \textbf{Demostración:}
+
+		      Sea \( f \colon X \subset \mathbb{R}^m \to \mathbb{R}^n \) Lipschitziana. Entonces:
+		      \[
+			      \exists C > 0 \text{ tal que } \forall x, y \in X, \quad \lvert f(x) - f(y) \rvert \leq C \lvert x - y \rvert
+		      \]
+
+		      Dado \( \varepsilon > 0 \), tomamos \( \delta = \frac{\varepsilon}{C} > 0 \). Entonces:
+		      \[
+			      \forall x, y \in X, \; \lvert x - y \rvert < \delta \Rightarrow C \lvert x - y \rvert < \varepsilon \Rightarrow \lvert f(x) - f(y) \rvert < \varepsilon
+		      \]
+
+		      Por lo tanto, \(f\) es uniformemente continua.
+	      }
+\end{itemize}
+
+
+
+\propp{
+	Sea \(f\colon X \subset \mathbb{R}^m \to \mathbb{R}^n\).
+	Si \(f\) es uniformemente continua, entonces
+	\[
+		\forall\, (x_k)_{k\in\mathbb{N}} \subset X,
+	\]
+	si $(x_k)_{k \in \N}$ es de Cauchy, la sucesión
+	\[
+		\bigl(f(x_k)\bigr)_{k\in\mathbb{N}} \subset \mathbb{R}^n
+	\]
+	también es de Cauchy.
+}{ (Suponga que $f \colon X \subset \Rm \to \Rn$ es uniformemente continua y sea $(x_k)_{k\in \N} \subset X$ una sucesión de Cauchy.\\
+	Mostremos que $(f(x_k))_{k \in \N}$ es de cauchy.
+	\begin{equation}
+		\text{Dado } \varepsilon>0, \exists \delta >0, \forall x, w \in X \text{ tal que } \abs{x-w}< \delta \rightarrow \abs{f(x)-f(w)} < \varepsilon \label{eq:proposion-1}
+	\end{equation}
+	Como $(x_k)_{k \in \N}$ es de Cauchy, entonces para $\delta >0$ anterior, $\exists k_0 \in \N, \forall k, p \in \N$,
+	$$
+		k, p \geq k_0 \rightarrow \abs{ x_k -x_p} < \delta
+	$$
+	Por la uniformidad de \(f\) (según la ecuación~\eqref{eq:proposion-1}), se tiene:
+	\[
+		\lvert f(x_k) - f(x_p) \rvert < \varepsilon.
+	\]
+	Por lo tanto, \((f(x_k))_{k \in \mathbb{N}}\) es una sucesión de Cauchy en \(\mathbb{R}^n\).
+}
+
+\ex{
+	¿Es cierto el recíproco de la proposición anterior? Proporciona una prueba o un contraejemplo.
+
+	Por contraejemplo\\
+	Agregar grafico!!!!!!!!
+
+	Sea
+	\[
+		f\colon \mathbb{R}\setminus\{0\} \;\longrightarrow\; \mathbb{R},
+		\qquad
+		f(x)=\frac1x.
+	\]
+	Consideremos la sucesión
+	\[
+		x_k = \frac1k,\quad k\in\mathbb{N}.
+	\]
+	Entonces \((x_k)\) es de Cauchy en \(\mathbb{R}\setminus\{0\}\), pero
+	\[
+		f(x_k) = k,
+	\]
+	que no es de Cauchy en \(\mathbb{R}\). Por tanto, \(f\) no es uniformemente continua.
+}
+
+\ex{
+	Demostrar que
+	\[
+		f\colon X\subset \mathbb{R}^m \;\longrightarrow\; \mathbb{R}^n
+	\]
+	es uniformemente continua si y solo si para cualesquiera dos sucesiones
+	\((x_k)\), \((y_k)\subset X\) tales que
+	\(\lim_{k\to\infty}\|x_k - y_k\| = 0\),
+	se tiene
+	\(\lim_{k\to\infty}\|f(x_k) - f(y_k)\| = 0\).
+}
+%---------------
 
 \section{Límites}
 
 Sean $f \colon X \subset \Rm \to \Rn, a \in X'$ y $b \in \Rn$
 \begin{itemize}
 	\item Decimos que el límite de $f(x)$ es $b$ cuando $x$ tiene para $a$ si ocurre lo siguiente:
-	$$
-	\forall \varepsilon >0, \exists \delta >0, \forall x \in X, 0 < \abs{x-a} < \delta \rightarrow \abs{f(x)-b}<\varepsilon
-	$$
-	donde $d(x,a)=\abs{x-a}$  y $d(f(x),b) = \abs{f(x)-b}$\\
-	\rmk{Notación: $\lim\limits_{x \to a} f(x) = b$}
+	      $$
+		      \forall \varepsilon >0, \exists \delta >0, \forall x \in X, 0 < \abs{x-a} < \delta \rightarrow \abs{f(x)-b}<\varepsilon
+	      $$
+	      donde $d(x,a)=\abs{x-a}$  y $d(f(x),b) = \abs{f(x)-b}$\\
+	      \rmk{Notación: $\lim\limits_{x \to a} f(x) = b$}
 \end{itemize}
-
-		\vspace{-2em}
+Corregir dibujo! [ver codigo en python]
+\vspace{-2em}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\linewidth]{img/class4_figure1.png}
+	\includegraphics[width=0.5\linewidth]{img/class4_figure2.png}
 \end{figure}
 \vspace{-1em}
+Dado $\varepsilon>0, \exists \delta>0, \forall x \in X$ si $x \in ] a-\delta, a+\delta [\backslash \{a\} \rightarrow f(x) \in ]b-\varepsilon, b+\varepsilon[$ es equivalente a
+$$
+	\varepsilon>0, \exists \delta>0, \forall x \in X, 0<\abs{x-a} < \delta \rightarrow \abs{f(x) - b} \varepsilon
+$$
+\rmkb{ Sean $f\colon X \subset \Rm \to \Rn, \, a \in X' \text{ y } b, c \in \Rn$\\
+	Si $\lim\limits_{x \to a} f(x) =b$ y $\lim\limits_{x \to a} f(x) = c$, entonces $b=c$
+	\pf{
+		Dado $\varepsilon >0$,
+		\begin{align*}
+			\exists \delta >0, \; \forall x \in X, 0\abs{x-a} < \delta \rightarrow \abs{f(x)-b} < \varepsilon \\
+			\exists \eta >0, \;\forall x \in X, 0\abs{x-a} < \eta \rightarrow \abs{f(x)-b} < \varepsilon
+		\end{align*}
+		Sea $\delta_0 =\min\{\delta, \eta\}>0$, si $0<\abs{x-a}<\delta_0 \rightarrow \abs{b-c} \leq \abs{b-f(x)}+\abs{f(x)-c}<2\varepsilon$
+		\begin{align*}
+			 & \text{Por tanto, } \lvert b - c \rvert < 2\varepsilon, \quad \forall \varepsilon > 0.              \\
+			 & \text{Pero esto implica que } \lvert b - c \rvert \leq \inf\{2\varepsilon : \varepsilon > 0\} = 0. \\
+			 & \text{Es decir, } \lvert b - c \rvert = 0 \Rightarrow b = c.
+		\end{align*}
+
+	}
+}
+
+\thmr{}{teorema4-20}{
+	Sea $f \colon X \subset \mathbb{R}^m \to \mathbb{R}^n$ tal que $f = (f_1, \ldots ,f_n)$. Además $a\in X'$ y $b= (b_1, \ldots , b_n) \in \Rn$. Entonces
+	\[
+		\lim_{x\to a} f(x) \;=\; b
+	\]
+	si y solo si
+	\[
+		\lim_{x\to a} f_i(x) \;=\; b_i,
+		\quad
+		\text{para todo } i=1,2,\dots,n.
+	\]
+}
+
+\pf{Prueba del teorema \ref{thm:teorema4-20}\\
+	($\Rightarrow$)
+	Ejercicio para el lector.
+
+	($\Leftarrow$)
+	Ejercicio para el lector.
+}
