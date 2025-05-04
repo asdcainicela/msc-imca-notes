@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from ball import *
 
 # Ruta de guardado
-output_path = get_output_path("class4_figure1.png")
+output_path = get_output_path("class4_figure2.png")
 
 # Parámetros del límite
 a = 3.6
