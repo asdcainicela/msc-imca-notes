@@ -67,6 +67,27 @@
     \end{mytheorem}
 }
 
+\newenvironment{thmpf}{
+	{\noindent{\it \textbf{Proof for Theorem.}}}
+	\tcolorbox[blanker,breakable,left=5mm,parbox=false,
+	before upper={\parindent15pt},
+	after skip=10pt,
+	borderline west={1mm}{0pt}{cyan!20!white}]
+}{
+	\textcolor{cyan!20!white}{\hbox{}\nobreak\hfill$\blacksquare$} 
+	\endtcolorbox
+}
+
+\NewDocumentCommand{\thmrpf}{m+m+m+m}{
+	\begin{mytheorem}{#1}{#2}
+		#3
+	\end{mytheorem}
+	
+	\begin{thmpf}
+		#4
+	\end{thmpf}
+}
+
 % Lemma
 \newtcbtheorem[use counter from=mydefinition]{mylemma}{Lemma}
 {
@@ -270,7 +291,8 @@
         blanker, breakable, left=5mm, parbox=false,
         before upper={\parindent15pt},
         after skip=10pt,
-        borderline west={1mm}{0pt}{cyan!10!white}]
+        borderline west={1mm}{0pt}{orange!30!white}
+        ]
 }{
     \end{tcolorbox}
     \vspace{5pt}
@@ -281,6 +303,23 @@
         #1
     \end{example}
 }
+
+\NewDocumentCommand{\expf}{m+m}{
+	\begin{example}
+		#1
+	\end{example}
+	
+	\begin{tcolorbox}[
+		blanker, breakable, left=5mm, parbox=false,
+		before upper={\parindent15pt},
+		after skip=10pt,
+		borderline west={1mm}{0pt}{orange!30!white}
+		]
+		\noindent{\it \textbf{Proof for Example.}} #2
+		\textcolor{orange!30!white}{\hfill$\blacksquare$}
+	\end{tcolorbox}
+}
+
 
 % Remark
 \NewDocumentCommand{\rmk}{+m}{
@@ -295,7 +334,8 @@
         blanker, breakable, left=5mm, parbox=false,
         before upper={\parindent15pt},
         after skip=10pt,
-        borderline west={1mm}{0pt}{cyan!10!white}]
+        borderline west={1mm}{0pt}{gray!30!white}
+        ]
 }{
     \end{tcolorbox}
     \vspace{5pt}
@@ -306,4 +346,42 @@
         #1
     \end{remark}
 }
+
+%ejercicios
+\newenvironment{exercise}{
+	\par\vspace{5pt}
+	\noindent\textbf{Exercise.}
+	\begin{tcolorbox}[
+		blanker, breakable, left=5mm, parbox=false,
+		before upper={\parindent15pt},
+		after skip=10pt,
+		borderline west={1mm}{0pt}{red!30!white}
+		]
+	}{
+	\end{tcolorbox}
+	\vspace{5pt}
+}
+
+\NewDocumentCommand{\exer}{+m}{
+	\begin{exercise}
+		#1
+	\end{exercise}
+}
+
+\NewDocumentCommand{\exerpf}{m+m}{
+	\begin{exercise}
+		#1
+	\end{exercise}
+	
+	\begin{tcolorbox}[
+		blanker, breakable, left=5mm, parbox=false,
+		before upper={\parindent15pt},
+		after skip=10pt,
+		borderline west={1mm}{0pt}{red!30!white}
+		]
+		\noindent{\it \textbf{Proof / Solution.}} #2
+		\textcolor{red!30!white}{\hfill$\blacksquare$}
+	\end{tcolorbox}
+}
+
 
