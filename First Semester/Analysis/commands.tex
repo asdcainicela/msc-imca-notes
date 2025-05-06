@@ -28,3 +28,23 @@
 	\end{center}
 	\vspace{-1em}
 }
+
+\makeatletter
+\newcommand{\bigcuplim}[1]{%
+	\@ifnextchar\bgroup
+	{\@bigcuplim@withsup{#1}}% Si viene otro grupo, usa como superíndice
+	{\bigcup\limits_{#1}}% Si no, solo subíndice
+}
+\newcommand{\@bigcuplim@withsup}[2]{%
+	\bigcup\limits_{#1}^{#2}%
+}
+
+\newcommand{\bigcaplim}[1]{%
+	\@ifnextchar\bgroup
+	{\@bigcaplim@withsup{#1}}%
+	{\bigcap\limits_{#1}}%
+}
+\newcommand{\@bigcaplim@withsup}[2]{%
+	\bigcap\limits_{#1}^{#2}%
+}
+\makeatother
