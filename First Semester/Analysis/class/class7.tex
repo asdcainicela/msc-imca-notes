@@ -3,17 +3,17 @@
 \section{Conjuntos compactos}
 
 \[
-K \subset \mathbb{R}^n \text{ es compacto si y solo si } K \text{ es cerrado y acotado}
+	K \subset \mathbb{R}^n \text{ es compacto si y solo si } K \text{ es cerrado y acotado}
 \]
 \[
-\overline{K} = K
+	\overline{K} = K
 \]
 
-\propp{ 
+\propp{
 Sea \( X \subset \mathbb{R}^n \). \( X \) es \textbf{sucesionalmente compacto} \(\Leftrightarrow\)
 
 {	\( X \) es compacto si y solo si toda sucesión \( (x_k)_{k \in \mathbb{N}} \) en \( X \) posee alguna subsucesión convergente a un punto de \( X \).
-\label{eq:class7-1}}
+		\label{eq:class7-1}}
 
 }{
 (\( \Rightarrow \))
@@ -24,29 +24,29 @@ Supongamos que \( X \) es compacto \( \Rightarrow X \) es cerrado y acotado.
 Sea \( (x_k)_{k \in \mathbb{N}} \subset X \)
 
 \[
-\Rightarrow (x_k)_{k \in \mathbb{N}} \text{ es acotada}
+	\Rightarrow (x_k)_{k \in \mathbb{N}} \text{ es acotada}
 \]
 
 Por el Teorema de Bolzano–Weierstrass:
 
 \[
-\exists i : \mathbb{N} \to \mathbb{N} \text{ estrictamente creciente y } \exists w_0 \in \mathbb{R}^n \text{ tal que }
+	\exists i : \mathbb{N} \to \mathbb{N} \text{ estrictamente creciente y } \exists w_0 \in \mathbb{R}^n \text{ tal que }
 \]
 
 \[
-\lim_{k \to \infty} x_{i(k)} = w_0 \in \mathbb{R}^n
+	\lim_{k \to \infty} x_{i(k)} = w_0 \in \mathbb{R}^n
 \]
 
 Como \( X \) es cerrado y \( (x_k) \subset X \)
 
 \[
-\Rightarrow w_0 \in   \overline{X} = X
+	\Rightarrow w_0 \in   \overline{X} = X
 \]
 
-(\( \Leftarrow \)) Supongamos \eqref{eq:class7-1} 
+(\( \Leftarrow \)) Supongamos \eqref{eq:class7-1}
 
-Sea $w \in \overline{X} \to \exists  (x_k)_{k \in \N } \subset X$ tal que 
-$\lim_{k \to \infty} x_k = w \in \Rn \label{eq:class7-2}$ 
+Sea $w \in \overline{X} \to \exists  (x_k)_{k \in \N } \subset X$ tal que
+$\lim_{k \to \infty} x_k = w \in \Rn \label{eq:class7-2}$
 
 Como $(x_k)_{k \in \N} \subset X,$ por \eqref{eq:class7-1}.
 
@@ -57,7 +57,7 @@ De \eqref{eq:class7-2}, $\lim_{k \to \infty} x_{j(k)} = w$
 Por la unicidad del límite $w = z \in X$
 
 $$
-\therefore \overline{X}  \subset X
+	\therefore \overline{X}  \subset X
 $$
 Así, $X$ es cerrado
 
@@ -65,145 +65,145 @@ Mostremos que $X$ es acotado $\rightarrow \exists c>0, \forall z \in X, \abs{z} 
 Supongamos que $X$ no es acotado, $\rightarrow \forall c>0, \exists z_k \in X, \abs{Z_k} >k \label{eq:class7-3}$
 
 Hemos construido $(z_k)_{k \in \N} \subset X$ tal que $$
-\lim_{k \to \infty} \abs{z_k} = +\infty$$
+	\lim_{k \to \infty} \abs{z_k} = +\infty$$
 
 Dado  $i \colon \N \to \N$ estrictamente creciente. $i(k) \leq k, \forall k \in \N$
 
 $$
-\forall k \in \N, \quad \abs{Z_{i(k)}} > i(k)
+	\forall k \in \N, \quad \abs{Z_{i(k)}} > i(k)
 $$
 $$
-\lim_{k \to \infty} \abs{Z_{i(k)}} = +\infty
+	\lim_{k \to \infty} \abs{Z_{i(k)}} = +\infty
 $$
 Así $(z_{i(k)})_{k \in \N} $ no converge, esto contradice a \eqref{eq:class7-1}.
 
-} 
-
-
-
-\propp{ 
-	Sea \( X \subset \mathbb{R}^n \). Entonces, \( X \) es \textbf{sucesionalmente compacto} si y solo si es \textbf{compacto}, es decir:
-	\[
-	X \text{ es compacto} \;\Leftrightarrow\; \text{toda sucesión } (x_k)_{k \in \mathbb{N}} \subset X \text{ tiene una subsucesión convergente en } X.
-	\]
-}{
-	\textbf{(\( \Rightarrow \))} Supongamos que \( X \) es compacto.
-	
-	\rmkb{Por el teorema de Heine–Borel en \(\mathbb{R}^n\), esto implica que \(X\) es cerrado y acotado.}
-	
-	Sea \( (x_k)_{k \in \mathbb{N}} \subset X \) una sucesión arbitraria.
-	
-	Como \(X\) es acotado, entonces \( (x_k) \) también lo es.  
-	Por el \textbf{teorema de Bolzano–Weierstrass}, existe una subsucesión \( (x_{i(k)})_{k \in \mathbb{N}} \subset X \) tal que
-	\[
-	\lim_{k \to \infty} x_{i(k)} = w_0 \in \mathbb{R}^n.
-	\]
-	
-	Como \( X \) es cerrado y \( x_{i(k)} \in X \), se sigue que \( w_0 \in \overline{X} = X \).  
-	\[
-	\Rightarrow (x_{i(k)}) \text{ converge en } X.
-	\]
-	
-	\textbf{(\( \Leftarrow \))} Supongamos que toda sucesión en \( X \) posee una subsucesión convergente en \( X \). Queremos probar que \(X\) es compacto.
-	
-	\textbf{1. \(X\) es cerrado:}  
-	Sea \( w \in \overline{X} \). Entonces existe una sucesión \( (x_k)_{k \in \mathbb{N}} \subset X \) tal que
-	\[
-	\lim_{k \to \infty} x_k = w.
-	\]
-	
-	Por hipótesis, \( (x_k) \) tiene una subsucesión convergente \( x_{j(k)} \to z \in X \).  
-	Pero como \( x_{j(k)} \subset (x_k) \) y la sucesión original converge a \(w\), se sigue que también:
-	\[
-	\lim_{k \to \infty} x_{j(k)} = w.
-	\]
-	
-	Por la unicidad del límite:
-	\[
-	w = z \in X.
-	\]
-	\[
-	\Rightarrow \overline{X} \subset X \Rightarrow X \text{ es cerrado}.
-	\]
-	
-	\textbf{2. \(X\) es acotado:}  
-	Supongamos que \(X\) no es acotado.
-	
-	Entonces, para todo \(k \in \mathbb{N}\), existe \( z_k \in X \) tal que
-	\[
-	\abs{z_k} > k.
-	\]
-	
-	Esto define una sucesión \( (z_k)_{k \in \mathbb{N}} \subset X \) tal que:
-	\[
-	\lim_{k \to \infty} \abs{z_k} = +\infty.
-	\]
-	
-	Sea \( i \colon \mathbb{N} \to \mathbb{N} \) estrictamente creciente.  
-	Entonces, para todo \(k\),
-	\[
-	\abs{z_{i(k)}} > i(k) \geq k \Rightarrow \lim_{k \to \infty} \abs{z_{i(k)}} = +\infty.
-	\]
-	
-	\rmkb{Toda subsucesión de \( (z_k) \) también diverge, por lo tanto, \( (z_k) \) no tiene subsucesión convergente.}
-	
-	Esto contradice la hipótesis de sucesionalmente compacto.  
-	\[
-	\Rightarrow X \text{ debe ser acotado}.
-	\]
-	
-	Por lo tanto, \(X\) es cerrado y acotado, es decir, \textbf{compacto}.
 }
- 
-\rmkb{En espacios métricos, el hecho de ser cerrado y acotado \textbf{no implica} ser sucesionalmente compacto. Esta propiedad es equivalente a la compacidad solo en \(\mathbb{R}^n\).}
- 
- 
+
+
+
 \propp{
-	Sea \( \{K_p\}_{p \in \N} \) una colección de subconjuntos compactos de \( \R^n \) tal que:
-	\[
-	K_p \supset K_{p+1}, \quad \forall p \in \N, \qquad K_p \neq \varnothing
-	\]
-	Entonces:
-	\[
-	K := \bigcap\limits_{p \in \N} K_p \text{ es compacto y } K \neq \varnothing
-	\]
+Sea \( X \subset \mathbb{R}^n \). Entonces, \( X \) es \textbf{sucesionalmente compacto} si y solo si es \textbf{compacto}, es decir:
+\[
+	X \text{ es compacto} \;\Leftrightarrow\; \text{toda sucesión } (x_k)_{k \in \mathbb{N}} \subset X \text{ tiene una subsucesión convergente en } X.
+\]
 }{
-	\begin{itemize}
-		\item \( \bigcap\limits_{p \in \N} K_p \subset K_1 \Rightarrow \bigcap\limits_{p \in \N} K_p \) es acotado.
-		\item \( \bigcap\limits_{p \in \N} K_p \) es cerrado, pues cada \( K_p \) es cerrado.
-	\end{itemize}
-	\[
+\textbf{(\( \Rightarrow \))} Supongamos que \( X \) es compacto.
+
+\rmkb{Por el teorema de Heine–Borel en \(\mathbb{R}^n\), esto implica que \(X\) es cerrado y acotado.}
+
+Sea \( (x_k)_{k \in \mathbb{N}} \subset X \) una sucesión arbitraria.
+
+Como \(X\) es acotado, entonces \( (x_k) \) también lo es.
+Por el \textbf{teorema de Bolzano–Weierstrass}, existe una subsucesión \( (x_{i(k)})_{k \in \mathbb{N}} \subset X \) tal que
+\[
+	\lim_{k \to \infty} x_{i(k)} = w_0 \in \mathbb{R}^n.
+\]
+
+Como \( X \) es cerrado y \( x_{i(k)} \in X \), se sigue que \( w_0 \in \overline{X} = X \).
+\[
+	\Rightarrow (x_{i(k)}) \text{ converge en } X.
+\]
+
+\textbf{(\( \Leftarrow \))} Supongamos que toda sucesión en \( X \) posee una subsucesión convergente en \( X \). Queremos probar que \(X\) es compacto.
+
+\textbf{1. \(X\) es cerrado:}
+Sea \( w \in \overline{X} \). Entonces existe una sucesión \( (x_k)_{k \in \mathbb{N}} \subset X \) tal que
+\[
+	\lim_{k \to \infty} x_k = w.
+\]
+
+Por hipótesis, \( (x_k) \) tiene una subsucesión convergente \( x_{j(k)} \to z \in X \).
+Pero como \( x_{j(k)} \subset (x_k) \) y la sucesión original converge a \(w\), se sigue que también:
+\[
+	\lim_{k \to \infty} x_{j(k)} = w.
+\]
+
+Por la unicidad del límite:
+\[
+	w = z \in X.
+\]
+\[
+	\Rightarrow \overline{X} \subset X \Rightarrow X \text{ es cerrado}.
+\]
+
+\textbf{2. \(X\) es acotado:}
+Supongamos que \(X\) no es acotado.
+
+Entonces, para todo \(k \in \mathbb{N}\), existe \( z_k \in X \) tal que
+\[
+	\abs{z_k} > k.
+\]
+
+Esto define una sucesión \( (z_k)_{k \in \mathbb{N}} \subset X \) tal que:
+\[
+	\lim_{k \to \infty} \abs{z_k} = +\infty.
+\]
+
+Sea \( i \colon \mathbb{N} \to \mathbb{N} \) estrictamente creciente.
+Entonces, para todo \(k\),
+\[
+	\abs{z_{i(k)}} > i(k) \geq k \Rightarrow \lim_{k \to \infty} \abs{z_{i(k)}} = +\infty.
+\]
+
+\rmkb{Toda subsucesión de \( (z_k) \) también diverge, por lo tanto, \( (z_k) \) no tiene subsucesión convergente.}
+
+Esto contradice la hipótesis de sucesionalmente compacto.
+\[
+	\Rightarrow X \text{ debe ser acotado}.
+\]
+
+Por lo tanto, \(X\) es cerrado y acotado, es decir, \textbf{compacto}.
+}
+
+\rmkb{En espacios métricos, el hecho de ser cerrado y acotado \textbf{no implica} ser sucesionalmente compacto. Esta propiedad es equivalente a la compacidad solo en \(\mathbb{R}^n\).}
+
+
+\propp{
+Sea \( \{K_p\}_{p \in \N} \) una colección de subconjuntos compactos de \( \R^n \) tal que:
+\[
+	K_p \supset K_{p+1}, \quad \forall p \in \N, \qquad K_p \neq \varnothing
+\]
+Entonces:
+\[
+	K := \bigcap\limits_{p \in \N} K_p \text{ es compacto y } K \neq \varnothing
+\]
+}{
+\begin{itemize}
+	\item \( \bigcap\limits_{p \in \N} K_p \subset K_1 \Rightarrow \bigcap\limits_{p \in \N} K_p \) es acotado.
+	\item \( \bigcap\limits_{p \in \N} K_p \) es cerrado, pues cada \( K_p \) es cerrado.
+\end{itemize}
+\[
 	\Rightarrow \bigcap\limits_{p \in \N} K_p \text{ es compacto}
-	\]
-	
-	\textbf{Mostremos que \( K \neq \varnothing \colon \)}
-	
-	Como \( K_p \neq \varnothing, \ \forall p \in \N \), fijamos \( x_p \in K_p \subset K_1 \Rightarrow (x_p)_{p \in \N} \subset K_1 \)
-	
-	\[
+\]
+
+\textbf{Mostremos que \( K \neq \varnothing \colon \)}
+
+Como \( K_p \neq \varnothing, \ \forall p \in \N \), fijamos \( x_p \in K_p \subset K_1 \Rightarrow (x_p)_{p \in \N} \subset K_1 \)
+
+\[
 	\Rightarrow (x_p)_{p \in \N} \text{ es acotada}
 	\Rightarrow \exists i \colon \N \to \N \text{ estrictamente creciente tal que }
 	\lim\limits_{p \to \infty} x_{i(p)} = z_0 \in K_1
-	\]
-	
-	Tomemos \( (x_{i(p)})_{p \geq 2} \). Como \( x_{i(p)} \in K_{i(p)} \subset K_2 \) y \( i(p) \leq i(2) \leq 2 \), para todo \( p \leq 2 \), entonces:
-	
-	\[
+\]
+
+Tomemos \( (x_{i(p)})_{p \geq 2} \). Como \( x_{i(p)} \in K_{i(p)} \subset K_2 \) y \( i(p) \leq i(2) \leq 2 \), para todo \( p \leq 2 \), entonces:
+
+\[
 	\lim_{\substack{p \to \infty \\ p \leq 2}} x_{i(p)} = z_0, \quad x_{i(p)} \in K_2
-	\]
-	
-	Fijemos \( k \in \N \). Como \( x_{i(p)} \in K_{i(p)} \subset K_k \) para \( p \leq k \), se tiene:
-	
-	\[
+\]
+
+Fijemos \( k \in \N \). Como \( x_{i(p)} \in K_{i(p)} \subset K_k \) para \( p \leq k \), se tiene:
+
+\[
 	\lim_{\substack{p \to \infty \\ p \leq k}} x_{i(p)} = z_0 \in \overline{K_k} = K_k
-	\]
-	
-	\[
+\]
+
+\[
 	\therefore \forall k \in \N, \quad z_0 \in K_k
 	\Rightarrow z_0 \in \bigcap\limits_{k \in \N} K_k = K
 	\Rightarrow K \neq \varnothing
-	\]
-} 
+\]
+}
 
 
 \section{Cubrimiento}
@@ -212,88 +212,87 @@ Sea \( \{C_{\lambda}\}_{\lambda \in L} \) una familia de subconjuntos de \( \mat
 
 Decimos que \( \{C_{\lambda}\}_{\lambda \in L} \) es un \textbf{cubrimiento} de un conjunto \( X \subset \mathbb{R}^n \) si:
 \[
-X \subset \bigcup\limits_{\lambda \in L} C_{\lambda}
+	X \subset \bigcup\limits_{\lambda \in L} C_{\lambda}
 \]
 
 Un \textbf{subcubrimiento finito} de \( \{C_{\lambda}\}_{\lambda \in L} \) es una subfamilia \( \{C_{\lambda}\}_{\lambda \in L'} \), donde \( L' \subset L \) es un conjunto finito, tal que:
 \[
-X \subset \bigcup\limits_{\lambda \in L'} C_{\lambda}
+	X \subset \bigcup\limits_{\lambda \in L'} C_{\lambda}
 \]
 
 \thmrpf{}{}{
-	Sea \( K \subset \mathbb{R}^n \) un conjunto compacto.
-	
-	Entonces, todo cubrimiento abierto de \( K \) admite un subcubrimiento finito.
+Sea \( K \subset \mathbb{R}^n \) un conjunto compacto.
+
+Entonces, todo cubrimiento abierto de \( K \) admite un subcubrimiento finito.
 }{
-	Sea \( \{A_{\lambda}\}_{\lambda \in L} \) un cubrimiento abierto de \( K \), es decir:
-	\[
+Sea \( \{A_{\lambda}\}_{\lambda \in L} \) un cubrimiento abierto de \( K \), es decir:
+\[
 	K \subset \bigcup\limits_{\lambda \in L} A_{\lambda}, \quad A_{\lambda} \subset \mathbb{R}^n \text{ abierto } \forall \lambda \in L.
-	\]
-	
-	Como \( K \subset \mathbb{R}^n \) es compacto y \( \{A_{\lambda}\}_{\lambda \in L} \) es una familia de abiertos que cubre a \( K \), por definición de compacidad:
-	
-	\[
+\]
+
+Como \( K \subset \mathbb{R}^n \) es compacto y \( \{A_{\lambda}\}_{\lambda \in L} \) es una familia de abiertos que cubre a \( K \), por definición de compacidad:
+
+\[
 	\exists L' \subset L, \ \abs{L'} < \infty \quad \text{tal que} \quad K \subset \bigcup\limits_{\lambda \in L'} A_{\lambda}
-	\]
-	
-	\[
+\]
+
+\[
 	\therefore \{A_{\lambda}\}_{\lambda \in L'} \text{ es un subcubrimiento finito de } K.
-	\]
+\]
 }
- 
- 
- \lem{Lindelöf}{
- 	Sea \( X \subset \mathbb{R}^n \) y sea \( \{C_{\lambda}\}_{\lambda \in \Lambda} \) un cubrimiento abierto de \( X \), es decir,
- 	\[
- 	X \subset \bigcup\limits_{\lambda \in \Lambda} C_{\lambda}, \quad C_{\lambda} \text{ abierto } \forall \lambda \in \Lambda.
- 	\]
- 	Entonces, existe un subconjunto numerable \( \Lambda_0 \subset \Lambda \) tal que
- 	\[
- 	X \subset \bigcup\limits_{\lambda \in \Lambda_0} C_{\lambda}.
- 	\]
- }
- 
- Por (Lindelöf), $\exists \Lambda_0 = \{\lambda_i \in \Lambda \colon i \in \N\} \subset\Lambda$, $\Lambda$ es numerable.
- 
- Tal que 
- \begin{equation}
- 	K \subset \bigcuplim{\lambda \in \Lambda_0} A_{\lambda} = \bigcuplim{i \in \N} A_{\lambda_{i}}
- 	\label{eq:class7-4}
- \end{equation}
- Sea 
- \begin{align*}
- 	F_0 &= K \supset F_1 \supset F_2 \supset \ldots\\
- 	F_1 &= K-A_{\lambda_1} = K \cap \bqty{A_{\lambda_1}^{C}}\\
- 	F_2 &= K-\bqty{A_{\lambda_1} \cup A_{\lambda_2}} = K \cap \bqty{A_{\lambda_1} \cup A_{\lambda_2}}^{C}\\
- 	\vdots & =\qquad \vdots\hspace{3cm} \vdots\\
- 	 F_m &=  K-\bqty{ \bigcuplim{i = 1 }{m} A_{\lambda_i} } = K \cap \bqty{ \bigcuplim{i = 1 }{m} A_{\lambda_i} }^{C}
- \end{align*}
-  
-  Supongamos que $\forall m \in \N, F_m \neq \varnothing $ y compactos tal que $F_m \supset F_{m+1}, \forall m \in \N$
-  $$
-  \rightarrow \bigcuplim{m \in \N} F_m  \neq \varnothing
-  $$
-  pero, 
-  \begin{align*}
-  	\bigcaplim{m \in \N} F_m & = \bigcaplim{m \in \N} \pqty{K \cap  \bqty{\bigcuplim{i = 1}{m} A_{\lambda_i}}^C }\\
-  	 &=K \cap \bigcaplim{m \in \N} \pqty{   \bqty{\bigcuplim{i = 1}{m} A_{\lambda_i}}^C }\\
-  	 &=K \cap   \bqty{ \bigcup   \bqty{\bigcuplim{i = 1}{m} A_{\lambda_i}} }^C\\
-  	 &=K \cap   \bqty{    \bigcuplim{i = 1}{m} A_{\lambda_i} }^C\\\\
-  	 &=K - \bigcuplim{i = 1}{m} A_{\lambda_i} \\
-  	 & = K-K^C\\
-  \end{align*}
-  $$
-  \Rightarrow \bigcaplim{m \in \N} F_m = \varphi
-  $$
-  $$
-  \rightarrow \exists m_0 \in \N \quad \text{tal que}\quad F_{m_0} -0 \varnothing
-  $$
-  $$
-  \rightarrow K- \bqty{\bigcuplim{i = 1}{m_0} A_{\lambda_i}} = \varnothing
-  $$
-  $$
-  \rightarrow K \subset \bigcuplim{i = 1}{m_0}  A_{\lambda_i}
-  $$
-  
-  \thmrpf{}{}{}{}
-  
+
+
+\lem{Lindelöf}{
+Sea \( X \subset \mathbb{R}^n \) y sea \( \{C_{\lambda}\}_{\lambda \in \Lambda} \) un cubrimiento abierto de \( X \), es decir,
+\[
+	X \subset \bigcup\limits_{\lambda \in \Lambda} C_{\lambda}, \quad C_{\lambda} \text{ abierto } \forall \lambda \in \Lambda.
+\]
+Entonces, existe un subconjunto numerable \( \Lambda_0 \subset \Lambda \) tal que
+\[
+	X \subset \bigcup\limits_{\lambda \in \Lambda_0} C_{\lambda}.
+\]
+}
+
+Por (Lindelöf), $\exists \Lambda_0 = \{\lambda_i \in \Lambda \colon i \in \N\} \subset\Lambda$, $\Lambda$ es numerable.
+
+Tal que
+\begin{equation}
+	K \subset \bigcuplim{\lambda \in \Lambda_0} A_{\lambda} = \bigcuplim{i \in \N} A_{\lambda_{i}}
+	\label{eq:class7-4}
+\end{equation}
+Sea
+\begin{align*}
+	F_0    & = K \supset F_1 \supset F_2 \supset \ldots                                                                  \\
+	F_1    & = K-A_{\lambda_1} = K \cap \bqty{A_{\lambda_1}^{C}}                                                         \\
+	F_2    & = K-\bqty{A_{\lambda_1} \cup A_{\lambda_2}} = K \cap \bqty{A_{\lambda_1} \cup A_{\lambda_2}}^{C}            \\
+	\vdots & =\qquad \vdots\hspace{3cm} \vdots                                                                           \\
+	F_m    & =  K-\bqty{ \bigcuplim{i = 1 }{m} A_{\lambda_i} } = K \cap \bqty{ \bigcuplim{i = 1 }{m} A_{\lambda_i} }^{C}
+\end{align*}
+
+Supongamos que $\forall m \in \N, F_m \neq \varnothing $ y compactos tal que $F_m \supset F_{m+1}, \forall m \in \N$
+$$
+	\rightarrow \bigcuplim{m \in \N} F_m  \neq \varnothing
+$$
+pero,
+\begin{align*}
+	\bigcaplim{m \in \N} F_m & = \bigcaplim{m \in \N} \pqty{K \cap  \bqty{\bigcuplim{i = 1}{m} A_{\lambda_i}}^C }  \\
+	                         & =K \cap \bigcaplim{m \in \N} \pqty{   \bqty{\bigcuplim{i = 1}{m} A_{\lambda_i}}^C } \\
+	                         & =K \cap   \bqty{ \bigcup   \bqty{\bigcuplim{i = 1}{m} A_{\lambda_i}} }^C            \\
+	                         & =K \cap   \bqty{    \bigcuplim{i = 1}{m} A_{\lambda_i} }^C                          \\\\
+	                         & =K - \bigcuplim{i = 1}{m} A_{\lambda_i}                                             \\
+	                         & = K-K^C                                                                             \\
+\end{align*}
+$$
+	\Rightarrow \bigcaplim{m \in \N} F_m = \varphi
+$$
+$$
+	\rightarrow \exists m_0 \in \N \quad \text{tal que}\quad F_{m_0} -0 \varnothing
+$$
+$$
+	\rightarrow K- \bqty{\bigcuplim{i = 1}{m_0} A_{\lambda_i}} = \varnothing
+$$
+$$
+	\rightarrow K \subset \bigcuplim{i = 1}{m_0}  A_{\lambda_i}
+$$
+
+\thmrpf{}{}{}{}
