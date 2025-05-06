@@ -385,3 +385,26 @@
 }
 
 
+% Notation
+\newenvironment{notationenv}{
+	\par\vspace{5pt}
+	\noindent\textbf{Notation.}
+	\begin{tcolorbox}[
+		blanker, breakable, left=5mm, parbox=false,
+		colback=blue!5!white,
+		borderline west={1mm}{0pt}{blue!30!white},
+		before upper={\parindent15pt},
+		after skip=10pt,
+		]
+	}{
+	\end{tcolorbox}
+	\vspace{5pt}
+}
+
+\NewDocumentCommand{\notatio}{+m}{
+	\begin{notationenv}
+		#1
+	\end{notationenv}
+}
+
+
