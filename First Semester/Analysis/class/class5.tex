@@ -1,1 +1,274 @@
 \chapter{Clase 5}
+
+\expf{
+Sea \( f \colon X \subset \mathbb{R}^m \to \mathbb{R}^n \). La función \( f \) es \emph{uniformemente continua} si, y solo si \(\forall  (x_k)_{k\in \N} , (y_k)_{k\in \N} \subset X \), se cumple que
+\[
+	\lim_{k \to \infty} \lvert x_k - y_k \rvert = 0 \quad \Rightarrow \quad \lim_{k \to \infty} \lvert f(x_k) - f(y_k) \rvert = 0
+\]
+}{\\
+($\Rightarrow$) \quad Como $f$ es uniformemente continua.\\
+Dado $\varepsilon >0, \exists \delta>0, \forall x, y \in X$
+\begin{equation}
+	\abs{x-y} <\delta \longrightarrow \abs{f(x)-f(y)} <\varepsilon
+	\label{eq:class5-1}
+\end{equation}
+Sean $(x_k)_k, (y_k)_k \subset X$ tales que $ \lim_{k \to \infty}  \abs{f(x_k) - f(y_k)  }= 0$
+
+Para el $\delta>0 $ anterior, $\exists k_0 \in \N, \forall k \in \N$
+$$
+	k\geq k_0 \rightarrow \abs{x_k-y_k} <\delta
+$$
+De \eqref{eq:class5-1},
+$$
+	\rightarrow \abs{f(x_k)-f(y_k)} < \varepsilon
+$$
+$$
+	\therefore \lim_{k \to \infty} \abs{f(x_k)-f(y_k)} = 0
+$$
+
+($\Leftarrow$) \quad  Supongamos que $f$ no es uniformemente continua
+$$
+	\exists \varepsilon_0 >0, \forall \delta>0, \exists x_{\delta}, y_{\delta} \in X,\qquad \abs{x_{\delta}-y_{\delta}} <\delta \wedge \abs{f(x_{\delta})-f(y_{\delta})} \geq \varepsilon_0
+$$
+$$
+	\forall k \in \N, \exists x_k, y_k \in X, 0\geq \abs{x_k-y_k} < \frac{1}{k} \wedge \abs{f(x_{\delta})-f(y_{\delta})} \geq \varepsilon_0
+$$
+$$
+	\rightarrow \lim_{k \to \infty} \abs{f(x_{\delta})-f(y_{\delta})}=0 \wedge  \forall k \in \N, \abs{f(x_{\delta})-f(y_{\delta})} \geq \varepsilon_0
+$$
+Por hipótesis, $\lim\limits_{k \to \infty} \abs{f(x_{\delta})-f(y_{\delta})}=0$, pero $\lim_{k \to \infty} \abs{f(x_{\delta})-f(y_{\delta})}\geq \varepsilon_0 $\\
+$\rightarrow 0\geq \varepsilon_0 >0 $ (Contradicción).
+}
+
+\expf{
+	Sea \(f\colon X \subset \mathbb{R}^m \to \mathbb{R}^n\) uniformemente continua, si $
+		\forall\, (x_k)_{k\in\mathbb{N}} \subset X,$
+	si $(x_k)_{k \in \N}$ es de Cauchy, entonces la sucesión
+	$	\bigl(f(x_k)\bigr)_{k\in\mathbb{N}} \subset \mathbb{R}^n$
+	también es de Cauchy.\\
+	¿El recíproco se cumple?
+}{
+	No se cumple, por contraejemplo.\\
+	Sea $g \colon \R \to \R$ continua.\\
+	$f(x) = \frac{1}{x}. \quad x \in \R -\{0\}$\\
+	$g(x) = x^2$\\
+	$g$ es sucesión de Cauchy en sucesión de Cauchy, pero no es uniformemente continua puesto que,
+
+	$$
+		x_k=k, y_k=k+\frac{1}{k}, \quad \forall k \in \N
+	$$
+	$$
+		\lim\limits_{k \to \infty} \abs{x_k-y_k} =0 \wedge\lim_{k \to \infty} \abs{f(x_{\delta})-f(y_{\delta})} = 2
+	$$
+}
+
+
+\thmrpf{}{}{
+	Sea $f \colon X \in \Rm, \; X \to \Rn$ una función, $a \in X'$ y $b \in \Rn$. Tenemos que
+	$$
+		\lim\limits_{ x \to a} f(x)  = b = f(a)\in \Rn \Leftrightarrow \forall (x_k)_{k } \subset X-\{a\}, \; \lim_{k \to \infty} x_k =a \rightarrow \lim_{k \to \infty} f(x_k) = b = f(a)
+	$$
+}{
+	($\Rightarrow$)\\
+	Agregar graficos\\
+	Sea $(x_k)_{k \in \N } \subset X-\{a\}$ tal que $\lim\limits_{k \to \infty} =a$
+
+	Como $\lim\limits_{k\to \infty} f(x)=b$, dado $\varepsilon>0, \exists \delta>0$
+	\begin{equation}
+		\forall x \in X, 0< \abs{x-a} <\delta \rightarrow\abs{f(x)-b} < \varepsilon
+		\label{eq:class5-2}
+	\end{equation}
+
+	$$
+		k\geq k_0 \rightarrow 0< \abs{x_k-a}<\delta \rightarrow \abs{f(x_k)-b}< \varepsilon
+	$$
+	$$
+		\therefore \lim_{k \to \infty} f(x_k) = b
+	$$
+	($\Leftarrow$)\\
+	Supongamos que $\forall (x_k)_{k \in \N } \subset X-\{a\}$ tal que $\lim\limits_{k \to \infty} =a$
+
+	Por contradicción supongtamos que
+	$$
+		\exists \varepsilon_0 >0, \forall \delta >0, \exists x_{\delta} \in X, 0<\abs{x_{\delta}-a}<\delta \wedge \abs{f(x_{\delta})-b}\geq \varepsilon_0
+	$$
+
+	$\forall k \in \N$, considere  $\delta_k = \frac{1}{k}$, $\exists x_k \in X; 0 <\abs{x_k-a} < \frac{1}{k} \wedge \abs{f(x_k)-b} \geq \varepsilon_0$.
+
+	Hemos construido $(x_k)_{k \in \N} \subset X-\{a\}$ tal que $\lim\limits_{k\to \infty} =0$
+
+	Por hipótesis $\rightarrow \lim\limits_{k \to \infty} f(x_k) = b$, pero $\forall k \in \N,  \abs{f(x_k)-b} \geq \varepsilon_0>0$
+	$$
+		\equiv \lim\limits_{k \to \infty} \abs{f(x_k)-b} =0 \qquad \rightarrow 0 \geq \varepsilon_0>0 \;(\rightarrow \; \leftarrow)
+	$$
+}
+
+\propp{
+	Sean \( f \colon X \subset \mathbb{R}^m \to \mathbb{R}^n \), \( a \in X' \) (punto de acumulación de \( X \)) y \( b \in \mathbb{R}^n \) tales que
+	\[
+		\lim_{x \to a} f(x) = b.
+	\]
+	Sea \( g \colon Y \subset \mathbb{R}^n \to \mathbb{R}^p \) una función continua en \( b \in Y \), y supongamos que \( f(X) \subset Y \), lo cual garantiza que la composición \( g \circ f \colon X \to \mathbb{R}^p \) está bien definida.
+
+	Entonces,
+	\[
+		\lim_{x \to a} g(f(x)) = g(b).
+	\]
+
+}{
+	Como \( g \) es continua en \( b \in Y \), dado \( \varepsilon > 0 \), existe \( \eta > 0 \) tal que
+	\begin{equation}
+		\lvert y - b \rvert < \eta \quad \Rightarrow \quad \lvert g(y) - g(b) \rvert < \varepsilon, \quad \forall y \in Y.
+		\label{eq:class5-3}
+	\end{equation}
+
+	Por otro lado, como \( \lim\limits_{x \to a} f(x) = b \), para el \( \eta > 0 \) anterior, existe \( \delta > 0 \) tal que
+	\[
+		0 < \lvert x - a \rvert < \delta \quad \Rightarrow \quad \lvert f(x) - b \rvert < \eta, \quad \text{con } x \in X.
+	\]
+	Además, como \( f(X) \subset Y \), se cumple \( f(x) \in Y \) para todo \( x \in X \), por lo que podemos aplicar \eqref{eq:class5-3} y obtener:
+	\[
+		\lvert g(f(x)) - g(b) \rvert < \varepsilon.
+	\]
+
+	Por lo tanto,
+	\[
+		\lim_{x \to a} g(f(x)) = g\left( \lim_{x \to a} f(x) \right) = g(b),
+	\]
+}
+
+
+
+\thmrpf{}{}{
+	Sea
+	\begin{align*}
+		f \colon X \subset \mathbb{R}^m & \longrightarrow \mathbb{R}^n                                                                                          \\
+		x                               & \longmapsto f(x) = (f_1(x), f_2(x), \ldots, f_n(x)) \quad \text{y} \quad b = (b_1, b_2, \ldots, b_n) \in \mathbb{R}^n
+	\end{align*}
+	Tenemos que
+	$$
+		\lim_{x \to a} f(x) = b \quad \Leftrightarrow \quad \forall i \in \{1, 2, \ldots, n\}, \quad \lim_{x \to a} f_i(x) = b_i
+	$$
+
+}{  ($\Rightarrow$) Sea \( f = (f_1, f_2, \dots, f_n) \colon X \to \mathbb{R}^n \), con \( f_i : X \to \mathbb{R} \) para cada \( i \in \{1, 2, \dots, n\} \), y supongamos que \( \lim_{x \to a} f(x) = b \).
+	Como cada
+	\begin{align*}
+		\pi_i \colon \mathbb{R}^n & \longrightarrow \mathbb{R} \\
+		(x_1, \dots, x_n)         & \longmapsto x_i
+	\end{align*}
+	es una proyección, y las proyecciones son funciones continuas, podemos concluir que
+	\[
+		\lim_{x \to a} \pi_i(f(x)) = \pi_i(b), \quad \forall i \in \{1, \dots, n\}
+	\]
+	En particular, esto implica que
+	\[
+		f_i(x) \to b_i \quad \text{cuando} \quad x \to a
+	\]
+
+	\noindent($\Leftarrow$) Sea \( (x_k)_{k \in \mathbb{N}} \subset X \setminus \{a\} \) tal que \( \lim_{k \to \infty} x_k = a \).
+	Como \( \lim_{x \to a} f_i(x) = b_i \) para cada \( i \in \{1, \dots, n\} \), se cumple que
+	\[
+		\lim_{k \to \infty} f_i(x_k) = b_i, \quad \forall i \in \{1, \dots, n\}
+	\]
+	Por lo tanto, tenemos que
+	\[
+		\lim_{k \to \infty} \left( f_1(x_k), \dots, f_n(x_k) \right) = (b_1, \dots, b_n),
+	\]
+	lo que implica que
+	\[
+		\lim_{k \to \infty} f(x_k) = b
+	\]
+}
+
+\rmkb{
+	Sea \( z_k = (z_1^k, \ldots, z_n^k) \in \mathbb{R}^n \) y \( a = (a_1, \ldots, a_n) \in \mathbb{R}^n \). Entonces,
+	\[
+		\lim_{k \to \infty} z_k = a \quad \Longleftrightarrow \quad \lim_{k \to \infty} z_i^k = a_i, \quad \forall i \in \{1, \ldots, n\}.
+	\]
+}
+
+
+\propp{Sea
+
+}{
+
+}
+
+\thmr{}{}{
+	Sea
+}
+
+\section{Punto interior}
+
+Sea \( X \subset \mathbb{R}^n \).
+\begin{itemize}
+	\item Se dice que \( a \in X \) es un **punto interior** de \( X \) si
+	      \[
+		      \exists\, \delta > 0 \text{ tal que } B(a, \delta) \subset X.
+	      \]
+
+	\item El interior  de \( X \) es el conjunto de todos sus puntos interiores de $X$. Se denota por:
+	      \begin{align*}
+		      \interior{X} & = \{a \in X \colon a \text{ es punto interior de } X \}                                 \\
+		                   & = \{a \in X \colon \exists\, \delta_a > 0 \text{ tal que } B(a, \delta_a) \subset X \}.
+	      \end{align*}
+	      Además, se cumple que \( \interior{X} \subset X \).
+
+	\item El conjunto \( X \subset \mathbb{R}^n \) es \textbf{abierto} si todos sus puntos son interiores de \( X \), es decir,
+	      \[
+		      X = \interior{X}.
+	      \]
+	      \pf{
+		      Supongamos que \( X \) es abierto. Entonces, por definición, todo punto \( a \in X \) es un punto interior, es decir, existe \( \delta_a > 0 \) tal que \( B(a, \delta_a) \subset X \).
+
+		      Por lo tanto,
+		      \[
+			      X = \bigcup_{a \in X} B(a, \delta_a),
+		      \]
+		      es decir, \( X \) se puede expresar como unión de bolas abiertas contenidas en \( X \).
+
+		      Recíprocamente, si existe \( \delta_a > 0 \) para cada \( a \in X \) tal que \( B(a, \delta_a) \subset X \), entonces todo punto de \( X \) es interior, por lo tanto \( X \subset \interior{X} \). Como siempre se tiene \( \interior{X} \subset X \), se concluye que \( X = \interior{X} \), y por tanto \( X \) es abierto.
+	      }
+
+\end{itemize}
+
+
+\expf{
+	Sea \( \delta > 0 \) y \( a \in \mathbb{R}^n \). Definimos la bola abierta como
+	\[
+		B(a,\delta) =  \{ z \in \mathbb{R}^n \colon \abs{z-a} < \delta \}.
+	\]
+	Sea \( x \in B(a, \delta) \). Mostremos que \( x \) es un punto interior de \( B(a,\delta) \); es decir, existe \( r > 0 \) tal que \( B(x, r) \subset B(a, \delta) \).
+}{
+	\begin{figure}[H]
+		\centering
+		% Aquí deberías incluir un dibujo que represente las bolas \( B(a,\delta) \) y \( B(x, r) \subset B(a,\delta) \)
+		\caption{Representación de \( B(x, r) \subset B(a, \delta) \)}\label{figsa}
+	\end{figure}
+
+	Como \( x \in B(a,\delta) \), se tiene \( \abs{x - a} < \delta \). Definimos
+	\[
+		r = \delta - \abs{x - a} > 0.
+	\]
+	Afirmamos que \( B(x, r) \subset B(a, \delta) \), lo que probará que \( x \) es un punto interior.
+
+	Sea \( w \in B(x, r) \), es decir, \( \abs{w - x} < r \). Entonces,
+	\[
+		\abs{w - a} \leq \abs{w - x} + \abs{x - a} < r + \abs{x - a} = \delta.
+	\]
+	Por lo tanto, \( w \in B(a, \delta) \), y se concluye que \( B(x, r) \subset B(a, \delta) \).
+}
+
+
+\corp{
+	Dado $X \in \Rn$, tenemos que $\interior{X}$ es abierto.
+}{
+	Sea $x \in \interior{X} \rightarrow \exists \delta>0, B(x,\delta) \in X$
+}
+
+
+\thmrpf{}{}{}{}
+\ex{
+	Sea
+}
+
