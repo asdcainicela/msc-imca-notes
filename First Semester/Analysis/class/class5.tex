@@ -187,15 +187,126 @@ $\rightarrow 0\geq \varepsilon_0 >0 $ (Contradicción).
 	\]
 }
 
-
-\propp{Sea
-
+\propp{
+	Sean \( X \subset \mathbb{R}^m \), \( a \in X' \), y funciones \( f, g \colon X \to \mathbb{R}^n \), \( \alpha \colon X \to \mathbb{R} \) tales que:
+	\[
+		\lim_{x \to a} f(x) = b \in \mathbb{R}^n, \quad
+		\lim_{x \to a} g(x) = c \in \mathbb{R}^n, \quad
+		\lim_{x \to a} \alpha(x) = \alpha_0 \in \mathbb{R}.
+	\]
+	Entonces, se cumplen las siguientes propiedades:
+	\begin{description}
+		\item[(1)] \( \displaystyle \lim_{x \to a} \left[ f(x) + g(x) \right] = b + c. \)
+		\item[(2)] \( \displaystyle \lim_{x \to a} \left[ \alpha(x) f(x) \right] = \alpha_0 b. \)
+		\item[(3)] \( \displaystyle \lim_{x \to a} \left\langle f(x), g(x) \right\rangle = \left\langle b, c \right\rangle. \)
+	\end{description}
 }{
+	\begin{description}
+		\item[(1)] Definimos la función suma
+		      \[
+			      S \colon \mathbb{R}^n \times \mathbb{R}^n \to \mathbb{R}^n, \quad S(x,y) = x + y.
+		      \]
+		      Dado que \( S \) es una función lineal (y por tanto continua), basta verificar que el par \( (f(x), g(x)) \to (b, c) \) cuando \( x \to a \). Definimos:
+		      \[
+			      (f,g) \colon X \to \mathbb{R}^n \times \mathbb{R}^n, \quad x \mapsto (f(x), g(x)).
+		      \]
+		      Entonces:
+		      \[
+			      \lim_{x \to a} (f(x), g(x)) = (b, c) \Rightarrow \lim_{x \to a} S(f(x), g(x)) = S(b, c) = b + c.
+		      \]
 
+		\item[(2)] Definimos la función producto escalar:
+		      \[
+			      \lambda \colon \mathbb{R} \times \mathbb{R}^n \to \mathbb{R}^n, \quad \lambda(t, x) = t x.
+		      \]
+		      Esta función es bilineal, por lo tanto continua. Como
+		      \[
+			      (\alpha(x), f(x)) \to (\alpha_0, b) \text{ cuando } x \to a,
+		      \]
+		      entonces
+		      \[
+			      \lim_{x \to a} \alpha(x) f(x) = \lambda(\alpha_0, b) = \alpha_0 b.
+		      \]
+
+		\item[(3)] Sea el producto interno:
+		      \[
+			      P \colon \mathbb{R}^n \times \mathbb{R}^n \to \mathbb{R}, \quad P(x, y) = \left\langle x, y \right\rangle.
+		      \]
+		      \( P \) es bilineal y, por tanto, continua. Como \( (f(x), g(x)) \to (b, c) \), se tiene:
+		      \[
+			      \lim_{x \to a} \left\langle f(x), g(x) \right\rangle = \left\langle b, c \right\rangle.
+		      \]
+	\end{description}
+
+	\rmkb{
+		Este resultado se basa en la **continuidad de funciones bilineales y lineales** en espacios vectoriales normados, como suma, producto por escalar y producto interno.
+	}
+
+	\vspace{1em}
+	\textbf{Extensión de funciones al dominio cerrado:}
+
+	Si \( f \colon X \to \mathbb{R}^n \) es tal que \( \lim_{x \to a} f(x) \) existe para todo \( a \in \overline{X} \), entonces se puede definir una extensión continua
+	\[
+		\hat{f} \colon \overline{X} \to \mathbb{R}^n, \quad \hat{f}(a) = \lim_{x \to a} f(x), \text{ donde } (x_k) \subset X, \; x_k \to a.
+	\]
+	Esta extensión es única cuando existe el límite para todo \( a \in \overline{X} \).
 }
 
-\thmr{}{}{
-	Sea
+
+
+\thmrpf{}{}{
+	Sea \( f \colon X \subset \mathbb{R}^m \rightarrow \mathbb{R}^n \) una función uniformemente continua. Si \( a \in X' \) (es decir, \( a \) es un punto de adherencia de \( X \)), entonces
+	\[
+		\lim_{x \to a} f(x) = w_0
+	\]
+	existe.
+}{
+	Como \( f \) es uniformemente continua, se cumple que toda sucesión de Cauchy en \( X \) se transforma en una sucesión de Cauchy en \( \mathbb{R}^n \). Es decir  $\forall (x_k)_k \subset X$ si $ (x_k)_{k \in \N}$ es de Cauchy, $\rightarrow \pqty{f(x_k)_{k \in \N}} $ es de Cauchy.
+
+	Sea \( a \in X' \). Entonces, existe una sucesión \( (z_k)_{k \in \mathbb{N}} \subset X \setminus \{a\} \) tal que
+	\[
+		\lim_{k \to \infty} z_k = a.
+	\]
+	Dado que toda sucesión convergente es de Cauchy, \( (z_k) \) es de Cauchy en \( X \). Por la uniformidad de \( f \),
+	\[
+		(f(z_k))_{k \in \mathbb{N}} \text{ es de Cauchy en } \mathbb{R}^n.
+	\]
+	Como \( \mathbb{R}^n \) es completo, la sucesión \( (f(z_k)) \) converge. Es decir, existe \( w_0 \in \mathbb{R}^n \) tal que
+	\[
+		\lim_{k \to \infty} f(z_k) = w_0.
+	\]
+
+	Queremos mostrar que el límite es único, es decir, que si \( (x_k)_{k \in \mathbb{N}} \subset X \setminus \{a\} \) con \( \lim_{k \to \infty} x_k = a \), entonces
+	\[
+		\lim_{k \to \infty} f(x_k) = w_0.
+	\]
+
+	Tomemos una sucesión arbitraria \( (x_k) \subset X \setminus \{a\} \) tal que \( \lim_{k \to \infty} x_k = a \). Entonces, \( (x_k) \) también es de Cauchy, y por la uniformidad de \( f \),
+	\[
+		(f(x_k))_{k \in \mathbb{N}} \text{ es de Cauchy en } \mathbb{R}^n.
+	\]
+	Nuevamente, por completitud de \( \mathbb{R}^n \), existe \( w_1 \in \mathbb{R}^n \) tal que
+	\[
+		\lim_{k \to \infty} f(x_k) = w_1.
+	\]
+
+	Como \( \lim x_k = \lim z_k = a \), se tiene que \( \lim_{k \to \infty} \lVert x_k - z_k \rVert = 0 \). Por uniformidad de \( f \), esto implica que
+	\[
+		\lim_{k \to \infty} \lVert f(x_k) - f(z_k) \rVert = 0.
+	\]
+	Luego,
+	\[
+		\lVert w_1 - w_0 \rVert = 0 \Rightarrow w_1 = w_0.
+	\]
+
+	Por lo tanto, para toda sucesión \( (x_k) \subset X \setminus \{a\} \) que converge a \( a \), se cumple que \( f(x_k) \to w_0 \). Así, concluimos que
+	\[
+		\lim_{x \to a} f(x) = w_0.
+	\]
+
+	\rmkb{
+		El resultado depende esencialmente de la \textbf{uniforme continuidad} de \( f \), ya que garantiza que imágenes de sucesiones de Cauchy sigan siendo de Cauchy. Esto no es necesariamente cierto si \( f \) solo fuera continua.
+	}
 }
 
 \section{Punto interior}
@@ -261,14 +372,70 @@ Sea \( X \subset \mathbb{R}^n \).
 
 
 \corp{
-	Dado $X \in \Rn$, tenemos que $\interior{X}$ es abierto.
+	Dado \( X \subset \mathbb{R}^n \), se tiene que \( \interior{X} \) es un conjunto abierto.
 }{
-	Sea $x \in \interior{X} \rightarrow \exists \delta>0, B(x,\delta) \in X$
+	Sea \( x \in \interior{X} \). Por definición de interior, existe \( \delta > 0 \) tal que
+	\[
+		B(x, \delta) \subset X.
+	\]
+	Sea \( w \in B(x, \delta) \). Como \( B(x, \delta) \) es abierto (toda bola abierta es abierta), existe \( r_w > 0 \) tal que
+	\[
+		B(w, r_w) \subset B(x, \delta).
+	\]
+	Por lo tanto,
+	\[
+		B(w, r_w) \subset B(x, \delta) \subset X,
+	\]
+	lo que implica que \( w \in \interior{X} \). Es decir, todo punto \( w \in B(x, \delta) \) pertenece a \( \interior{X} \), lo cual muestra que
+	\[
+		B(x, \delta) \subset \interior{X}.
+	\]
+	Así, \( x \) es punto interior de \( \interior{X} \), y como esto es cierto para todo \( x \in \interior{X} \), concluimos que
+	\[
+		\interior{X} \text{ es abierto}, \quad \text{es decir, } \interior{\interior{X}} = \interior{X}.
+	\]
 }
 
+\begin{itemize}
+	\item Sea \( X \subset \mathbb{R}^n \). Un punto \( b \in \mathbb{R}^n \) se dice \textbf{punto de adherencia}  de \( X \) si existe una sucesión \( (x_k)_{k \in \mathbb{N}} \subset X \) tal que
+	      \[
+		      \lim_{k \to \infty} x_k = b.
+	      \]
+	      \notatio{
+		      La \textbf{cerradura} de un conjunto \( X \subset \mathbb{R}^n \) es el conjunto
+		      \[
+			      \overline{X} = \left\{ b \in \mathbb{R}^n : b \text{ es punto de adherencia de } X \right\}.
+		      \]
+	      }
 
-\thmrpf{}{}{}{}
-\ex{
-	Sea
-}
+	\item Un conjunto \( X \subset \mathbb{R}^n \) es \textcolor{red}{cerrado} si se cumple que \( X = \overline{X} \).
+
+	      \rmkb{
+		      Siempre se tiene \( X \subset \overline{X} \). Además, \( X = \overline{X} \) si y solo si \( \overline{X} \subset X \).
+	      }
+
+	\item Fijado \( X \subset \mathbb{R}^n \), decimos que un punto \( a \in \mathbb{R}^n \) es un  \textbf{punto de la frontera}  (o \textbf{borde}) de \( X \) si
+	      \[
+		      a \in \mathbb{R}^n \setminus \left( \interior{X} \cup \interior{\mathbb{R}^n \setminus X} \right)
+	      \]
+
+	      \notatio{
+		      La \textbf{frontera} de un conjunto \( X \subset \mathbb{R}^n \) se denota por
+		      \[
+			      \partial X
+		      \]
+	      }
+
+	      \pf{
+		      \begin{align*}
+			      a \in \partial X
+			       & \leftrightarrow a \notin \interior{X} \text{ y } a \notin \interior{\mathbb{R}^n \setminus X}                                                    \\
+			       & \leftrightarrow \forall \delta > 0, \; B(a, \delta) \cap X \neq \emptyset \text{ y } B(a, \delta) \cap (\mathbb{R}^n \setminus X) \neq \emptyset \\
+			       & \leftrightarrow a \in \overline{X} \cap \overline{\mathbb{R}^n \setminus X}
+		      \end{align*}
+		      \[
+			      \therefore \quad \partial X = \overline{X} \cap \overline{\mathbb{R}^n \setminus X}
+		      \]
+	      }
+\end{itemize}
 
