@@ -84,63 +84,57 @@
 		      $$
 			      \rightarrow f+g \text{ es continua.}
 		      $$
+		\item[(ii), (iii), (iv)]
+		      Sean,
+		      \begin{align*}
+			      S \colon \Rn \times \Rn & \longrightarrow\Rn      \\
+			      (x,y)                   & \longmapsto S(x,y)= x+y
+		      \end{align*}
+		      $S$ es una transformación lineal,
+		      \begin{itemize}
+			      \item Adición, \begin{align*}
+				            S((x,y)+(x',y')) & =S(x+x', y+y')               \\
+				                             & =x+x' {\color{blue} + } y+y' \\
+				                             & =x+x'+ y+y'                  \\
+				                             & =S(x,y)+S(x',y')
+			            \end{align*}
+			      \item Multiplicación por un escalar, \begin{align*}
+				            S(\lambda(x,y) ) & =S(\lambda x,\lambda x') \\
+				                             & =\lambda x+ \lambda y    \\
+				                             & =\lambda (x+y)           \\
+				                             & =\lambda S(x,y)
+			            \end{align*}
+		      \end{itemize}
+		      $S$ es continua ya que es una transformación lineal.\\
+		      $\phi $ y $\xi$ son bilineales $\Rightarrow$ $\phi$ y $\xi$ son continuas.
+		      \begin{align*}
+			      \phi \colon \R  \times \Rn & \longrightarrow\Rn                     \\
+			      (\lambda,x)                & \longmapsto \phi(\lambda,x)= \lambda x
+		      \end{align*}
+		      \begin{align*}
+			      \xi \colon \Rn  \times \Rn & \longrightarrow\Rn                                            \\
+			      (x,y)                      & \longmapsto \xi(x,y)= \inner{x}{y} = \sum_{i = 1}^{n} x_i y_i
+		      \end{align*}
+		      donde $x=(x_1, \ldots, x_n)$ e $y=(y_1, \ldots, u_n)$.
+
+		      $\rho $ es continua,
+		      \begin{align*}
+			      \rho \colon \R-\{0\}  \R & \longrightarrow\Rn               \\
+			      t                        & \longmapsto \rho(t)= \frac{1}{t}
+		      \end{align*}
+		      $$
+			      \bqty{S\circ (f,g)}(x)\qty((f,g)(x))= S\pqty{(f(x), g(x))} = f(x)+g(x) = (f+g)(x), \forall x \in X
+		      $$
+		      $\longrightarrow S\circ(f,g) =f+g $, $S\circ(f,g)$ es continua, pues es composición de continuas.
+		      \begin{align*}
+			      \bqty{\varphi \circ (\alpha, f)}(x) = \varphi((\alpha, f)(x)) & = \varphi(\alpha(x), f(x))      \\
+			                                                                    & =\alpha(x) f(x)                 \\
+			                                                                    & =(\alpha f)(x), \forall x \in X
+		      \end{align*}
+		      $\rightarrow \varphi \circ(\alpha, f) = \alpha f $, $ \varphi \circ(\alpha, f)$ es continua ya que $\varphi$ es continua por ser bilineal $(\alpha, f)$ es continua pues cada coordenada $\alpha \colon X\to \R$ y $f \colon X \to \Rn$ son continuas.
+
 	\end{description}
 }
-
-
-\corp{
-	verificar pag6 clas4
-}{
-	Sean,
-	\begin{align*}
-		S \colon \Rn \times \Rn & \longrightarrow\Rn      \\
-		(x,y)                   & \longmapsto S(x,y)= x+y
-	\end{align*}
-	$S$ es una transformación lineal,
-	\begin{itemize}
-		\item Adición, \begin{align*}
-			      S((x,y)+(x',y')) & =S(x+x', y+y')               \\
-			                       & =x+x' {\color{blue} + } y+y' \\
-			                       & =x+x'+ y+y'                  \\
-			                       & =S(x,y)+S(x',y')
-		      \end{align*}
-		\item Multiplicación por un escalar, \begin{align*}
-			      S(\lambda(x,y) ) & =S(\lambda x,\lambda x') \\
-			                       & =\lambda x+ \lambda y    \\
-			                       & =\lambda (x+y)           \\
-			                       & =\lambda S(x,y)
-		      \end{align*}
-	\end{itemize}
-	$S$ es continua ya que es una transformación lineal.\\
-	$\phi $ y $\xi$ son bilineales $\Rightarrow$ $\phi$ y $\xi$ son continuas.
-	\begin{align*}
-		\phi \colon \R  \times \Rn & \longrightarrow\Rn                     \\
-		(\lambda,x)                & \longmapsto \phi(\lambda,x)= \lambda x
-	\end{align*}
-	\begin{align*}
-		\xi \colon \Rn  \times \Rn & \longrightarrow\Rn                                            \\
-		(x,y)                      & \longmapsto \xi(x,y)= \inner{x}{y} = \sum_{i = 1}^{n} x_i y_i
-	\end{align*}
-	donde $x=(x_1, \ldots, x_n)$ e $y=(y_1, \ldots, u_n)$.
-
-	$\rho $ es continua,
-	\begin{align*}
-		\rho \colon \R-\{0\}  \R & \longrightarrow\Rn               \\
-		t                        & \longmapsto \rho(t)= \frac{1}{t}
-	\end{align*}
-	$$
-		\bqty{S\circ (f,g)}(x)\qty((f,g)(x))= S\pqty{(f(x), g(x))} = f(x)+g(x) = (f+g)(x), \forall x \in X
-	$$
-	$\longrightarrow S\circ(f,g) =f+g $, $S\circ(f,g)$ es continua, pues es composición de continuas.
-	\begin{align*}
-		\bqty{\varphi \circ (\alpha, f)}(x) = \varphi((\alpha, f)(x)) & = \varphi(\alpha(x), f(x))      \\
-		                                                              & =\alpha(x) f(x)                 \\
-		                                                              & =(\alpha f)(x), \forall x \in X
-	\end{align*}
-	$\rightarrow \varphi \circ(\alpha, f) = \alpha f $, $ \varphi \circ(\alpha, f)$ es continua ya que $\varphi$ es continua por ser bilineal $(\alpha, f)$ es continua pues cada coordenada $\alpha \colon X\to \R$ y $f \colon X \to \Rn$ son continuas.
-
-}
-{}
 
 \vspace{-2em}
 \begin{figure}[H]
@@ -269,9 +263,9 @@ Sea \( f \colon X \subset \mathbb{R}^m \to \mathbb{R}^n \)
 	Por lo tanto, \((f(x_k))_{k \in \mathbb{N}}\) es una sucesión de Cauchy en \(\mathbb{R}^n\).
 }
 
-\ex{
+\expf{
 	¿Es cierto el recíproco de la proposición anterior? Proporciona una prueba o un contraejemplo.
-
+}{\\
 	Por contraejemplo\\
 	Agregar grafico!!!!!!!!
 
@@ -317,7 +311,7 @@ Sean $f \colon X \subset \Rm \to \Rn, a \in X'$ y $b \in \Rn$
 	      \rmk{Notación: $\lim\limits_{x \to a} f(x) = b$}
 \end{itemize}
 Corregir dibujo! [ver codigo en python]
-\vspace{-2em}
+\vspace{-1em}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\linewidth]{img/class4_figure2.png}
@@ -345,7 +339,10 @@ $$
 	}
 }
 
-\thmr{}{teorema4-20}{
+\
+
+
+\thmrpf{}{teorema4-20}{
 	Sea $f \colon X \subset \mathbb{R}^m \to \mathbb{R}^n$ tal que $f = (f_1, \ldots ,f_n)$. Además $a\in X'$ y $b= (b_1, \ldots , b_n) \in \Rn$. Entonces
 	\[
 		\lim_{x\to a} f(x) \;=\; b
@@ -356,9 +353,9 @@ $$
 		\quad
 		\text{para todo } i=1,2,\dots,n.
 	\]
-}
+}{
+	%Prueba del teorema \ref{thm:teorema4-20}\\
 
-\pf{Prueba del teorema \ref{thm:teorema4-20}\\
 	($\Rightarrow$)
 	Ejercicio para el lector.
 
