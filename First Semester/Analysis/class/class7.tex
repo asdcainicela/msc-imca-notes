@@ -308,28 +308,133 @@ $$
 $$
 
 \clmp{}{
-	Sea $B_k \subset A_{\lambda_k}$
-	$$
-		X \subset \bigcuplim{k \in \widehat{\N}} B_k\subset \bigcuplim{k \in \widehat{\N}} A_{\lambda_k}
-	$$
+Sea $B_k \subset A_{\lambda_k}$
+$$
+	X \subset \bigcuplim{k \in \widehat{\N}} B_k\subset \bigcuplim{k \in \widehat{\N}} A_{\lambda_k}
+$$
 }{
-	Sea $x \in X$. Como,
-	$$
-		X \subset \bigcuplim{k \in \widehat{\N}} A_{\lambda_k} \rightarrow \exists \lambda_0 \in \Lambda \text{ tal que } x \in A_{\lambda_0}
-	$$
-	donde $A_{\lambda_0} $ es abierto.
+Sea $x \in X$. Como,
+$$
+	X \subset \bigcuplim{k \in \widehat{\N}} A_{\lambda_k} \rightarrow \exists \lambda_0 \in \Lambda \text{ tal que } x \in A_{\lambda_0}
+$$
+donde $A_{\lambda_0} $ es abierto.
 
-	Así $\exists \varepsilon >0$ tal que $B(x, \varepsilon) \subset A_{\lambda_0} $
-	$$
-		x \in X \subset \overline{E}
-	$$
+Así $\exists \varepsilon >0$ tal que $B(x, \varepsilon) \subset A_{\lambda_0} $
+$$
+	x \in X \subset \overline{E}
+$$
 
-	Por el principio Arquimediano $$\exists j_0 \in \N \quad \text{tal que}\quad \frac{1}{j_0} < \frac{\varepsilon}{2}
-	$$
-	Como $x  \in X \subset \overline{E} \rightarrow B\pqty{x, \frac{1}{j_0}} \cap E \neq \varnothing$
-	%A reference to %Theorem~\ref{thm:mybigthm}
+Por el principio Arquimediano $$\exists j_0 \in \N \quad \text{tal que}\quad \frac{1}{j_0} < \frac{\varepsilon}{2} \quad \pqty{\equiv \frac{2}{j}  < \varepsilon}
+$$
+Como $x  \in X \subset \overline{E} \rightarrow B\pqty{x, \frac{1}{j_0}} \cap E \neq \varnothing$
+$$
+	\abs{x_{i_0}-x} < \frac{1}{j_0}
+$$
+$x \in B\pqty{x_{i_0}, \frac{1}{j_0}} = B_{k_0}$ tal que $\exists k_0 \in \N, \; \phi(k_0) = $
+
+Así, $x \in B_{k_0} \subset B(x, \varepsilon) \subset A_{\lambda_0}$. Así $k_0 \in \widehat{\N}$.\\
+Sí $z \in B_{k_0} = B\pqty{x_{i_0}, \frac{1}{j_0}}$
+$$
+	\abs{z-x_{i_0}} < \frac{1}{j_0}
+$$
+$$
+	\rightarrow \abs{z-x} \leq \abs{z-x_{i_0}} + \abs{x_{i_0} - x} <\frac{1}{j_0} + \frac{1}{j_0} = \frac{2}{j_0} < \varepsilon
+$$
+$$
+	\rightarrow z \in B(x, \varepsilon)
+$$
+%Theorem~\ref{thm:mybigthm}
+}
+$\forall x \in X, \; \exists k \in \N $  tal que $x \in B_k \subset A_{\lambda_k}$ para algún $\lambda_k \in \Lambda$\\
+$\exists k \in \widehat{\N}$ tal que $x \in B_k$
+$$
+	\therefore X \subset \bigcup{k \in \widehat{\N}} B_k
+$$
 }
 
+\thmrpf{}{}{
+Sea $f \colon X \subset \Rn \to \Rn$ una función continua.\\
+Si $K \subset X$ es compacto, entonces $f(k)$ es compacto.
+}{
+Sea $K \subset X$ compacto.\\
+Mostremos que $f(K)$ es compacto.\\
+Sea $\{A_{\lambda}\}_{\lambda \in \Lambda}$ un cubrimiento abierto de $f(K)$,\\
+$\rightarrow A_{\lambda}$ es abierto $\forall \lambda \in \Lambda$ y $f(K) \subset \bigcuplim{\lambda \in \Lambda} A_{\lambda}$
+$$
+	K \subset f^{-1}\pqty{f(k)} \subset f^{-1} \pqty{\bigcuplim{\lambda \in \Lambda} A_{\lambda}}
+$$
+$$
+	K \subset \bigcuplim{\lambda \in \Lambda} f^{-1} \pqty{  A_{\lambda}}
+$$
+$f^{-1} (A_{\lambda}) $ es abierto $\forall \lambda \in \Lambda$.
+
+Como $k$ es compacto, $\rightarrow \exists \lambda_1, \lambda_2, \ldots, \lambda_m \in \Lambda$ tales que
+
+\begin{equation}
+	K \subset \bigcuplim{i = 1}{m} f^{-1}\pqty{A_{\lambda_{i}}}
+	\label{eq:class7-7}
+\end{equation}
+\clm{Afirmación}{
+	$$
+		f(K) \subset \bigcuplim{i = 1}{m} A_{\lambda_{i}}
+	$$}
+Sea $z \in f(K) \rightarrow z = f(w)$ para algún $w \in K$
+
+De \eqref{eq:class7-7},  $\exists i \in \{1, \ldots, m\} $ tal que
+$$
+	w \in f^{-1} \pqty{A_{\lambda_{i}}}
+$$
+$$
+	z = f(w) \in A_{\lambda_{i}}  \subset \bigcuplim{i = 1}{m} A_{\lambda_{i}}
+$$
+$$
+	\therefore K \text{ is compact}
+$$
+}
+
+\propp{(Teorema de Weierstrass)\\
+	Sea \( f \colon K \subset \mathbb{R}^m \to \mathbb{R}^n \) una función continua definida sobre un conjunto \( K \) compacto, es decir, cerrado y acotado, con \( K \neq \varnothing \).\\
+	Entonces existen puntos \( w_1, w_2 \in K \) tales que:
+	\[
+		f(w_1) \leq f(w) \leq f(w_2), \quad \forall w \in K,
+	\]
+	donde \( f(w_1) \) es el valor mínimo y \( f(w_2) \) el valor máximo que toma la función \( f \) en \( K \).
+}{
+	Como \( f \) es continua y \( K \) es compacto, entonces la imagen \( f(K) \subset \mathbb{R} \) es también un conjunto compacto y no vacío.\\
+
+	Por ser compacto en \( \mathbb{R} \), \( f(K) \) está acotado y alcanza sus extremos. Es decir, existen:
+	\[
+		m_0 = \inf f(K), \quad M_0 = \sup f(K),
+	\]
+	y se cumple \( m_0, M_0 \in f(K) \) porque \( f(K) \) es cerrado.\\
+
+	$\forall m \in \N$, $\exists y_m \in f(K)$ tal que
+	$$
+		M_0 -\frac{1}{m} < y_m \leq M_0
+	$$
+	$y_m = f(x_m)$ para algún $x_m \in K$. $(x_m)_m \subset K$ tal que $\forall m \in \N$,
+	$$
+		M_0 -\frac{1}{m} < f(x_m) \leq M_0
+	$$
+	Como $K$ es compacto, $\exists i \colon \N \to \N$ estrictamente creciente tal que,
+	$$
+		\lim\limits_{m \to \infty} x_{i(m)} = w_2 \in K
+	$$
+	Como $f$ es continua en $w2$,
+	$$
+		\lim\limits_{m \to \infty} f(x_{i(m)}) = f(w_2)
+	$$
 
 
+	Como \( f(x_{i(m)}) \to M_0 \) y también \( f(x_{i(m)}) \to f(w_2) \), por unicidad del límite se concluye que:
+	\[
+		f(w_2) = M_0.
+	\]
+
+	Por tanto, \( f \) alcanza su valor máximo en el punto \( w_2 \in K \).\\
+	De manera análoga, se puede construir una sucesión que converge a un punto \( w_1 \in K \) tal que \( f(w_1) = m_0 \), el valor mínimo.
+
+	\[
+		\therefore \forall w \in K, \quad f(w_1) \leq f(w) \leq f(w_2).
+	\]
 }
