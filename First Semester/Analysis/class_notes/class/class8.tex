@@ -1,0 +1,156 @@
+\chapter{Clase 8}
+\clasedate{23 de abril de 2025}
+
+\corrp{}{coro1}{
+	Sea \( K \subset \mathbb{R}^m \) compacto y \( f \colon K \to \mathbb{R}^n \) continua.\\
+	Entonces, para todo subconjunto cerrado \( F \subset K \), la imagen \( f(F) \) es cerrada en \( \mathbb{R}^n \).
+}{
+	Sea \( F \subset K \) un conjunto cerrado. Como \( K \) es compacto, entonces \( F \), al ser un subconjunto cerrado de un compacto, también es compacto.
+	
+	Dado que \( f \) es continua y \( F \) es compacto, la imagen \( f(F) \) es compacta en \( \mathbb{R}^n \).
+	
+	Pero en \( \mathbb{R}^n \), todo conjunto compacto es cerrado. Por tanto, \( f(F) \) es cerrado.
+} 
+
+\corrp{}{}{
+Sea \( f \colon K \subset \mathbb{R}^m \to L \subset \mathbb{R}^n \) una función continua y biyectiva, con \( K \) compacto y \( L = f(K) \).\\
+Entonces \( f \) es un homeomorfismo entre \( K \) y \( L \).
+}{
+Como $f$ es biyección $\exists \colon f^{-1} \colon L \rightarrow K$.
+
+Sea $F \subset K$ cerrado $\rightarrow (f^{-1})^{-1} (F) = f(F)$ es cerrado en $L$ por Corollary~\ref{cor:coro1}. 
+
+$$
+\therefore f^{-1} \text{ es continua}
+$$
+}
+
+Como \( K \) es compacto y \( f \) es continua, entonces la imagen \( L = f(K) \) es compacta.\\
+En \( \mathbb{R}^n \), todo conjunto compacto es cerrado y acotado, por lo tanto \( L \) es cerrado en \( \mathbb{R}^n \).
+
+Como \( f \) es continua, biyectiva, y \( K \) es compacto, se cumple que la inversa \( f^{-1} \colon L \to K \) es continua.\\
+Esto es un resultado estándar: una función continua, biyectiva, definida sobre un conjunto compacto tiene inversa continua.
+
+Por tanto, \( f \) es un homeomorfismo entre \( K \) y \( L \).
+
+
+
+
+
+
+
+\section{Distancia entre conjuntos}
+Sean $X, Y \subset  \Rn $ no vacíos, la distancia entre $X \text{ e } Y$ está acotado inferiormente,
+\begin{equation}
+	d(X,Y)= \inf \qty{\abs{x-y } \in \R : x \in X, y \in Y}
+\end{equation}
+
+\rmkb{
+	Si $X \subset  M \text{ e } Y \subset M$, entonces
+	$$
+	d(X,Y) \geq d(M,N)
+	$$
+	\pf{
+	\begin{align*}
+		\alpha\pqty{X, Y} & = \qty{ \abs{x-y} \colon x \in X, y \in Y}\\
+		\alpha(M, N) & = \qty{ \abs{x-y} \colon x \in M, y \in N}
+	\end{align*}
+	Se tiene que $\alpha(X, Y ) \subset \alpha(M,N)$ 
+	\begin{align*} 
+		\rightarrow \inf(\alpha\pqty{X, Y}) &\geq \inf\qty(\alpha\pqty{M, N})\\
+	  d\pqty{X, Y} &\geq d\pqty{M, N}
+	\end{align*}
+	}	
+}
+
+\thmrpf{}{}{
+	Sean \( X, Y \subset \mathbb{R}^n \) conjuntos no vacíos. Entonces:
+\[
+d(X, Y) = d(\overline{X}, \overline{Y}),
+\]
+donde \( d(A, B) := \inf\{ \|a - b\| : a \in A, b \in B \} \) es la distancia entre conjuntos.
+}{
+\textbf{Primero:} Como \( X \subset \overline{X} \) y \( Y \subset \overline{Y} \), se tiene:
+\[
+d(\overline{X}, \overline{Y}) \leq d(X, Y).
+\]
+
+
+
+Mostremos que 
+$$
+d\pqty{\overline{X}, \overline{Y}} \geq d\pqty{X, Y} .
+$$
+Supongamos que $d\pqty{\overline{X}, \overline{Y}} < d\pqty{X, Y}  $,  además $d\pqty{X, Y}  $ no es cota inferior de $ \alpha\pqty{\overline{X}, \overline{Y}}$\\
+Si $p \in \overline{X}, q \in \overline{Y}$
+$$
+\inf\{p-q\colon p \in \overline{X}, q \in \overline{Y}\} \quad \text{ mayor cota superior}
+$$
+$d(X,Y) \rightarrow \exists (y_k)_k \subset Y \text{ tal que } y_k \rightarrow y_0$\\
+$\exists x_0 \in \overline{X}, \exists y_0 \in \overline{Y}$ tales que $\abs{x_0-y_0} < d(X,Y)$\\
+$\exists (x_k)_k \subset X$ tal que $x_k \rightarrow x_0$,  $\exists (y_k)_k \subset Y$ tal que $y_k \rightarrow y_0$
+$$
+\abs{\abs{z}-\abs{w}} \geq \abs{z-w}, \varphi(z) = \abs{z}
+$$ 
+\begin{align*}
+	\lim\limits_{k \to \infty} \abs{x_k-y_k} & = \lim\limits_{k \to \infty} \varphi \pqty{{x_k-y_k}} \\
+	 & = \varphi\pqty{ \lim\limits_{k \to \infty} \pqty{x_k-y_k}}  \\
+	  & =\varphi(x_0-y_0)\\
+	  &=   \abs{x_0-y_0}< d(X,Y)
+\end{align*}
+$\exists k_0 \in \N, x_{k_0} \subset X, y_{k_0} \subset Y$ tal que,
+ 
+\begin{align*}
+	\abs{x_{k_0} - y_{k_0}} &< d(X, Y)\\
+	&< \inf\{\abs{x-y} \colon x \in X \wedge y \in Y\} \qquad (\rightarrow \leftarrow)
+\end{align*}
+Entonces $d\pqty{\overline{X}, \overline{Y}} \geq d\pqty{X, Y} $
+
+%------------------------------
+
+
+\vspace{1ex}
+\textbf{Veamos la desigualdad opuesta:} Supongamos, en busca de contradicción, que:
+\[
+d(\overline{X}, \overline{Y}) < d(X, Y).
+\]
+Entonces existen puntos \( x_0 \in \overline{X} \), \( y_0 \in \overline{Y} \) tales que:
+\[
+\|x_0 - y_0\| < d(X, Y).
+\]
+
+Como \( x_0 \in \overline{X} \), existe una sucesión \( (x_k) \subset X \) tal que \( x_k \to x_0 \).\\
+Análogamente, existe una sucesión \( (y_k) \subset Y \) tal que \( y_k \to y_0 \).
+
+Entonces:
+\[
+\lim_{k \to \infty} \|x_k - y_k\| = \|x_0 - y_0\| < d(X, Y).
+\]
+
+Por lo tanto, para algún \( k_0 \in \mathbb{N} \), se cumple:
+\[
+\|x_{k_0} - y_{k_0}\| < d(X, Y),
+\]
+con \( x_{k_0} \in X \), \( y_{k_0} \in Y \), lo cual contradice la definición de \( d(X, Y) \) como el ínfimo de todas las distancias entre puntos de \( X \) y \( Y \).
+
+\vspace{1ex}
+\textbf{Conclusión:} La suposición lleva a contradicción, por lo tanto:
+\[
+d(\overline{X}, \overline{Y}) \geq d(X, Y),
+\]
+y combinando con la desigualdad anterior, se concluye:
+\[
+d(X, Y) = d(\overline{X}, \overline{Y}).
+\]
+}
+
+ 
+
+\thmrpf{}{}{
+
+}{
+
+}
+ 
+ 
+ 

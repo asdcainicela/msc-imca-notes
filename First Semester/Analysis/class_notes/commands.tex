@@ -47,4 +47,23 @@
 \newcommand{\@bigcaplim@withsup}[2]{%
 	\bigcap\limits_{#1}^{#2}%
 }
+
+\newcommand{\caplim}[1]{%
+	\@ifnextchar\bgroup
+	{\@caplim@withsup{#1}}%
+	{\cap\limits_{#1}}%
+}
+\newcommand{\@caplim@withsup}[2]{%
+	\cap\limits_{#1}^{#2}%
+}
+
+\newcommand{\cuplim}[1]{%
+	\@ifnextchar\bgroup
+	{\@cuplim@withsup{#1}}%
+	{\cup\limits_{#1}}%
+}
+\newcommand{\@cuplim@withsup}[2]{%
+	\cup\limits_{#1}^{#2}%
+}
 \makeatother
+
