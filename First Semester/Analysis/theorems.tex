@@ -129,47 +129,60 @@
     \end{lempf}
 }
 
-% Corollary
+% Corollary% Corollary modificado para permitir referencias
 \newtcbtheorem[use counter from=mydefinition]{mycorollary}{Corollary}
 {
-    enhanced,
-    frame hidden,
-    titlerule=0mm,
-    toptitle=1mm,
-    bottomtitle=1mm,
-    fonttitle=\bfseries\large,
-    coltitle=black,
-    colbacktitle=orange!20!white,
-    colback=orange!10!white,
+	enhanced,
+	frame hidden,
+	titlerule=0mm,
+	toptitle=1mm,
+	bottomtitle=1mm,
+	fonttitle=\bfseries\large,
+	coltitle=black,
+	colbacktitle=orange!20!white,
+	colback=orange!10!white,
 }{cor}
 
-\NewDocumentCommand{\cor}{+m}{
-    \begin{mycorollary}{}{}
-        #1
-    \end{mycorollary}
+\NewDocumentCommand{\cor}{m+m}{
+	\begin{mycorollary}{#1}{}
+		#2
+	\end{mycorollary}
+}
+
+\NewDocumentCommand{\corr}{mm+m}{
+	\begin{mycorollary}{#1}{#2}
+		#3
+	\end{mycorollary}
 }
 
 \newenvironment{corpf}{
 	{\noindent{\it \textbf{Proof for Corollary.}}}
 	\tcolorbox[blanker,breakable,left=5mm,parbox=false,
-    before upper={\parindent15pt},
-    after skip=10pt,
+	before upper={\parindent15pt},
+	after skip=10pt,
 	borderline west={1mm}{0pt}{orange!20!white}]
 }{
-    \textcolor{orange!20!white}{\hbox{}\nobreak\hfill$\blacksquare$} 
-    \endtcolorbox
+	\textcolor{orange!20!white}{\hbox{}\nobreak\hfill$\blacksquare$} 
+	\endtcolorbox
 }
 
-\NewDocumentCommand{\corp}{m+m+m}{
-    \begin{mycorollary}{}{}
-        #1
-    \end{mycorollary}
-
-    \begin{corpf}
-        #2
-    \end{corpf}
+\NewDocumentCommand{\corp}{m+m+m}{  % titulo + enunciado + prueba
+	\begin{mycorollary}{#1}{}
+		#2
+	\end{mycorollary}
+	\begin{corpf}
+		#3
+	\end{corpf}
 }
 
+\NewDocumentCommand{\corrp}{mm+m+m}{  % titulo + label + enunciado + prueba
+	\begin{mycorollary}{#1}{#2}
+		#3
+	\end{mycorollary}
+	\begin{corpf}
+		#4
+	\end{corpf}
+}
 % Proposition
 \newtcbtheorem[use counter from=mydefinition]{myproposition}{Proposition}
 {
