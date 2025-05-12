@@ -1,0 +1,222 @@
+\chapter{Clase 12}
+\clasedate{10 de mayo de 2025}
+
+\thmrpf{Teorema del valor medio}{}{
+	Sea $n\in\mathbb{N}$, con $n\geq 1$.
+	Sea $f:[a,b]\to\mathbb{R}^n$ continua en $[a,b]$ y diferenciable
+	en $]a,b[$. Si existe $M>0$ tal
+	\[|f'(t)|\leq M,\;\forall t\in]a,b[,\]
+	entonces \[|f(b)-f(a)|\leq M(b-a)\]
+}{
+	Si $|\cdot|$ es la norma euclidiana ya se probó.\\
+	Si $\|\cdot\|$ es otra norma
+	en $\mathbb{R}^n$, entonces
+	existe $\alpha,\beta\in\mathbb{R}^+$ tal que
+	\[\begin{cases}
+		\forall w\in\mathbb{R}^n,\; \|w\|\leq \alpha|w|\\
+		\forall w\in\mathbb{R}^n,\; |w|\leq \beta\|w\|
+	\end{cases}\]
+	
+	Cuando $f$ es de clase $\mathcal{C}^1$ en $]a,b[$ (Se puede cambiar esto por
+	$f'$ es integrable en cada
+	subintervalo compacto $[c,d]\subset]a,b[$)\\
+	Dado $[c,d]\subset]a,b[$, $f'$ es continua en $[c,d]$
+	
+	Del T.F. Cálculo
+	\[\int_c^d f'(t)dt = f(d)-f(c)\]
+	Por tanto, por desigualdad real
+	\[|f(d)-f(c)| = \left|\int_c^d f'(t)dt\right| \leq \int_c^d |f'(t)|dt \leq \int_c^d M dt = M(d-c)\]
+	ya que $\forall t\in]a,b[$, $|f'(t)|\leq M$
+	
+	$\forall$ subintervalo compacto $[c,d]\subset]a,b[$
+	\begin{equation}
+		|f(d)-f(c)|\leq M(d-c)
+		\label{eq:class12-1}
+	\end{equation}
+	Considere $k_0\in\mathbb{N}$ tal $\frac{1}{k_0}<\frac{b-a}{2}$
+	
+	De \eqref{eq:class12-1}, $\forall k\in\mathbb{N}$, con $k\geq k_0$, $d_k = b-\frac{1}{k}, c_k = a+\frac{1}{k}$
+	\[\abs{f\qty(b-\frac{1}{k})-f\qty(a+\frac{1}{k})}\leq M(d_k-c_k)\]
+	Haciendo $k\to+\infty$, de la continuidad de $f:[a,b]\to\mathbb{R}^n$
+	\[|f(b)-f(a)|\leq M(b-a)\]
+}
+\lemp{}{
+	Sean $f:[c,d] \to\mathbb{R}$ y $\varphi \colon [a,b] \to \R$ continuas  y diferenciables $[a,b] $. Si $\abs{f'(t) \leq \varphi'(t)}$ y $\varphi(t)$ es estrictamente creciente, es decir, $\varphi'(t)>0$ para todo $t \in [a,b] $, entonces 
+	$$
+	\abs{f(b)-f(a) } \leq \varphi(b)-\varphi(c)
+	$$
+}{
+	Sea  $[c, d] \subset ]a, b[$ subintervalo compacto fijo y arbitrario. 
+	
+	Mostremos que  $\abs{f(d)-f(c)} \leq \varphi(d)-\varphi(c)$ (basta con hacer $c \to a^{+}$ y $d \to b^{-}$) 
+	
+	Por contradicción, supongamos que 
+	$$
+	\abs{f(d)-f(c)} \geq \varphi(d)-\varphi(c)
+	$$
+	Elegimos $A \in \left] 1, \frac{\abs{f(d)-f(c)}}{\varphi(d)-\varphi(c)}\right[  $
+
+$$
+\rightarrow 1 < A < \frac{\abs{f(d)-f(c)}}{\varphi(d)-\varphi(c)}
+$$
+\begin{equation} 
+\rightarrow A[ \varphi(d) -\varphi(c)] < \abs{f(d)-f(c)}
+\label{eq:class12-2}
+\end{equation}
+
+Si 
+\begin{align*}
+	A\pqty{ \varphi\pqty{\frac{c+d}{2}} -\varphi(c)} &\geq \abs{ f\pqty{\frac{c+d}{2}} -f(c) }\\
+	\text{ y }\quad A\pqty{ \varphi(d)- \varphi\pqty{\frac{c+d}{2}} } &\geq \abs{ f(d)-f\pqty{\frac{c+d}{2}}  }
+\end{align*}
+
+Sumando 
+
+\begin{align*}
+	A\pqty{  \varphi(d)  -\varphi(c)} &\geq \abs{ f\pqty{\frac{c+d}{2}} -f(c) } + \abs{ f(d)-f\pqty{\frac{c+d}{2}}}\\
+ 	&\geq \abs{ f\pqty{\frac{c+d}{2}} -f(c)+ f(d)-f\pqty{\frac{c+d}{2}}}\\
+ 	A\pqty{  \varphi(d)  -\varphi(c)} & \geq \abs{  f(d) -f(c)  } \qquad \text{Contradice a \eqref{eq:class12-2}}
+\end{align*}
+
+Entonces necesariamente,
+\begin{equation}
+A\cdot\qty[\varphi\qty(\frac{c+d}{2})-\varphi(c)] < \qty|f\qty(\frac{c+d}{2})-f(c)| \label{eq:class12-3}
+\end{equation}
+o,  
+\begin{equation}
+	A\cdot\qty[\varphi(d)-\varphi\qty(\frac{c+d}{2})] < \qty|f(d)-f\qty(\frac{c+d}{2})|
+	\label{eq:class12-4}
+\end{equation}
+
+
+si ocurre \eqref{eq:class12-3}, elegimos $[c_1,d_1]:=\qty[c,\frac{c+d}{2}]$
+
+y si ocurre \eqref{eq:class12-4}, elegimos $[c_1,d_1]:=\qty[\frac{c+d}{2},d]$
+
+Tenemos que $A[\varphi(d_1)- \varphi(c_1)] < |f(d_1)-f(c_1)|$
+
+Análogamente, se tienen dos posibilidades:
+
+\begin{equation}
+	A[\varphi(\frac{c_1+d_1}{2})-\varphi(c_1)] < |f(\frac{c_1+d_1}{2})-f(c_1)| 
+		\label{eq:class12-5}
+	\end{equation}
+o
+\begin{equation}
+	A[\varphi(d_1)-\varphi(\frac{c_1+d_1}{2})] < |f(d_1)-f(\frac{c_1+d_1}{2})|
+	\label{eq:class12-6}
+\end{equation}
+De este modo, continuando este argumento hemos construído una sucesión encajada de intervalos compactos
+$\{[c_k,d_k]\}_{k\in\mathbb{N}}$ tal que:
+
+$[c_k,d_k]\supset[c_{k+1},d_{k+1}]$ $\forall k\in\mathbb{N}\cup \{0\}$ con
+$[c_0,d_0]\supset[c_1,d_1]\supset[c_2,d_2]\supset\cdots$ 
+
+donde $\ell([c_k,d_k])=\frac{d-c}{2^k}$, $\forall k\in\mathbb{N}$
+y $A[\varphi(d_k)-\varphi(c_k)]<|f(d_k)-f(c_k)|$
+
+Así, $\bigcaplim{k\in\mathbb{N}}[c_k,d_k]=\{t_0\}\in[c,d] \subset ]a, b[$
+$$
+\therefore f \text{ y } \varphi \text{ son diferenciables en }   t_0\in]a,b[
+$$
+
+}
+
+
+ \lem{Ejercicio}{
+ 	Sea $f : \mathbb{I} \to \mathbb{R}^n$ una función diferenciable en un punto $t_0 \in \interior{\mathbb{I}}$.  
+ 	Sean $\{c_k\}_{k\in\mathbb{N}}, \{d_k\}_{k\in\mathbb{N}} \subset \interior{\mathbb{I}}$ dos sucesiones tales que:
+ 	\begin{itemize}
+ 		\item $c_k < d_k$ para todo $k \in \mathbb{N}$,
+ 		\item $c_k \leq t_0 \leq d_k$ para todo $k \in \mathbb{N}$,
+ 		%\item $\lim_{k \to \infty} c_k = \lim_{k \to \infty} d_k = t_0$.
+ 	\end{itemize}
+ 	Entonces, se tiene que
+ 	\[
+ 	f'(t_0) = \lim_{k \to \infty} \frac{f(d_k) - f(c_k)}{d_k - c_k}.
+ 	\]
+ }
+ 
+ 
+	
+	
+
+	
+	$$
+	A\cdot\left(\frac{\varphi(d_k)-\varphi(c_k)}{d_k-c_k}\right)<\left|\frac{f(d_k)-f(c_k)}{d_k-c_k}\right|
+	$$
+	
+	Haciendo $k\to\infty$, del Lema 1
+	
+	$$
+	\varphi'(t_0)\leq A\cdot \varphi'(t_0)\leq|f'(t_0)|
+	$$
+	
+	$\exists t_0\in[c,d]\subset]a,b[$ tal que $\varphi'(t_0)<|f'(t_0)|$
+	
+	Esto contradice la hipótesis!
+	
+	Por ende, $|f(d)-f(c)|\leq\varphi(d)-\varphi(c)$
+	
+	 
+	\corrp{}{Teorema}{
+		Sea $f \colon [a, b] \to \mathbb{R}^n$ una función continua en $[a,b]$ y diferenciable en el intervalo abierto $]a, b[$, tal que
+		\[
+		f'(t) = \Ou \in \mathbb{R}^n \quad \text{para todo } t \in ]a, b[.
+		\]
+		Entonces, $f$ es constante en $[a, b]$.
+	}{
+		Dado que $f'(t) = \Ou$ para todo $t \in ]a, b[$, se tiene:
+		\[
+		\|f'(t)\| = 0 \quad \text{para todo } t \in ]a, b[.
+		\]
+		Sea $[c,d] \subset ]a, b[$ un subintervalo compacto arbitrario. Como $f$ es continua en $[c,d]$ y derivable en $]c,d[$, podemos aplicar el teorema del valor medio (T.V.M.) :
+		\[
+		\exists \, \xi \in ]c,d[ \text{ tal que } f(d) - f(c) = f'(\xi)(d - c).
+		\]
+		Pero como $f'(\xi) = \mathbf{0}$, se deduce que
+		\[
+		f(d) - f(c) = \Ou \quad \Rightarrow \quad f(d) = f(c).
+		\]
+		Como esto vale para todo par de puntos $c, d \in ]a, b[$, se concluye que $f$ es constante en $]a, b[$.  
+		Finalmente, como $f$ es continua en $[a,b]$, esta constancia se extiende al intervalo cerrado.
+		
+		\[
+		\therefore \quad f \text{ es constante en } [a, b].
+		\]
+	}
+	
+	\section{Teorema Fundamental del Cálculo}
+	
+\thmrpf{Teorema Fundamental del Cálculo}{}{
+\begin{align*}
+	\text{Sea} \quad f: [a,b] \subset \mathbb{R} &\longrightarrow \mathbb{R}^n \text{ de clase }  C^1 \text{ (Se puede cambiar esto por } f' \text{ integrable)}\\
+	t &\longmapsto f(t) = (f_1(t), \ldots, f_n(t))
+\end{align*}
+Entonces
+\[\int_a^b f(t) dt = f(b) - f(a)\]
+}{
+	  Como $ f = (f_1, f_2, \ldots, f_n)$  es de clase $C^1$
+	
+	$\Rightarrow$
+	$f$ es diferencial de $[a,b]$ y $f' = (f_1', f_2', \ldots, f_n)$ es continua
+	
+	$\Rightarrow$
+	$f_1, f_2, \ldots, f_n$ es diferenciable.
+	$[a,b]$ y $f_1', f_2', \ldots, f_n$ son continuas.
+	
+	$\Rightarrow$
+	$f_1, f_2, \ldots, f_n : [a,b] \rightarrow \mathbb{R}$ son de clase $C^1$. ($f_i^{'}$ es continua $\forall i \in \{1, \ldots, n\}$ )
+	
+	Del T.F. Cálculo para funciones reales de variable
+	real:
+	\[\int_a^b f_i^{'}(t) dt = f_i(b) - f_i(a), \quad \forall i \in \{1, 2, \ldots, n\}\]
+	
+	Además, $f'$ es continua, $D_{f'} = \varnothing, m(D_{f'}) = 0$
+	\begin{align*}
+		\int_a^b f'(t) dt &= \pqty{ \int_a^b f_1^{'}(t) dt , \cdots , \int_a^b f_n^{'}(t) dt}\\
+		&=\pqty{f_1(b) - f_1(a) , \cdots , f_n(b) - f_n(a)}\\
+		& = f(b)-f(a)
+	\end{align*}
+	
+}
