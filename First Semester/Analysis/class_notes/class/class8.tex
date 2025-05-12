@@ -1,7 +1,7 @@
 \chapter{Clase 8}
 \clasedate{23 de abril de 2025}
 
-\corrp{}{coro1}{
+\corrp{}{class8-coro1}{
 	Sea \( K \subset \mathbb{R}^m \) compacto y \( f \colon K \to \mathbb{R}^n \) continua.\\
 	Entonces, para todo subconjunto cerrado \( F \subset K \), la imagen \( f(F) \) es cerrada en \( \mathbb{R}^n \).
 }{
@@ -18,26 +18,89 @@ Entonces \( f \) es un homeomorfismo entre \( K \) y \( L \).
 }{
 Como $f$ es biyección $\exists \colon f^{-1} \colon L \rightarrow K$.
 
-Sea $F \subset K$ cerrado $\rightarrow (f^{-1})^{-1} (F) = f(F)$ es cerrado en $L$ por Corollary~\ref{cor:coro1}. 
+Sea $F \subset K$ cerrado $\rightarrow (f^{-1})^{-1} (F) = f(F)$ es cerrado en $L$ por Corollary~\ref{cor:class8-coro1}. 
 
 $$
 \therefore f^{-1} \text{ es continua}
 $$
-}
-
-Como \( K \) es compacto y \( f \) es continua, entonces la imagen \( L = f(K) \) es compacta.\\
-En \( \mathbb{R}^n \), todo conjunto compacto es cerrado y acotado, por lo tanto \( L \) es cerrado en \( \mathbb{R}^n \).
-
-Como \( f \) es continua, biyectiva, y \( K \) es compacto, se cumple que la inversa \( f^{-1} \colon L \to K \) es continua.\\
-Esto es un resultado estándar: una función continua, biyectiva, definida sobre un conjunto compacto tiene inversa continua.
 
 Por tanto, \( f \) es un homeomorfismo entre \( K \) y \( L \).
+}
+
+\corp{}{
+Sea $\varphi \colon K \subset \Rm \rightarrow L \subset \Rn$ continua, donde $K$ es compacto  y además $\varphi(K) = L$\\
+Sea $f \colon L \rightarrow \Rp$. Tenemos que $f$ es continua si, y solo sí $f \circ \varphi \colon K \rightarrow \Rp$ continua.
+}{
+($\Rightarrow$)\quad Composición de continuas es continua.
+
+\noindent ($\Leftarrow$)\quad 	Supongamos que $f \circ \varphi \colon K\rightarrow \Rp$ es continua.\\
+
+Sea $F \subset \Rp$ cerrado. Mostremos que $f^{-1}(F)$ es cerrado en $L$.
+
+Como $f\circ \varphi \colon K \subset \Rm \rightarrow \Rp$ es continua.
+$$
+\rightarrow (f \circ \varphi)^{-1} (F) \text{ es cerrado en } K
+$$
+
+Del corolario~\ref{cor:class8-coro1},  $\varphi$ lleva cerrados en cerrados.
+\begin{align*}
+	f^{-1}(F) &= \varphi\qty((f \circ\varphi)^{-1}(F)) \text{ es cerrado}\\
+	&= \varphi\pqty{\varphi^{-1 (f^{-1}(F))}} \text{  Ejercicio}
+\end{align*}
+Como $\varphi \colon K \rightarrow L$ es sobreyectiva y $R \subset L$.
+$$
+\varphi\pqty{\varphi^{-1}(R)}=R
+$$
+}
+
+\thmrpf{}{}{
+Sea $f \colon K \subset \Rm \rightarrow\Rn$ continua definida en $K \subset \Rm$ compacto. Entonces $f$ es uniformemente continua.
+}{
+
+Supongamos que $f$ no es uniformemente continua,
+$$
+\sim \bqty{ \forall \varepsilon>0, \exists \delta>0, \forall x, y \in K, \abs{x-y}< \delta \rightarrow \abs{f(x)-f(y)}< \varepsilon }
+$$
+$$
+\exists \varepsilon_0 >0, \forall \delta>0, \exists x_{\delta}, y_{\delta} \in K, \abs{x_{\delta}-y_{\delta}}<\delta \wedge \abs{f(x_{\delta}) -f(y_{\delta})} \geq \varepsilon
+$$
+
+$\forall k \in \N$, sea $\delta_k = \frac{1}{k}$
+$$
+\forall k \in \N, \exists x_k, y_k \in K, \abs{x_k-y_k}< \frac{1}{k} \wedge \abs{f(x_k)-f(y_k)} \geq \varepsilon_0
+$$
+
+Así $(x_k)_k \subset K$, $(y_k)_k \subset K$
+
+$\exists j \colon \N \rightarrow \N$ estrictamente creciente tal que $\lim\limits_{x \to \infty} x_{j(k)} =x_0 \in K$
+
+De (*), $\lim\limits_{ k \to \infty} y_{j(k)} =x_0 \in K$
+
+Como $f$ es continua
+
+$$
+f(x_p) = \lim\limits_{k \to \infty} f(x_{j(k)}) = \lim\limits_{k \to \infty} f(y_{j(k)})
+$$
+esto contradice a $\abs{expression}$
+
+
+}
 
 
 
+\thmrpf{}{}{
+	
+}{
+	
+}
 
 
 
+\thmrpf{}{}{
+
+}{
+
+}
 
 \section{Distancia entre conjuntos}
 Sean $X, Y \subset  \Rn $ no vacíos, la distancia entre $X \text{ e } Y$ está acotado inferiormente,
