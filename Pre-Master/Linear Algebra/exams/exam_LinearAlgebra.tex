@@ -1,0 +1,54 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb}
+\usepackage[spanish]{babel}
+\usepackage[margin=1.4in]{geometry}
+\usepackage{enumitem} 
+
+\setlength{\parindent}{0pt} % -- desactivar sangría --
+
+\begin{document}
+
+\textbf{IMCA} \hfill\textbf{ Miércoles, 05 de marzo de 2025}
+
+\vspace{0.5cm}
+
+\begin{center}
+	\large
+	\underline{	\textbf{Examen} }
+\end{center}
+
+Álgebra lineal
+
+\rule{\textwidth}{0.3mm}
+
+\begin{enumerate}
+	\item Sean \( U, V \) y \( W \) tres espacios vectoriales de dimensión finita tales que \( T : U \rightarrow V \) es lineal inyectiva, \( L : V \rightarrow W \) lineal sobreyectiva y \( T(U) = N(L) \). Demuestre que existe \( S : V \rightarrow U \times W \) lineal biyectiva.
+
+	\item Sea \( V \) un espacio vectorial con producto interno \(\langle \,,\, \rangle\) y sea \( T \in \mathcal{L}(V) \) un operador lineal. Una \textbf{adjunta} de \( T \) es un operador lineal \( T^* \in \mathcal{L}(V) \) tal que:
+	      \[
+		      \forall x \in V, \forall y \in V : \langle Tx, y \rangle = \langle x, T^* y \rangle,
+	      \]
+	      \begin{enumerate}[label=\alph*)]
+		      \item Demuestre que si \( T \) admite una adjunta, entonces esta es única.
+		      \item Sea \( V = \mathcal{M}_n(\mathbb{R}) \) el espacio vectorial de todas las matrices \( n \times n \) con coeficientes reales y producto interno \(\langle X, Y \rangle = traza(X^TY)\). Dado \( A \in V \) defina:
+		            \[
+			            \varphi_A(X) := A^TXA, \quad \forall X \in \mathcal{M}_n(\mathbb{R}).
+		            \]
+		            Demuestre que \(\varphi_A \in \mathcal{L}(V)\) y halle su adjunta.
+	      \end{enumerate}
+
+	\item Dado \( T \in \mathcal{M}_n(\mathbb{R}) \) semidefinida positiva. Demuestre que:
+	      \begin{enumerate}[label=\alph*)]
+		      \item Existe \( S \) una \( r \times n \) matriz con \( r = rango(T) \), tal que \( T = S^tS \).
+		      \item Sea \( v \in \mathbb{R}^{n \times 1} \). Si \( v^tTv = 0 \) entonces \( Tv = 0 \).
+	      \end{enumerate}
+
+	\item Sea \( A : E \rightarrow E \) un operador normal, con \( E \) un \( \mathbb{R} \)--espacio vectorial con producto interno de dimensión finita y \( F \) un subespacio invariante bajo \( A \). Demuestre que:
+	      \begin{enumerate}[label=\alph*)]
+		      \item \( A(F^\perp) \) es invariante bajo \( A^* \).
+		      \item Sea \( C \) una matriz asociada a \( A \) respecto de una base ortonormal. Si \( C \) es triangular superior entonces \( C \) es diagonal.
+	      \end{enumerate}
+\end{enumerate}
+
+\end{document}
