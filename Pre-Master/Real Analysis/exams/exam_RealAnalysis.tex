@@ -1,0 +1,106 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\rmdefault} % Mantiene serif por default
+%\usepackage{mathpazo} % Fuente math
+
+\geometry{a4paper, margin=1in}
+\setlength{\parindent}{0pt}
+
+% Colores IMCA
+\definecolor{imca-orange}{HTML}{F76707}
+\definecolor{imca-light}{HTML}{444444}
+
+% Comando para el logo IMCA
+\newcommand{\IMCALogo}{
+	\begin{tikzpicture}[baseline=(textnode.base)]
+		\node[inner sep=0pt] (textnode) {
+			\sffamily
+			{\fontsize{40}{40}\selectfont\textcolor{imca-light}{I}}%
+			{\fontseries{bx}\fontsize{40}{40}\selectfont\textcolor{imca-orange}{M}}%
+			{\fontsize{40}{40}\selectfont\textcolor{imca-light}{CA}}%
+		};
+	\end{tikzpicture}
+}
+
+\begin{document}
+
+\begin{flushleft}
+	\begin{minipage}{0.4\linewidth}
+		\IMCALogo
+	\end{minipage}
+	\begin{minipage}{0.5\linewidth}
+		\begin{center}
+			{\Large \textsc{  Análisis Real - Pre Maestría} }\\
+			\large \textsc{Pre Maestría} \\
+			\textsc{Verano 2025-0}
+		\end{center}
+	\end{minipage}
+\end{flushleft}
+
+\vspace{0.5cm}
+
+Instrucciones:
+\begin{itemize}[label=\textbullet]
+	\item Duración: 180 minutos
+	\item Cada problema tiene un valor de 5 puntos.
+	\item El examen es personal y no se permite el uso de artículos con conexión a internet, libros o apuntes de clase.
+\end{itemize}
+
+\rule{\textwidth}{0.4mm}
+
+\begin{enumerate}
+
+	\item Dado \( X \subset \mathbb{R} \), para una aplicación \( f : X \to X \) y un punto \( x \in X \) considere la sucesión:
+	      \begin{itemize}[label=\textbullet]
+		      \item \( f^0(x) = x \),
+		      \item Para cada entero positivo \( n \): \( f^n(x) = f \left( f^{n-1}(x) \right) \),
+	      \end{itemize}
+
+	      Para
+	      \[ f(x) = \frac{3 + 3x}{3 + x}, \quad x \geq -\sqrt{3}, \]
+	      y para cada \( x \) en el dominio de \( f \), determine el conjunto
+	      \[ A(x) = \left\{ y \in \mathbb{R}: \lim_{k \to \infty} f^{n_k}(x) = y, \, \text{donde} (n_k) \subset \mathbb{N}, \, n_k < n_{k+1} \right\}. \]
+
+
+
+	\item Sea \(\mathscr{C}\) el conjunto de las sucesiones de Cauchy de números racionales. Considere la relación sobre \(\mathscr{C}\) dada por
+
+	      \[ (x_n) \sim (y_n) \iff \lim_{n \to \infty} (x_n - y_n) = 0. \]
+
+	      Demuestre que
+	      \begin{enumerate}[label=\alph*)]
+		      \item \(\sim\) es una relación de equivalencia sobre \(\mathscr{C}\).
+		      \item  Dados \( x = [x_n], y = [y_n] \) en el espacio cociente \(\mathscr{C}/\sim\), las operaciones
+
+		            \[ x + y = [x_n + y_n], \quad x \cdot y = [x_n \cdot y_n] \]
+
+		            están bien definidas.
+		      \item Todo elemento \( x \) en \(\mathscr{C}/\sim\) cuyo representante no esté en la clase de la sucesión constante igual a cero, admite un inverso multiplicativo.
+
+	      \end{enumerate}
+
+	\item ¿Existe una función continua \( f : \mathbb{R} \to \mathbb{R} \) tal que
+
+	      \[ f(f(x)) = e^{-x}, \]
+
+	      para todo número real \( x \)?
+
+	\item Sea \( f : [0, 2] \to \mathbb{R} \) una función continua. Demuestre que
+
+	      \[ \int_0^2 [4f(x) - f^4(x)] \, dx \leq 6. \]
+\end{enumerate}
+
+\vspace{1cm}
+
+\rule{\textwidth}{0.4mm}
+
+\end{document}
