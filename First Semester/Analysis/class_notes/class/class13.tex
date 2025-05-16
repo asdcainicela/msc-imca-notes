@@ -1,0 +1,237 @@
+\chapter{Clase 13}
+\clasedate{12 de mayo de 2025}
+
+\lemp{}{
+Sea \( f \colon I \to \mathbb{R} \) una función definida en un intervalo \( I \subset \mathbb{R} \), y sea \( x_0 \in \operatorname{int}(I) \) un punto interior.
+
+Si \( f \) es diferenciable en \( x_0 \), entonces para toda sucesión \( (t_k)_{k \in \mathbb{N}}, (s_k)_{k \in \mathbb{N}} \subset I \) tal que:
+\begin{itemize}
+	\item \( t_k \neq s_k \) para todo \( k \in \mathbb{N} \),
+	\item \( \lim\limits_{k \to \infty} t_k = x_0 = \lim\limits_{k \to \infty} s_k \),
+	\item \( t_k \leq x_0 \leq s_k \) para todo \( k \in \mathbb{N} \),
+\end{itemize}
+se cumple que:
+\[
+\lim_{k \to \infty} \frac{f(s_k) - f(t_k)}{s_k - t_k} = f'(x_0).
+\]
+}{
+Sean $(t_k)_{k \in \N}, (s_k)_{k \in \N} \subset \I$, con $t_k \neq s_k \quad \forall k \in \N$, tales que
+\begin{equation} 
+	t_k \to x_0 \text{ y } s_k \to x_0\\
+	\label{eq:class13-1}
+\end{equation} 
+
+\textbf{Caso I.} $\forall k \in \N$, $t_k <x_0< s_k$
+$$
+\abs{\frac{f(s_k)-f(t_k)}{s_k-t_k} -f'(x_0)}
+$$
+$$
+=\abs{\frac{f(s_k)-f(x_0)+f(x_0)-f(t_k)}{s_k-t_k} -f'(x_0)}
+$$
+$$
+=\abs{\pqty{\frac{s_k-x_0}{s_k-t_k} } \frac{f(s_k)-f(x_0)}{s_k-x_0} + \pqty{\frac{x_0-t_k}{s_k-t_k} } \frac{f(x_0)-f(t_k)}{x_0-t_k}   -f'(x_0)}
+$$
+Sea $\alpha_k = \pqty{\frac{s_k-x_0}{s_k-t_k} }$ y $\beta_k = \pqty{\frac{x_0-t_k}{s_k-t_k} } \rightarrow \alpha_k+\beta_k=1, \forall k \in \N$
+$$
+=\abs{
+\alpha_k 
+\frac{f(s_k)-f(x_0)}{s_k-x_0} + \beta_k
+ \frac{f(x_0)-f(t_k)}{x_0-t_k}   - (\alpha_k +\beta_k )f'(x_0)}
+$$
+$$
+=\abs{
+	\alpha_k \bqty{
+	\frac{f(s_k)-f(x_0)}{s_k-x_0} - f'(x_0) } + \beta_k \bqty{
+	\frac{f(x_0)-f(t_k)}{x_0-t_k} - f'(x_0) }}
+$$ 
+Debemos mostrar que 
+$$
+\lim_{k \to \infty} \frac{f(s_k)-f(t_k)}{s_k-t_k} = f'(x_0)
+$$
+Como $f \in \Rn$ es diferenciable en $x_0$, entonces
+$$
+\exists f'(x_0) = \lim_{h \to 0} \frac{f(x_0+h)-f(x_0)}{h}
+$$
+$$
+f'(x_0) = \lim_{x \to x_0 } \frac{f(x)-f(x_0)}{x-x_0} \quad \text{existe}
+$$
+De la caracterización de límites con sucesiones en $\Rn$ se tiene: $\forall (p_k)_k \subset \I - \{x_0\} $, si
+$$
+\lim_{k \to \infty} p_k = x_0 \longrightarrow \lim_{k \to \infty} \frac{f(p_k)-f(x_0)}{p_k-x_0} = f'(x_0)
+$$
+
+De \eqref{eq:class13-1}, tenemos que 
+$$
+ \lim_{k \to \infty} \frac{f(t_k)-f(x_0)}{t_k-x_0} = f'(x_0)\quad \text{y}  \quad \lim_{k \to \infty} \frac{f(s_k)-f(x_0)}{s_k-x_0} = f'(x_0)
+$$
+Dado $\varepsilon>0, \exists k_0 \in \N, \forall k \in \N, k\geq k_0$, entonces
+$$ 
+\abs{\frac{ f(t_k)-f(x_0) }{t_k-x_0} - f'(x_0) }< \varepsilon \wedge \abs{	\frac{f(s_k)-f(x_0)}{s_k-x_0} - f'(x_0) }< \varepsilon      
+$$ 
+De \textbf{OBS 1.} si $k\geq k_0$ entonces
+$$
+\abs{\frac{f(s_k)-f(x_0)}{s_k-x_0} - f'(x_0) } \leq  \alpha_k \abs{\frac{f(s_k)-f(x_0)}{s_k-x_0} - f'(x_0) } +\beta_k \abs{\frac{f(x_0)-f(t_k)}{x_0-t_k} - f'(x_0) } 
+$$ 
+\begin{align*}
+	\abs{\frac{f(s_k)-f(x_0)}{s_k-x_0} - f'(x_0) } &\leq  \alpha_k \abs{\frac{f(s_k)-f(x_0)}{s_k-x_0} - f'(x_0) } +\beta_k \abs{\frac{f(x_0)-f(t_k)}{x_0-t_k} - f'(x_0) } \\
+	&< \alpha_k \varepsilon + \beta_k\varepsilon\\
+	&<(\alpha_k+\beta_k)\varepsilon\\
+	&<\varepsilon
+\end{align*}
+\textbf{Caso II.} $\exists (t_{i(k)})_{k \in \N} \subset (t_k)$ tal que $t_{i(k)} = x_0, \forall k \in \N.$
+
+\rmk{Probar que en casos diferentes a $t_k \rightarrow x_0 \leftarrow s_k$ no cumple.}
+}
+
+\section{Desigualdad del valor medio}
+\thmrpf{Teorema del Valor Medio Para Funciones Vectoriales de Variable Real}{}{
+Sea \( f = (f_1, f_2, \ldots, f_n) \colon [a, b] \to \mathbb{R}^n \) una función continua en \( [a, b] \) y diferenciable en \(]a, b[ \).  
+Supongamos que existe una constante \( M > 0 \) tal que
+\[
+\forall t \in ]a, b[, \quad \abs{f'(t)} \leq M.
+\]
+Entonces se cumple:
+\[
+\abs{f(b) - f(a)} \leq M(b - a).
+\]
+}{
+Prueba, Del lema 2 anterior. Si $\varphi \colon [a, b] \to \R $ es continua y diferenciable en $]a, b[$ tal que $M=\varphi'(t), \forall t \in ]a, b[$, entonces 
+$$
+\abs{f(b)-f(a)} \leq \varphi(b)-\varphi(a)
+$$
+
+
+}
+
+\corp{}{
+	Sea \( f = (f_1, f_2, \ldots, f_n) \colon [a, b] \to \mathbb{R}^n \) una función continua en \( [a, b] \) y derivable en \( ]a, b[ \).  
+Si \( f'(t) = \mathbf{0} \) para todo \( t \in (a, b) \), entonces \( f \) es constante en \( [a, b] \).
+}{
+Supongamos que $f'(t) = \Ou, \forall t \in ]a, b[$
+
+Dado $k \in \N$, $$\abs{f'(t)} = 0 < \frac{1}{k}, \forall t \in ]a, b[ \supset [c, d]$$
+
+Dados $c, d \in ]a, b[$, con $c<d$
+
+Aplicando el T.V.M a $ \eval{f}_{[c,d]} $m concluimos que 
+
+
+$\abs{f(d)-f(c)} \leq \frac{1}{k} (d-c)$
+
+Como $k \in \N$ fue arbitrario,
+$$
+\abs{f(d)-f(c)}\leq \frac{1}{k}, \quad \forall k \in \N
+$$
+Haciendo $k \to \infty$
+$$
+0 \leq \abs{f(d)-f(c)}\leq 0
+$$
+Así, $f(d)-f(c)\leq 0$,
+$$
+\rightarrow f(d) = f(c), \forall c, d \in ]a, b[ \text{ con } c<d
+$$
+
+Como $f$ es continua en $[a, b] $ entonces $f$ es constante.
+}
+
+\pf{
+Prueba2 del corolario.\\
+Supongamos que $f'(t) = \Ou \in \Rn$$\forall t \in ]a, b[$
+
+$$
+(f'_1(t), f'_2(t), \ldots, f'_n(t)) = (0, 0, \ldots, 0)
+$$
+$$
+\rightarrow f'_i (t) = 0, \forall t \in ]a, b[, \forall i \in \{1,2, \ldots, n\}
+$$
+Como $f_i \colon [a, b] \to \R $ es continua
+$$
+f_i \text{  es constante} \quad \forall i \in \{1,2, \ldots, n\}
+$$
+}
+
+
+\section{Fórmula de Taylor con resto de Lagrange}
+
+Sea \( f \colon [a, b] \to \mathbb{R}^n \) una función de clase \( C^{p-1} \) en \( [a, b] \), y además \( p \) veces derivable en \( ]a, b[ \), tal que existe \( M > 0 \) con
+\[
+\abs{f^{(p)}(t)} \leq M \quad \forall t \in \; ]a, b[.
+\]
+Entonces, se cumple que
+\[
+f(b) = f(a) + (b-a)f'(a) + \frac{(b-a)^2}{2!} f''(a) + \cdots + \frac{(b-a)^{p-1}}{(p-1)!} f^{(p-1)}(a) + r_p,
+\]
+donde \( r_p \in \mathbb{R}^n \) satisface
+\[
+\|r_p\| \leq \frac{M(b-a)^p}{p!}.
+\]
+
+\pf{
+	Sea la función auxiliar \( g \colon [a, b] \to \mathbb{R}^n \) definida por
+	\[
+	g(t) = f(t) + (b-t)f'(t) + \frac{(b-t)^2}{2!} f''(t) + \cdots + \frac{(b-t)^{p-1}}{(p-1)!} f^{(p-1)}(t).
+	\]
+	
+	Como \( f \in C^{p-1}([a, b]) \) y \( f^{(p)} \) existe en \( ]a, b[ \), entonces \( g  \) es diferenciable en $]a, b[$.
+	
+	Calculemos la derivada de \( g \) en \( ]a, b[ \). Derivando término a término y aplicando la regla del producto:
+	\begin{align*}
+		g'(t) &= f'(t) + (-1)f'(t) + (b-t)f''(t) \\
+		&\quad + (-1)(b-t)f''(t) + \frac{(b-t)^2}{2!}f^{(3)}(t) \\
+		&\quad + \cdots + \frac{(b-t)^{p-2}}{(p-2)!}f^{(p-1)}(t) - \frac{(p-1)(b-t)^{p-2}}{(p-1)!}f^{(p-1)}(t) \\
+		&\quad + \frac{(b-t)^{p-1}}{(p-1)!}f^{(p)}(t).
+	\end{align*}
+	
+	Todos los términos intermedios se cancelan debido a las derivadas de los productos, quedando únicamente:
+	\[
+	g'(t) = \frac{(b-t)^{p-1}}{(p-1)!} f^{(p)}(t), \quad \forall t \in ]a, b[.
+	\]
+	
+	Por lo tanto,
+	\[
+	\|g'(t)\| = \frac{(b-t)^{p-1}}{(p-1)!} \|f^{(p)}(t)\| \leq \frac{M(b-t)^{p-1}}{(p-1)!}.
+	\] 
+	
+	Definamos, $\varphi \colon [a, b] \to \R$ por $$\varphi(t) = - \frac{M (b-t)^p}{(p)!}$$
+	donde 
+	$$
+	\varphi'(t) = \frac{M (b-t)^{p-1}}{(p-1)!}>0, \quad \forall t \in ]a, b[ \quad \wedge \quad \abs{g'(t)} \leq g(t), \quad\forall t \in ]a, b[ 
+	$$
+	
+	Del Lema 2
+	
+	\begin{align*}
+		\abs{g(b)-g(a)} &\leq \varphi(b)-\varphi(a)\\
+		\abs{g(b)-g(a)} &\leq \frac{M (b-t)^p}{(p)!} \\
+		\abs{r_p} & \leq \frac{M (b-t)^p}{(p)!}
+	\end{align*}
+	
+}
+
+\begin{itemize}
+	\item Sea $f \colon [a, b] \rightarrow \Rn$ una función.
+	
+	Dada una partición 
+	$$
+	P = \{t_0 =a< t_1< t_2<\ldots< t_k =b\}
+	$$
+	La longitud de $f$ asociada a $P$ es
+	$$
+	\ell(f, P) = \sum_{i=1}^{k} \abs{f(t_1), \ldots, f(t_{i-1})}
+	$$
+	\item Decimos que $f \colon [a, b] \rightarrow \Rn$ es \textbf{rectificable} si $\exists M>0$ tal que $\forall$ partición $P$ de $[a, b]$
+	$$
+	\ell(f, P) \leq M
+	$$
+	En este caso, definamos la longitud de $f \colon [a, b] \rightarrow \Rn$ por 
+	\begin{align*}
+		\ell(t) & = \sup \left\lbrace \ell(f, P) \in \R \colon P \quad \text{es una partición de} \quad [a, b] \right\rbrace \\
+		&= \sup\limits_{P}  \ell(f, P)
+	\end{align*}
+	\ex{
+		Sea $f \colon [a, b ]\to \Real{2}$
+		
+		
+		}
+\end{itemize}
+

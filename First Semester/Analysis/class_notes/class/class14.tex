@@ -1,0 +1,216 @@
+\chapter{Clase 14}
+\clasedate{14 de mayo de 2025}
+
+\begin{itemize}
+	\item Un camino $f \colon [a, b] \to \Rn$ es una función vectorial de variable real continua.
+	\item La función vectorial
+	\begin{align*}
+		g \colon [0, 1] & \longrightarrow \Rightarrow \Real{2}\\
+		t & \longmapsto \begin{cases} \pqty{t,\frac{\sin t}{t}}, & \text{si } t \neq 0, \\
+			(0,0),  & \text{si } t = 0.
+		\end{cases}
+	\end{align*}
+	claramente $g$ es continua 
+	
+	$$
+	\forall t \in \R -\{0\}, \abs{t \sin(\frac{1}{t})} = \abs{t} \abs{\sin(\frac{1}{t}) } \leq \abs{t}
+	$$
+	$$
+	\forall t \in \R -\{0\}, - \abs{t}\leq t \sin(\frac{1}{t})\leq   \abs{t}
+	$$
+	Del teorema del sandwich, 
+	$$
+	\lim\limits_{t \to 0  }  t \sin(\frac{1}{t}) =0
+	$$
+	
+	Mostramos $g\colon [0, 1] \to \Real{2}$ es continua pero no es rectificable.
+	
+	$\forall k \in \N, \exists P_k = \{t_0=a<t_1<t2< \ldots< t_k=b\}$  partición de $[a, b]$ tal que
+	$$ 
+	  \ell  (g, P_k ) = \sum_{i=1}^{k} \abs{g(t_i)-g(t_{i-1})} \geq 2 \bqty{\sum_{i=1}^{k} \frac{1}{2i-1}}
+	$$
+	Si \( k \to \infty \), entonces \( \sum_{i=1}^{k} \frac{1}{2i - 1} \to \infty \),  la serie diverge.
+	
+	
+	Por lo tanto $g$ no es rectificable
+	
+	\item Sea 
+	
+	
+	En caso $f$ sea rectificable la \textbf{longitud }
+	
+	$f$ es \textbf{Rectificable} $\leftrightarrow \exists M>0$
+	
+	
+	
+\end{itemize}
+\newpage
+
+\thmrpf{}{}{
+Sea \( f \colon [a, b] \to \mathbb{R}^n \) una función.  
+Sean \( P \) y \( Q \) particiones del intervalo \( [a, b] \) tales que \( P \subset Q \), es decir, \( Q \) es una refinación de \( P \). Entonces,
+\[
+\ell(f, P) \leq \ell(f, Q),
+\]
+donde \( \ell(f, P) \) denota la longitud aproximada de la curva \( f \) correspondiente a la partición \( P \).
+}{
+
+$P=\{t_0=0<t_1<t_2<\ldots<t_k = b\}$\\
+$Q= P \cup \{t^{*}\}$, donde $t^{*} \notin P$
+
+$Q =\{t_0=0<t_1<t_2<\ldots<t_{i-1}<t^{*}<t_i< \ldots<t_k = b\}$ para algún $i \in \{1, 2, \ldots, k\}$
+
+
+Mostremos que
+$$
+\ell(f, P) \leq \ell(f, Q)
+$$
+En efecto, 
+$$
+\ell(f, P) = \sum_{j=1}^{k} \abs{f(t_j)-f(t_{j-1})}
+$$
+$$
+\ell(f, Q) = \sum_{j=1}^{i-1} \abs{f(t_j)-f(t_{j-1})}
+ +
+\abs{f(t^{*})-f(t_{i-1})}
++
+\abs{f(t_{i}) -f(t^{*}) }
++
+ \sum_{j=i+1}^{k} \abs{f(t_j)-f(t_{j-1})}
+$$
+Además $\abs{f(t_i)-f(t_{i-1})} \geq \abs{f(t^{*})-f(t_{i-1})}
++
+\abs{f(t_{i}) -f(t^{*}) }$
+
+
+Así, 
+$$
+\ell(f, Q)\geq \sum_{j=1}^{i-1} \abs{f(t_j)-f(t_{j-1})}
++
+\abs{f(t_i)-f(t_{i-1})} 
++
+\sum_{j=i+1}^{k} \abs{f(t_j)-f(t_{j-1})}
+$$
+$$
+\ell(f, P) \leq \ell(f, Q)
+$$
+
+
+
+}
+
+\rmkb{
+Si $f\colon [a, b] \to \Rn$ es una función vectorial rectificable, entonces $f$ es acotada.
+\pf{
+Sea $f \colon \to \Rn$ rectificable. Entonces
+$\{\ell(f, P)  \in \R \colon P\quad \text{ es partición de } [a, b] \}$ es acotado superiormente
+$$
+\exists \sup\{\ell(f, P) \in \R \colon P \text{ es partición de } [a, b]\} = \ell(f) \in \R
+$$
+Dado $t \in ]a, b[,$ considere $Q_t = \{a =t_0< t=t_1< b = t_2\}$
+ 
+\begin{align*}
+	\ell(f, Q_t) &\leq \ell(f)\\
+	\abs{f(t)-f(a)} \leq \abs{f(t)-}+\abs{ }&\leq \ell(f)
+\end{align*}
+$$
+\rightarrow f(t) \in B\bqty{f(a), \ell(f)}
+$$
+$\therefore f$ es acotada.
+}
+}
+
+
+\lemp{}{
+Sean $f \colon [a, b] \to \Rn$ función vectorial rectificable.\\
+Sea $P_0 = \{t_0 =a <t_1<t_2<t_3<\ldots<t_k=b\}$ una partición en $[a, b]$. Entonces,
+$$
+\ell(f) = \sup\limits_{P } \ell(f, P) = \sup\limits_{P \supset P_0} \ell(f, P) 
+$$
+Donde $$
+\sup\limits_{P } \ell(f, P) = \sup\{\ell(f, P) \in \R; P \text{ es partición de } [a, b] \}
+$$
+$$
+\sup\limits_{P \supset P_0} \ell(f, P) =  \sup\{\ell(f, P) \in \R ; P \text{ es partición de } [a, b] \text{ y } P \supset P_0\}
+$$
+}{
+
+
+Además, $$
+\alpha = \ell(f, P) \in \R; P \text{ es partición de } [a, b]
+$$
+$$
+\beta = \ell(f, P) \in \R ; P \text{ es partición de } [a, b] \text{ y } P \supset P_0
+$$
+
+Como $\beta \subset \alpha \rightarrow \sup(\beta) \leq \sup(\alpha)$
+
+Por definición $ \ell(f) \in \R$, $\ell(f)=\sup(\alpha)$
+
+Entonces
+\begin{itemize}
+\item  $\forall Q$ de partición  $[a, b], \ell(f, Q) \leq l(f)$
+\item $\forall \varepsilon>0, \exists Q_{\varepsilon}$ partición de $[a, b]$ tal que $\ell(f)-\varepsilon < \ell(f, Q_{\varepsilon})$\\
+$\ell(f) $ es la menor cota superior.
+
+Dado $\varepsilon>0$, existe $Q_{\varepsilon}$ partición de $[a, b]$ tal que
+$$
+\ell(f)-\varepsilon < \ell(f, Q_{\varepsilon} ) \leq \ell \pqty{ }
+$$
+
+Así, $\forall \varepsilon>0, \ell(f)$
+\end{itemize}
+}
+
+\thmrpf{ }{ }{ 
+Sea \( f \colon [a, b] \to \mathbb{R}^n \) una función vectorial, y sea \( c \in (a, b) \).  
+Entonces, \( f \) es \textbf{rectificable} si y sólo si las funciones restringidas $f \eval_{[a, c]}$ y $f \eval_{[c, d]}$   son rectificables.
+
+En tal caso, se cumple:
+\[
+\ell(f) = \ell\pqty{f\vert_{[a, c]}} + \ell\pqty{f\vert_{[c, b]}}.
+\]
+}{ 
+Sea
+
+Por definición:
+$$
+\ell(f) = \sup\limits_{P \in \mathcal{P}} \ell(f, P) 
+$$
+Por lema anterior
+$$
+\ell(f) = \sup\limits_{P \in \mathcal{P}} \ell(f, P) = \sup\{\ell(f, Q); Q \in \mathcal{P}\pqty{[a, b]} \wedge c\in Q \supset P_0\}
+$$
+donde $P_0 = \{ a<c<b\}$
+
+$$
+=\sup \left\lbrace \sum_{j=1}^{i} \abs{f(t_j)-f(t_{j-1})}+ \sum_{j=i+1}^{k} \abs{f(t_j)-f(t_{j-1})}  \right\rbrace 
+$$ 
+
+$c \in Q =\{t_0=a<t_1<t_2<\ldots<t_{i-1}<t_{i}=c<t_{i+1}< \ldots<t_k = b\}$ para algún $i \in \{1, 2, \ldots, k\}$
+
+Sea  $Q =\{t_0=a<t_1<t_2<\ldots<t_{i-1}<t_{i}=c<t_{i+1}< \ldots<t_k = b\}$
+
+
+}
+
+\thmrpf{arg}{arg}{
+Sea 
+
+}{
+
+}
+
+
+\rmkb{
+Que $f \colon [a, b] \rightarrow \Rn$ sea rectificable  no depende de la norma en $\Rn$.\\
+Sea $\abs{\cdot}$ y $\norm{\cdot}$ dos normas en $\Rn$
+\pf{
+Supongamos que $f$ es rectificable respecto a $\abs{\cdot}$
+$$
++\infty > \ell_{\abs{\cdot}} (f) = \sup \left\lbrace \sum_{i=1}^{k} \abs{f(t_i)-f(t_{i-1})} \colon P=\{t_0=a<t_1<t_2<\ldots<t_k=b\}\right\rbrace 
+$$
+
+
+}
+}
